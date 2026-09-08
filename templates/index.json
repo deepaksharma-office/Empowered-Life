@@ -9,144 +9,91 @@
  */
 {
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
+    "cinematic_hero_jTp4YE": {
+      "type": "cinematic-hero",
       "blocks": {
-        "text_UbQ9Dm": {
-          "type": "text",
-          "name": "t:names.text",
+        "eyebrow_qqUXCd": {
+          "type": "eyebrow",
           "settings": {
-            "text": "<p>Hope. Healing. Restoration.</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "{{ settings.color_palette.background }}",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "HOPE. HEALING. RESTORATION.",
+            "color": "#143f83"
+          }
         },
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
+        "heading_rzYK3P": {
+          "type": "heading",
           "settings": {
-            "text": "<p>Healing Begins With Hope.<br/></p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "{{ settings.color_palette.background }}",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "Healing Begins With Hope.",
+            "tag": "h1",
+            "size": 52,
+            "size_mobile": 36
+          }
         },
-        "text_NHp9VM": {
-          "type": "text",
-          "name": "t:names.text",
+        "description_CBpemz": {
+          "type": "description",
           "settings": {
-            "text": "<p>Trauma-informed, Christ-centered counseling helping individuals, couples, and families experience emotional healing, healthier relationships, and renewed purpose.<br/><br/></p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "#ffffff",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "<p>Trauma-informed, Christ-centered counseling helping individuals, couples, and families experience emotional healing, healthier relationships, and renewed purpose.</p>"
+          }
         },
-        "button_H9gpTf": {
+        "button_yzKE9G": {
           "type": "button",
-          "name": "t:names.button",
           "settings": {
             "label": "Schedule a Consultation",
-            "link": "shopify://collections/all",
+            "link": "",
             "open_in_new_tab": false,
             "style_class": "button-custom",
-            "custom_button_background": "#d4af37",
-            "custom_button_text": "{{ settings.color_palette.background }}",
-            "custom_button_border": "{{ settings.color_palette.background }}",
+            "custom_button_background": "#d6b32b",
+            "custom_button_text": "#102d55",
+            "custom_button_border": "#d6b32b",
             "link_text_color": "",
             "width": "fit-content",
             "custom_width": 100,
             "width_mobile": "fit-content",
             "custom_width_mobile": 100
-          },
-          "blocks": {}
+          }
+        },
+        "button_ACFAEi": {
+          "type": "button",
+          "settings": {
+            "label": "Learn About Our Services",
+            "link": "",
+            "open_in_new_tab": false,
+            "style_class": "button-custom",
+            "custom_button_background": "rgba(0,0,0,0)",
+            "custom_button_text": "#ffffff",
+            "custom_button_border": "#ffffff",
+            "link_text_color": "",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          }
+        },
+        "scroll_KYKGQh": {
+          "type": "scroll",
+          "settings": {
+            "enabled": true,
+            "label": "Scroll to next section"
+          }
         }
       },
       "block_order": [
-        "text_UbQ9Dm",
-        "text_YLPk4p",
-        "text_NHp9VM",
-        "button_H9gpTf"
+        "eyebrow_qqUXCd",
+        "heading_rzYK3P",
+        "description_CBpemz",
+        "button_yzKE9G",
+        "button_ACFAEi",
+        "scroll_KYKGQh"
       ],
-      "name": "t:names.hero",
+      "name": "Cinematic hero",
       "settings": {
-        "media_type_1": "image",
-        "image_1": "shopify://shop_images/Section.png",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "link": "",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
+        "image": "shopify://shop_images/hero-ocean-sunrise.png",
+        "overlay_color": "#29231c",
+        "overlay_opacity": 22,
+        "text_color": "#ffffff",
         "section_height": "large",
-        "section_height_custom": 50,
-        "background_color": "rgba(0,0,0,0)",
-        "toggle_overlay": false,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "content_width": 900,
+        "padding_top": 76,
+        "button_radius": 50
       }
     },
     "section_GG77Vb": {
@@ -3864,7 +3811,7 @@
     }
   },
   "order": [
-    "hero_jVaWmY",
+    "cinematic_hero_jTp4YE",
     "section_GG77Vb",
     "17887804507b6e632d",
     "section_eia934",
