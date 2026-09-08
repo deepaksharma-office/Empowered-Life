@@ -1,0 +1,843 @@
+{% doc %}
+  @prompt
+    Create a premium, elegant Shopify testimonial section matching the attached reference image as closely as possible.
+    
+    SECTION STYLE:
+    - Full-width section with a warm ivory / off-white background (#F7F4EC).
+    - Add a very subtle soft/cloudy cream texture or gradient in the background, but keep it extremely understated.
+    - Overall aesthetic should feel luxurious, calming, therapeutic, and editorial.
+    - Use generous whitespace and a centered max-width content container.
+    
+    HEADER:
+    - Center the header at the top.
+    - Small uppercase gold eyebrow text: "TESTIMONIALS"
+    - Letter spacing around 3px.
+    - Font size approximately 9–10px.
+    - Color: muted warm gold (#C99D2E).
+    - Below it, large elegant serif heading:
+      "Stories of Healing"
+    - Heading color: deep navy (#173A63).
+    - Font size approximately 30–34px on desktop.
+    - Use a sophisticated serif font similar to Cormorant Garamond, Playfair Display, or Georgia.
+    - Add a very thin short gold horizontal divider underneath the heading, approximately 45px wide.
+    - Below the divider add small muted blue-gray text:
+      "Client confidentiality is respected in every detail. Names withheld to protect privacy."
+    - Font size approximately 11px.
+    - Center aligned.
+    
+    TESTIMONIAL CARDS:
+    - Display exactly 3 cards in a horizontal row on desktop.
+    - Cards should have equal width and equal height.
+    - Gap between cards approximately 16px.
+    - Container width approximately 830px–850px.
+    - Cards have a clean white / slightly warm white background (#FFFFFF or #FEFDFC).
+    - Border radius approximately 10–12px.
+    - No visible border.
+    - Very subtle soft shadow:
+      0 8px 25px rgba(30, 45, 60, 0.06)
+    - Internal padding approximately 22px.
+    
+    STAR RATING:
+    - Place 5 small gold stars at the top of each card.
+    - Use filled star icons.
+    - Gold color approximately #D3A329.
+    - Stars should be small and evenly spaced.
+    
+    TESTIMONIAL TEXT:
+    - Use an elegant italic serif font.
+    - Color: muted navy / blue-gray (#38516D).
+    - Font size approximately 13px.
+    - Line height approximately 1.55–1.65.
+    - Text should feel like a refined editorial quotation.
+    - Do not make the text bold.
+    - Example testimonial content:
+    
+    Card 1:
+    “My fiancé and I chose ELCC for faith-based pre-marital counseling. We had an incredible experience. It helped strengthen our communication, we learned practical biblical tools for resolving conflict and grew closer to each other and to God. We feel more confident and prepared for a strong, Christ-centered marriage. We highly recommend ELCC to any couple looking to build a solid foundation for their future together.”
+    
+    Card 2:
+    “Our marriage was on the brink. Through the ELAVATE process, we learned to communicate, forgive, and rebuild. We are closer now than we have ever been.”
+    
+    Card 3:
+    “Losing my mother left me shattered. The grief counseling gave me tools and hope. I learned that healing does not mean forgetting, it means carrying love forward.”
+    
+    CARD FOOTER:
+    - Keep the footer anchored toward the bottom of each card so the three cards align neatly.
+    - Add a tiny thin gold horizontal decorative line above the client information, approximately 28px wide.
+    - Client name/details should use a clean sans-serif font.
+    - Primary client information should be dark navy and approximately 10–11px, medium/semi-bold.
+    - Secondary service/category should be muted green-gray and approximately 8–9px.
+    
+    Card 1 footer:
+    “Clients, Ages 26 and 29”
+    “Premarital Counseling”
+    
+    Card 2 footer:
+    “Couple, Married 12 Years”
+    “Marriage Counseling”
+    
+    Card 3 footer:
+    “Client, Age 45”
+    “Grief Counseling”
+    
+    LAYOUT:
+    - Desktop: 3-column grid.
+    - Tablet: allow cards to remain 3 columns if space permits, otherwise 2 columns.
+    - Mobile: stack cards vertically with comfortable spacing.
+    - Maintain the same visual hierarchy and proportions at every breakpoint.
+    - Do not add buttons, images, icons, navigation, or unnecessary decorative elements.
+    
+    IMPORTANT:
+    - Match the reference image's spacing, proportions, typography hierarchy, colors, rounded corners, subtle shadows, and overall minimal luxury aesthetic.
+    - The section should look polished and production-ready rather than like a generic Shopify testimonial block.
+    - Make the testimonial cards visually dominant while keeping the header refined and understated.
+    - Ensure the cards have consistent heights and aligned footer content.
+    - Make all testimonial content editable through Shopify theme customizer blocks/settings.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-testimonials-section-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.section_padding_top }}px 20px {{ block.settings.section_padding_bottom }}px;
+    position: relative;
+  }
+
+  .ai-testimonials-section-{{ ai_gen_id }}::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(249, 243, 229, 0.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(245, 239, 225, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+    opacity: {{ block.settings.texture_opacity | divided_by: 100.0 }};
+  }
+
+  .ai-testimonials-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ai-testimonials-header-{{ ai_gen_id }} {
+    text-align: center;
+    margin-bottom: {{ block.settings.header_spacing }}px;
+  }
+
+  .ai-testimonials-eyebrow-{{ ai_gen_id }} {
+    font-size: {{ block.settings.eyebrow_size }}px;
+    text-transform: uppercase;
+    letter-spacing: {{ block.settings.eyebrow_spacing }}px;
+    color: {{ block.settings.eyebrow_color }};
+    margin-bottom: {{ block.settings.eyebrow_margin }}px;
+    font-weight: 500;
+  }
+
+  .ai-testimonials-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    line-height: 1.2;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 {{ block.settings.divider_margin_top }}px;
+    font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
+    font-weight: {{ block.settings.heading_font.weight }};
+    font-style: {{ block.settings.heading_font.style }};
+  }
+
+  .ai-testimonials-divider-{{ ai_gen_id }} {
+    width: {{ block.settings.divider_width }}px;
+    height: {{ block.settings.divider_height }}px;
+    background-color: {{ block.settings.divider_color }};
+    margin: 0 auto {{ block.settings.divider_margin_bottom }}px;
+  }
+
+  .ai-testimonials-subtext-{{ ai_gen_id }} {
+    font-size: {{ block.settings.subtext_size }}px;
+    line-height: 1.5;
+    color: {{ block.settings.subtext_color }};
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .ai-testimonials-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: {{ block.settings.card_gap }}px;
+    margin-top: {{ block.settings.cards_margin_top }}px;
+  }
+
+  .ai-testimonial-card-{{ ai_gen_id }} {
+    background-color: {{ block.settings.card_background }};
+    border-radius: {{ block.settings.card_radius }}px;
+    padding: {{ block.settings.card_padding }}px;
+    box-shadow: {{ block.settings.shadow_x }}px {{ block.settings.shadow_y }}px {{ block.settings.shadow_blur }}px {{ block.settings.shadow_color }};
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .ai-testimonial-stars-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.star_spacing }}px;
+    margin-bottom: {{ block.settings.stars_margin }}px;
+  }
+
+  .ai-testimonial-star-{{ ai_gen_id }} {
+    width: {{ block.settings.star_size }}px;
+    height: {{ block.settings.star_size }}px;
+    fill: {{ block.settings.star_color }};
+  }
+
+  .ai-testimonial-text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.text_size }}px;
+    line-height: {{ block.settings.text_line_height }};
+    color: {{ block.settings.text_color }};
+    font-family: {{ block.settings.text_font.family }}, {{ block.settings.text_font.fallback_families }};
+    font-weight: {{ block.settings.text_font.weight }};
+    font-style: italic;
+    margin-bottom: auto;
+  }
+
+  .ai-testimonial-footer-{{ ai_gen_id }} {
+    margin-top: {{ block.settings.footer_margin_top }}px;
+    padding-top: {{ block.settings.footer_padding_top }}px;
+    border-top: {{ block.settings.footer_line_height }}px solid {{ block.settings.footer_line_color }};
+    width: {{ block.settings.footer_line_width }}px;
+  }
+
+  .ai-testimonial-client-{{ ai_gen_id }} {
+    font-size: {{ block.settings.client_size }}px;
+    color: {{ block.settings.client_color }};
+    font-weight: 600;
+    margin-bottom: {{ block.settings.client_margin }}px;
+    line-height: 1.4;
+  }
+
+  .ai-testimonial-service-{{ ai_gen_id }} {
+    font-size: {{ block.settings.service_size }}px;
+    color: {{ block.settings.service_color }};
+    line-height: 1.4;
+  }
+
+  @media screen and (max-width: 990px) {
+    .ai-testimonials-grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ai-testimonials-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size | times: 0.8 }}px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-testimonials-section-{{ ai_gen_id }} {
+      padding: {{ block.settings.section_padding_top | times: 0.7 }}px 16px {{ block.settings.section_padding_bottom | times: 0.7 }}px;
+    }
+
+    .ai-testimonials-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.card_gap | times: 1.2 }}px;
+    }
+
+    .ai-testimonials-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size | times: 0.7 }}px;
+    }
+
+    .ai-testimonial-text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size | times: 0.95 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-testimonials-section-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-testimonials-container-{{ ai_gen_id }}">
+    <div class="ai-testimonials-header-{{ ai_gen_id }}">
+      {% if block.settings.eyebrow_text != blank %}
+        <div class="ai-testimonials-eyebrow-{{ ai_gen_id }}">{{ block.settings.eyebrow_text }}</div>
+      {% endif %}
+      
+      {% if block.settings.heading != blank %}
+        <h2 class="ai-testimonials-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+      {% endif %}
+      
+      <div class="ai-testimonials-divider-{{ ai_gen_id }}"></div>
+      
+      {% if block.settings.subtext != blank %}
+        <p class="ai-testimonials-subtext-{{ ai_gen_id }}">{{ block.settings.subtext }}</p>
+      {% endif %}
+    </div>
+
+    <div class="ai-testimonials-grid-{{ ai_gen_id }}">
+      {% for i in (1..3) %}
+        {% assign testimonial_key = 'testimonial_' | append: i %}
+        {% assign client_key = 'client_' | append: i %}
+        {% assign service_key = 'service_' | append: i %}
+        
+        {% if block.settings[testimonial_key] != blank %}
+          <div class="ai-testimonial-card-{{ ai_gen_id }}">
+            <div class="ai-testimonial-stars-{{ ai_gen_id }}">
+              {% for star in (1..5) %}
+                <svg class="ai-testimonial-star-{{ ai_gen_id }}" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              {% endfor %}
+            </div>
+            
+            <div class="ai-testimonial-text-{{ ai_gen_id }}">
+              {{ block.settings[testimonial_key] }}
+            </div>
+            
+            <div class="ai-testimonial-footer-{{ ai_gen_id }}">
+              {% if block.settings[client_key] != blank %}
+                <div class="ai-testimonial-client-{{ ai_gen_id }}">{{ block.settings[client_key] }}</div>
+              {% endif %}
+              
+              {% if block.settings[service_key] != blank %}
+                <div class="ai-testimonial-service-{{ ai_gen_id }}">{{ block.settings[service_key] }}</div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Healing testimonials",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#F7F4EC"
+    },
+    {
+      "type": "range",
+      "id": "texture_opacity",
+      "label": "Texture opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Container width",
+      "min": 700,
+      "max": 1200,
+      "step": 10,
+      "unit": "px",
+      "default": 840
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Top padding",
+      "min": 30,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Bottom padding",
+      "min": 30,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow_text",
+      "label": "Eyebrow text",
+      "default": "TESTIMONIALS"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Eyebrow size",
+      "min": 8,
+      "max": 14,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_spacing",
+      "label": "Eyebrow spacing",
+      "min": 1,
+      "max": 5,
+      "step": 0.5,
+      "unit": "px",
+      "default": 3
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow color",
+      "default": "#C99D2E"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_margin",
+      "label": "Eyebrow spacing",
+      "min": 6,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Stories of Healing"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading font",
+      "default": "serif"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 24,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#173A63"
+    },
+    {
+      "type": "range",
+      "id": "divider_margin_top",
+      "label": "Divider top spacing",
+      "min": 12,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "divider_width",
+      "label": "Divider width",
+      "min": 30,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "divider_height",
+      "label": "Divider height",
+      "min": 1,
+      "max": 3,
+      "step": 0.5,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "default": "#C99D2E"
+    },
+    {
+      "type": "range",
+      "id": "divider_margin_bottom",
+      "label": "Divider bottom spacing",
+      "min": 12,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Client confidentiality is respected in every detail. Names withheld to protect privacy."
+    },
+    {
+      "type": "range",
+      "id": "subtext_size",
+      "label": "Subtext size",
+      "min": 9,
+      "max": 14,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "color",
+      "id": "subtext_color",
+      "label": "Subtext color",
+      "default": "#6B7E92"
+    },
+    {
+      "type": "range",
+      "id": "header_spacing",
+      "label": "Header bottom spacing",
+      "min": 30,
+      "max": 70,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "range",
+      "id": "cards_margin_top",
+      "label": "Cards top spacing",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Gap between cards",
+      "min": 12,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#FEFDFC"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card border radius",
+      "min": 6,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Card padding",
+      "min": 18,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "shadow_x",
+      "label": "Shadow X",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "shadow_y",
+      "label": "Shadow Y",
+      "min": 4,
+      "max": 16,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "shadow_blur",
+      "label": "Shadow blur",
+      "min": 15,
+      "max": 35,
+      "step": 5,
+      "unit": "px",
+      "default": 25
+    },
+    {
+      "type": "color",
+      "id": "shadow_color",
+      "label": "Shadow color",
+      "default": "rgba(30, 45, 60, 0.06)"
+    },
+    {
+      "type": "header",
+      "content": "Stars"
+    },
+    {
+      "type": "range",
+      "id": "star_size",
+      "label": "Star size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "star_spacing",
+      "label": "Star spacing",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "unit": "px",
+      "default": 3
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star color",
+      "default": "#D3A329"
+    },
+    {
+      "type": "range",
+      "id": "stars_margin",
+      "label": "Stars bottom spacing",
+      "min": 12,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Testimonial text"
+    },
+    {
+      "type": "font_picker",
+      "id": "text_font",
+      "label": "Text font",
+      "default": "serif"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 11,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "text_line_height",
+      "label": "Line height",
+      "min": 1.4,
+      "max": 1.8,
+      "step": 0.1,
+      "default": 1.6
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#38516D"
+    },
+    {
+      "type": "header",
+      "content": "Card footer"
+    },
+    {
+      "type": "range",
+      "id": "footer_margin_top",
+      "label": "Footer top spacing",
+      "min": 16,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "footer_padding_top",
+      "label": "Footer top padding",
+      "min": 12,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "footer_line_width",
+      "label": "Line width",
+      "min": 20,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "footer_line_height",
+      "label": "Line thickness",
+      "min": 1,
+      "max": 2,
+      "step": 0.5,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "footer_line_color",
+      "label": "Line color",
+      "default": "#D3A329"
+    },
+    {
+      "type": "range",
+      "id": "client_size",
+      "label": "Client text size",
+      "min": 9,
+      "max": 13,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "color",
+      "id": "client_color",
+      "label": "Client text color",
+      "default": "#173A63"
+    },
+    {
+      "type": "range",
+      "id": "client_margin",
+      "label": "Client bottom spacing",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "service_size",
+      "label": "Service text size",
+      "min": 8,
+      "max": 11,
+      "step": 1,
+      "unit": "px",
+      "default": 9
+    },
+    {
+      "type": "color",
+      "id": "service_color",
+      "label": "Service text color",
+      "default": "#6B8E7F"
+    },
+    {
+      "type": "header",
+      "content": "Testimonial 1"
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_1",
+      "label": "Testimonial",
+      "default": "My fiancé and I chose ELCC for faith-based pre-marital counseling. We had an incredible experience. It helped strengthen our communication, we learned practical biblical tools for resolving conflict and grew closer to each other and to God. We feel more confident and prepared for a strong, Christ-centered marriage. We highly recommend ELCC to any couple looking to build a solid foundation for their future together."
+    },
+    {
+      "type": "text",
+      "id": "client_1",
+      "label": "Client",
+      "default": "Clients, Ages 26 and 29"
+    },
+    {
+      "type": "text",
+      "id": "service_1",
+      "label": "Service",
+      "default": "Premarital Counseling"
+    },
+    {
+      "type": "header",
+      "content": "Testimonial 2"
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_2",
+      "label": "Testimonial",
+      "default": "Our marriage was on the brink. Through the ELAVATE process, we learned to communicate, forgive, and rebuild. We are closer now than we have ever been."
+    },
+    {
+      "type": "text",
+      "id": "client_2",
+      "label": "Client",
+      "default": "Couple, Married 12 Years"
+    },
+    {
+      "type": "text",
+      "id": "service_2",
+      "label": "Service",
+      "default": "Marriage Counseling"
+    },
+    {
+      "type": "header",
+      "content": "Testimonial 3"
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_3",
+      "label": "Testimonial",
+      "default": "Losing my mother left me shattered. The grief counseling gave me tools and hope. I learned that healing does not mean forgetting, it means carrying love forward."
+    },
+    {
+      "type": "text",
+      "id": "client_3",
+      "label": "Client",
+      "default": "Client, Age 45"
+    },
+    {
+      "type": "text",
+      "id": "service_3",
+      "label": "Service",
+      "default": "Grief Counseling"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Healing testimonials"
+    }
+  ]
+}
+{% endschema %}

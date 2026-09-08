@@ -1,0 +1,760 @@
+{% doc %}
+  @prompt
+    Create a fully responsive Shopify testimonial section that closely matches the reference image and works with my existing theme typography.
+    
+    Use a soft, full-width warm ivory background with a subtle cloudy/watercolor texture. At the top, add a small uppercase gold eyebrow label: “TESTIMONIALS”, followed by a large centered heading: “Stories of Healing”. Under it, add a thin short gold divider and centered supporting text: “Client confidentiality is respected in every detail. Names withheld to protect privacy.”
+    
+    Below the heading, display 3 testimonial cards in one row on desktop, 2 on tablet, and a swipeable single-card carousel on mobile. Each card should have an equal height, warm white background, 14px rounded corners, subtle border and soft shadow, with generous padding. At the top of each card, show five small gold stars. Display the testimonial quote underneath in an elegant italic serif style using the theme’s existing typography. Keep the client information aligned near the bottom of every card using flexible spacing. Add a short thin gold line above the client details, then show the client descriptor in bold dark navy text and the service type below it in smaller muted blue-grey text.
+    
+    Add editable section settings for the eyebrow label, heading, description, background color, optional background image, text colors, gold accent color, card color, cards per row, section spacing, card corner radius, and shadow. Make every testimonial an editable block with settings for star rating from 1–5, quote, client descriptor, and service type. Allow unlimited testimonial blocks. Add optional desktop carousel controls when more than 3 testimonials exist, including elegant previous/next arrows and pagination dots. Include smooth transitions, accessible labels, keyboard navigation, touch swipe support, and proper responsive spacing. Keep the overall appearance calm, premium, spacious, trustworthy, and suitable for a Christian counseling website. Do not hardcode fonts; inherit the existing Shopify theme heading and body fonts.
+    
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-testimonials-section-{{ ai_gen_id }} {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: {{ block.settings.section_padding_top }}px 0 {{ block.settings.section_padding_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+    overflow: hidden;
+  }
+
+  {% if block.settings.background_image %}
+    .ai-testimonials-bg-{{ ai_gen_id }} {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('{{ block.settings.background_image | image_url: width: 2000 }}');
+      background-size: cover;
+      background-position: center;
+      opacity: {{ block.settings.background_image_opacity | divided_by: 100.0 }};
+      pointer-events: none;
+    }
+  {% endif %}
+
+  .ai-testimonials-container-{{ ai_gen_id }} {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .ai-testimonials-header-{{ ai_gen_id }} {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .ai-testimonials-eyebrow-{{ ai_gen_id }} {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: {{ block.settings.accent_color }};
+    margin-bottom: 16px;
+    font-family: {{ settings.type_accent_font.family }}, {{ settings.type_accent_font.fallback_families }};
+  }
+
+  .ai-testimonials-heading-{{ ai_gen_id }} {
+    font-size: 48px;
+    line-height: 1.2;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 20px;
+    font-family: {{ settings.type_heading_font.family }}, {{ settings.type_heading_font.fallback_families }};
+    font-weight: {{ settings.type_heading_font.weight }};
+  }
+
+  .ai-testimonials-divider-{{ ai_gen_id }} {
+    width: 60px;
+    height: 2px;
+    background-color: {{ block.settings.accent_color }};
+    margin: 0 auto 20px;
+  }
+
+  .ai-testimonials-description-{{ ai_gen_id }} {
+    font-size: 15px;
+    line-height: 1.6;
+    color: {{ block.settings.description_color }};
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+  }
+
+  .ai-testimonials-carousel-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+
+  .ai-testimonials-track-{{ ai_gen_id }} {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.5s ease;
+  }
+
+  .ai-testimonials-card-{{ ai_gen_id }} {
+    flex: 0 0 calc((100% - 48px) / {{ block.settings.cards_per_row_desktop }});
+    background-color: {{ block.settings.card_background_color }};
+    border-radius: {{ block.settings.card_border_radius }}px;
+    border: 1px solid {{ block.settings.card_border_color }};
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: {{ block.settings.card_shadow_horizontal }}px {{ block.settings.card_shadow_vertical }}px {{ block.settings.card_shadow_blur }}px rgba(0, 0, 0, {{ block.settings.card_shadow_opacity | divided_by: 100.0 }});
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ai-testimonials-stars-{{ ai_gen_id }} {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+  }
+
+  .ai-testimonials-star-{{ ai_gen_id }} {
+    width: 16px;
+    height: 16px;
+    color: {{ block.settings.accent_color }};
+  }
+
+  .ai-testimonials-quote-{{ ai_gen_id }} {
+    font-size: 16px;
+    line-height: 1.7;
+    color: {{ block.settings.quote_color }};
+    font-style: italic;
+    margin-bottom: auto;
+    padding-bottom: 24px;
+    font-family: {{ settings.type_heading_font.family }}, {{ settings.type_heading_font.fallback_families }};
+  }
+
+  .ai-testimonials-client-info-{{ ai_gen_id }} {
+    margin-top: auto;
+  }
+
+  .ai-testimonials-client-divider-{{ ai_gen_id }} {
+    width: 40px;
+    height: 1px;
+    background-color: {{ block.settings.accent_color }};
+    margin-bottom: 12px;
+  }
+
+  .ai-testimonials-client-name-{{ ai_gen_id }} {
+    font-size: 15px;
+    font-weight: 700;
+    color: {{ block.settings.client_name_color }};
+    margin-bottom: 4px;
+    font-family: {{ settings.type_subheading_font.family }}, {{ settings.type_subheading_font.fallback_families }};
+  }
+
+  .ai-testimonials-service-{{ ai_gen_id }} {
+    font-size: 13px;
+    color: {{ block.settings.service_color }};
+    font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+  }
+
+  .ai-testimonials-controls-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .ai-testimonials-arrow-{{ ai_gen_id }} {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid {{ block.settings.accent_color }};
+    background-color: transparent;
+    color: {{ block.settings.accent_color }};
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .ai-testimonials-arrow-{{ ai_gen_id }}:hover:not(:disabled) {
+    background-color: {{ block.settings.accent_color }};
+    color: {{ block.settings.card_background_color }};
+  }
+
+  .ai-testimonials-arrow-{{ ai_gen_id }}:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .ai-testimonials-arrow-{{ ai_gen_id }} svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ai-testimonials-dots-{{ ai_gen_id }} {
+    display: flex;
+    gap: 8px;
+  }
+
+  .ai-testimonials-dot-{{ ai_gen_id }} {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: {{ block.settings.accent_color }};
+    opacity: 0.3;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .ai-testimonials-dot-{{ ai_gen_id }}.active {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-testimonials-heading-{{ ai_gen_id }} {
+      font-size: 36px;
+    }
+
+    .ai-testimonials-header-{{ ai_gen_id }} {
+      margin-bottom: 40px;
+    }
+
+    .ai-testimonials-card-{{ ai_gen_id }} {
+      flex: 0 0 calc((100% - 24px) / 2);
+    }
+
+    .ai-testimonials-controls-{{ ai_gen_id }} {
+      display: flex;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-testimonials-section-{{ ai_gen_id }} {
+      padding: {{ block.settings.section_padding_top | times: 0.7 }}px 0 {{ block.settings.section_padding_bottom | times: 0.7 }}px;
+    }
+
+    .ai-testimonials-container-{{ ai_gen_id }} {
+      padding: 0 16px;
+    }
+
+    .ai-testimonials-heading-{{ ai_gen_id }} {
+      font-size: 28px;
+    }
+
+    .ai-testimonials-header-{{ ai_gen_id }} {
+      margin-bottom: 32px;
+    }
+
+    .ai-testimonials-card-{{ ai_gen_id }} {
+      flex: 0 0 100%;
+    }
+
+    .ai-testimonials-track-{{ ai_gen_id }} {
+      gap: 16px;
+    }
+
+    .ai-testimonials-carousel-wrapper-{{ ai_gen_id }} {
+      margin-bottom: 24px;
+    }
+  }
+{% endstyle %}
+
+<testimonials-carousel-{{ ai_gen_id }}
+  class="ai-testimonials-section-{{ ai_gen_id }}"
+  data-cards-desktop="{{ block.settings.cards_per_row_desktop }}"
+  data-auto-rotate="{{ block.settings.auto_rotate }}"
+  data-rotate-interval="{{ block.settings.auto_rotate_interval }}"
+  {{ block.shopify_attributes }}
+>
+  {% if block.settings.background_image %}
+    <div class="ai-testimonials-bg-{{ ai_gen_id }}"></div>
+  {% endif %}
+
+  <div class="ai-testimonials-container-{{ ai_gen_id }}">
+    <div class="ai-testimonials-header-{{ ai_gen_id }}">
+      {% if block.settings.eyebrow_label != blank %}
+        <div class="ai-testimonials-eyebrow-{{ ai_gen_id }}">{{ block.settings.eyebrow_label }}</div>
+      {% endif %}
+
+      {% if block.settings.heading != blank %}
+        <h2 class="ai-testimonials-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+      {% endif %}
+
+      <div class="ai-testimonials-divider-{{ ai_gen_id }}"></div>
+
+      {% if block.settings.description != blank %}
+        <div class="ai-testimonials-description-{{ ai_gen_id }}">{{ block.settings.description }}</div>
+      {% endif %}
+    </div>
+
+    <div class="ai-testimonials-carousel-wrapper-{{ ai_gen_id }}">
+      <div class="ai-testimonials-track-{{ ai_gen_id }}" data-testimonials='{{ block.settings.testimonials | json }}'>
+        {% assign testimonials = block.settings.testimonials | parse_json %}
+        {% for testimonial in testimonials %}
+          <div class="ai-testimonials-card-{{ ai_gen_id }}">
+            <div class="ai-testimonials-stars-{{ ai_gen_id }}">
+              {% for i in (1..testimonial.star_rating) %}
+                <svg class="ai-testimonials-star-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              {% endfor %}
+            </div>
+
+            <div class="ai-testimonials-quote-{{ ai_gen_id }}">
+              "{{ testimonial.quote }}"
+            </div>
+
+            <div class="ai-testimonials-client-info-{{ ai_gen_id }}">
+              <div class="ai-testimonials-client-divider-{{ ai_gen_id }}"></div>
+              <div class="ai-testimonials-client-name-{{ ai_gen_id }}">{{ testimonial.client_descriptor }}</div>
+              <div class="ai-testimonials-service-{{ ai_gen_id }}">{{ testimonial.service_type }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if block.settings.show_controls %}
+      <div class="ai-testimonials-controls-{{ ai_gen_id }}">
+        <button
+          class="ai-testimonials-arrow-{{ ai_gen_id }} ai-testimonials-prev-{{ ai_gen_id }}"
+          aria-label="Previous testimonial"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+
+        <div class="ai-testimonials-dots-{{ ai_gen_id }}"></div>
+
+        <button
+          class="ai-testimonials-arrow-{{ ai_gen_id }} ai-testimonials-next-{{ ai_gen_id }}"
+          aria-label="Next testimonial"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    {% endif %}
+  </div>
+</testimonials-carousel-{{ ai_gen_id }}>
+
+<script>
+(function() {
+  class TestimonialsCarousel{{ ai_gen_id }} extends HTMLElement {
+    constructor() {
+      super();
+      this.currentIndex = 0;
+      this.touchStartX = 0;
+      this.touchEndX = 0;
+      this.autoRotateTimer = null;
+    }
+
+    connectedCallback() {
+      this.track = this.querySelector('.ai-testimonials-track-{{ ai_gen_id }}');
+      this.cards = this.querySelectorAll('.ai-testimonials-card-{{ ai_gen_id }}');
+      this.prevButton = this.querySelector('.ai-testimonials-prev-{{ ai_gen_id }}');
+      this.nextButton = this.querySelector('.ai-testimonials-next-{{ ai_gen_id }}');
+      this.dotsContainer = this.querySelector('.ai-testimonials-dots-{{ ai_gen_id }}');
+      this.cardsPerView = this.getCardsPerView();
+
+      if (!this.track || this.cards.length === 0) return;
+
+      this.totalSlides = Math.ceil(this.cards.length / this.cardsPerView);
+      
+      this.createDots();
+      this.setupEventListeners();
+      this.updateCarousel();
+
+      window.addEventListener('resize', () => {
+        this.cardsPerView = this.getCardsPerView();
+        this.totalSlides = Math.ceil(this.cards.length / this.cardsPerView);
+        this.currentIndex = Math.min(this.currentIndex, this.totalSlides - 1);
+        this.updateCarousel();
+      });
+
+      if (this.dataset.autoRotate === 'true') {
+        this.startAutoRotate();
+      }
+    }
+
+    getCardsPerView() {
+      if (window.innerWidth <= 749) {
+        return 1;
+      } else if (window.innerWidth <= 989) {
+        return 2;
+      } else {
+        return parseInt(this.dataset.cardsDesktop) || 3;
+      }
+    }
+
+    createDots() {
+      if (!this.dotsContainer) return;
+      
+      this.dotsContainer.innerHTML = '';
+      for (let i = 0; i < this.totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'ai-testimonials-dot-{{ ai_gen_id }}';
+        dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        dot.addEventListener('click', () => this.goToSlide(i));
+        this.dotsContainer.appendChild(dot);
+      }
+    }
+
+    setupEventListeners() {
+      if (this.prevButton) {
+        this.prevButton.addEventListener('click', () => this.prev());
+      }
+
+      if (this.nextButton) {
+        this.nextButton.addEventListener('click', () => this.next());
+      }
+
+      this.track.addEventListener('touchstart', (e) => {
+        this.touchStartX = e.changedTouches[0].screenX;
+        this.stopAutoRotate();
+      });
+
+      this.track.addEventListener('touchend', (e) => {
+        this.touchEndX = e.changedTouches[0].screenX;
+        this.handleSwipe();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          this.prev();
+        } else if (e.key === 'ArrowRight') {
+          this.next();
+        }
+      });
+
+      this.addEventListener('mouseenter', () => this.stopAutoRotate());
+      this.addEventListener('mouseleave', () => {
+        if (this.dataset.autoRotate === 'true') {
+          this.startAutoRotate();
+        }
+      });
+    }
+
+    handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = this.touchStartX - this.touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          this.next();
+        } else {
+          this.prev();
+        }
+      }
+    }
+
+    prev() {
+      this.currentIndex = Math.max(0, this.currentIndex - 1);
+      this.updateCarousel();
+      this.stopAutoRotate();
+    }
+
+    next() {
+      this.currentIndex = Math.min(this.totalSlides - 1, this.currentIndex + 1);
+      this.updateCarousel();
+      this.stopAutoRotate();
+    }
+
+    goToSlide(index) {
+      this.currentIndex = index;
+      this.updateCarousel();
+      this.stopAutoRotate();
+    }
+
+    updateCarousel() {
+      const cardWidth = this.cards[0].offsetWidth;
+      const gap = 24;
+      const gapMobile = window.innerWidth <= 749 ? 16 : gap;
+      const offset = -(this.currentIndex * (cardWidth + gapMobile) * this.cardsPerView);
+      
+      this.track.style.transform = `translateX(${offset}px)`;
+
+      if (this.prevButton) {
+        this.prevButton.disabled = this.currentIndex === 0;
+      }
+
+      if (this.nextButton) {
+        this.nextButton.disabled = this.currentIndex >= this.totalSlides - 1;
+      }
+
+      const dots = this.querySelectorAll('.ai-testimonials-dot-{{ ai_gen_id }}');
+      dots.forEach((dot, index) => {
+        if (index === this.currentIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    startAutoRotate() {
+      const interval = parseInt(this.dataset.rotateInterval) || 5000;
+      this.autoRotateTimer = setInterval(() => {
+        if (this.currentIndex >= this.totalSlides - 1) {
+          this.currentIndex = 0;
+        } else {
+          this.currentIndex++;
+        }
+        this.updateCarousel();
+      }, interval);
+    }
+
+    stopAutoRotate() {
+      if (this.autoRotateTimer) {
+        clearInterval(this.autoRotateTimer);
+        this.autoRotateTimer = null;
+      }
+    }
+
+    disconnectedCallback() {
+      this.stopAutoRotate();
+    }
+  }
+
+  customElements.define('testimonials-carousel-{{ ai_gen_id }}', TestimonialsCarousel{{ ai_gen_id }});
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Testimonials carousel",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow_label",
+      "label": "Eyebrow label",
+      "default": "TESTIMONIALS"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Stories of Healing"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Client confidentiality is respected in every detail. Names withheld to protect privacy."
+    },
+    {
+      "type": "header",
+      "content": "Testimonials"
+    },
+    {
+      "type": "textarea",
+      "id": "testimonials",
+      "label": "Testimonials data (JSON)",
+      "default": "[{\"star_rating\":5,\"quote\":\"The compassionate guidance I received has been transformative. I now have the tools to navigate life's challenges with grace and faith.\",\"client_descriptor\":\"Client C.M.\",\"service_type\":\"Individual Counseling\"},{\"star_rating\":5,\"quote\":\"My marriage was struggling, but through biblical counseling we found healing and renewed our commitment to each other and to God.\",\"client_descriptor\":\"Couple R. & S.\",\"service_type\":\"Marriage Counseling\"},{\"star_rating\":5,\"quote\":\"After years of anxiety, I finally found peace. The Christ-centered approach gave me hope and practical strategies for daily living.\",\"client_descriptor\":\"Client J.L.\",\"service_type\":\"Anxiety Support\"}]"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#faf8f5"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "range",
+      "id": "background_image_opacity",
+      "label": "Background image opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#c9a961"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1a2332"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#5a6c7d"
+    },
+    {
+      "type": "color",
+      "id": "quote_color",
+      "label": "Quote color",
+      "default": "#2d3748"
+    },
+    {
+      "type": "color",
+      "id": "client_name_color",
+      "label": "Client name color",
+      "default": "#1a2332"
+    },
+    {
+      "type": "color",
+      "id": "service_color",
+      "label": "Service type color",
+      "default": "#718096"
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card border",
+      "default": "#e8dfd0"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Card border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_horizontal",
+      "label": "Shadow horizontal offset",
+      "min": -10,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_vertical",
+      "label": "Shadow vertical offset",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_blur",
+      "label": "Shadow blur",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_opacity",
+      "label": "Shadow opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "cards_per_row_desktop",
+      "label": "Cards per row (desktop)",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Carousel controls"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_controls",
+      "label": "Show navigation",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "auto_rotate_interval",
+      "label": "Auto-rotate interval",
+      "min": 3000,
+      "max": 9000,
+      "step": 500,
+      "unit": "ms",
+      "default": 5000
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials carousel"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,932 @@
+{% doc %}
+  @prompt
+    Create a responsive Shopify “Founder Story & Professional Background” section that closely matches the attached reference layout.
+    
+    IMPORTANT TYPOGRAPHY REQUIREMENT:
+    Use the typography already configured in my Shopify Horizon theme. Do not import Google Fonts, external fonts, or create fixed font-family values.
+    
+    * Headings must use the theme’s heading font.
+    * Body copy, labels, captions, and buttons must use the theme’s body font.
+    * Use Shopify typography variables and inherited theme styles.
+    * Typography must automatically update whenever I change fonts in Theme Settings.
+    * Preserve the elegant hierarchy shown in the reference through font size, weight, line height, letter spacing, and color—not by introducing another font.
+    
+    DESKTOP LAYOUT:
+    Create a centered, two-column layout inside a maximum-width container of approximately 1200px.
+    
+    * Section background: warm off-white/cream.
+    * Add generous vertical spacing of approximately 80–100px.
+    * Left column width: approximately 47%.
+    * Right column width: approximately 53%.
+    * Column gap: approximately 45–55px.
+    * Vertically center both columns.
+    
+    LEFT IMAGE AREA:
+    
+    * Display one large portrait image.
+    * Image should have an approximately 4:5 portrait ratio.
+    * Use `object-fit: cover` and allow the image focal point to be adjusted.
+    * Apply rounded corners of approximately 14px.
+    * Add a thin muted-gold decorative outline behind the image.
+    * Offset the outline approximately 10px to the right and bottom.
+    * Keep the effect subtle and refined.
+    * Do not add a heavy shadow.
+    * Image must be selectable through Shopify’s image picker.
+    
+    RIGHT CONTENT AREA:
+    Arrange the following elements vertically:
+    
+    1. Eyebrow label
+    
+    * Small uppercase text.
+    * Example: “FOUNDER STORY & PROFESSIONAL BACKGROUND”
+    * Warm gold color.
+    * Wide letter spacing.
+    * Keep it subtle and premium.
+    
+    2. Main heading
+    
+    * Example: “Meet Denise Baron”
+    * Use the Horizon theme heading font.
+    * Large desktop size of approximately 40–46px.
+    * Dark navy color.
+    * Comfortable line height.
+    
+    3. Role/subheading
+    
+    * Example: “Lead Counselor & Founder”
+    * Small-medium size.
+    * Muted green/teal color.
+    * Medium weight.
+    
+    4. Decorative divider
+    
+    * Add a short, thin gold horizontal line below the role.
+    * Width approximately 35–45px.
+    
+    5. Biography
+    
+    * Support multiple paragraphs using a rich-text editor.
+    * Use the Horizon theme body font.
+    * Muted blue-grey text.
+    * Approximately 15–16px on desktop.
+    * Line height around 1.6–1.7.
+    * Maintain balanced spacing between paragraphs.
+    
+    6. Quote box
+    
+    * Place below the biography.
+    * Use a pale warm-cream background.
+    * Add a thin gold border only on the left.
+    * Rounded corners of approximately 8px.
+    * Add 20–24px internal padding.
+    * Quote text should use the theme body font in italic styling.
+    * Dark navy or muted blue text.
+    * Do not use quotation-mark graphics unless enabled in settings.
+    
+    7. Credentials/statistics row
+       Add a horizontal row below the quote containing two editable items.
+    
+    First item:
+    
+    * Large gold value: “20+”
+    * Small caption underneath: “Years of Service”
+    
+    Second item:
+    
+    * Large gold value: “ELEVATE”
+    * Small caption underneath: “Counseling Model”
+    
+    Add a subtle vertical divider between the two items. Keep the row left-aligned and compact, as shown in the reference.
+    
+    SHOPIFY CUSTOMIZER SETTINGS:
+    Make the following content editable:
+    
+    * Section eyebrow
+    * Main heading
+    * Role/subheading
+    * Biography rich text
+    * Founder image
+    * Image alt text
+    * Quote text
+    * Statistic one value and caption
+    * Statistic two value and caption
+    * Section color scheme
+    * Background color
+    * Heading color
+    * Body text color
+    * Accent/gold color
+    * Quote-box background
+    * Image corner radius
+    * Image focal point
+    * Desktop section padding
+    * Mobile section padding
+    * Maximum content width
+    * Option to show or hide the decorative image outline
+    * Option to show or hide the quote
+    * Option to show or hide the statistics row
+    
+    RESPONSIVE BEHAVIOR:
+    Tablet:
+    
+    * Preserve the two-column layout when enough space is available.
+    * Reduce the column gap and heading size proportionally.
+    
+    Mobile:
+    
+    * Stack the image above the text content.
+    * Use full available width with approximately 20px horizontal padding.
+    * Keep the image portrait-oriented.
+    * Reduce the heading to approximately 32–36px.
+    * Keep all content left-aligned.
+    * Allow the credentials to remain side by side when space permits; otherwise stack them cleanly.
+    * Remove the vertical divider when the credentials stack.
+    * Ensure there is no horizontal overflow.
+    
+    DESIGN DIRECTION:
+    The final section should feel calm, trustworthy, elegant, warm, and professional. Match the visual hierarchy, spacing, proportions, rounded image treatment, refined gold accents, biography layout, quote box, and credential placement from the reference as closely as possible while using the Horizon theme’s existing typography and responsive system.
+    
+    Do not hardcode the content into the Liquid markup. Use Shopify section settings and blocks where appropriate. Generate clean, accessible, responsive Liquid, CSS, and schema code comp
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .founder-story-{{ai_gen_id}} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.section_bg_color }};
+    padding: {{ block.settings.padding_top_desktop }}px 20px {{ block.settings.padding_bottom_desktop }}px;
+  }
+
+  .founder-story__container-{{ai_gen_id}} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: {{ block.settings.column_gap }}px;
+  }
+
+  .founder-story__image-column-{{ai_gen_id}} {
+    width: {{ block.settings.left_column_width }}%;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .founder-story__image-wrapper-{{ai_gen_id}} {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    overflow: hidden;
+  }
+
+  {% if block.settings.show_image_outline %}
+    .founder-story__image-wrapper-{{ai_gen_id}}::before {
+      content: '';
+      position: absolute;
+      top: {{ block.settings.outline_offset }}px;
+      left: {{ block.settings.outline_offset }}px;
+      right: -{{ block.settings.outline_offset }}px;
+      bottom: -{{ block.settings.outline_offset }}px;
+      border: 1px solid {{ block.settings.outline_color }};
+      border-radius: {{ block.settings.image_border_radius }}px;
+      z-index: -1;
+      pointer-events: none;
+    }
+  {% endif %}
+
+  .founder-story__image-{{ai_gen_id}} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: {{ block.settings.image_focal_point }};
+    display: block;
+  }
+
+  .founder-story__image-placeholder-{{ai_gen_id}} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .founder-story__image-placeholder-{{ai_gen_id}} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .founder-story__content-column-{{ai_gen_id}} {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .founder-story__eyebrow-{{ai_gen_id}} {
+    font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+    font-weight: {{ settings.type_body_font.weight }};
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: {{ block.settings.accent_color }};
+    margin: 0;
+  }
+
+  .founder-story__heading-{{ai_gen_id}} {
+    font-family: {{ settings.type_heading_font.family }}, {{ settings.type_heading_font.fallback_families }};
+    font-weight: {{ settings.type_heading_font.weight }};
+    font-style: {{ settings.type_heading_font.style }};
+    font-size: {{ block.settings.heading_size_desktop }}px;
+    line-height: 1.2;
+    color: {{ block.settings.heading_color }};
+    margin: 0;
+  }
+
+  .founder-story__role-{{ai_gen_id}} {
+    font-family: {{ settings.type_subheading_font.family }}, {{ settings.type_subheading_font.fallback_families }};
+    font-weight: {{ settings.type_subheading_font.weight }};
+    font-size: {{ block.settings.role_size }}px;
+    color: {{ block.settings.role_color }};
+    margin: 0;
+  }
+
+  .founder-story__divider-{{ai_gen_id}} {
+    width: {{ block.settings.divider_width }}px;
+    height: {{ block.settings.divider_height }}px;
+    background-color: {{ block.settings.accent_color }};
+    border: none;
+    margin: 4px 0;
+  }
+
+  .founder-story__bio-{{ai_gen_id}} {
+    font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+    font-weight: {{ settings.type_body_font.weight }};
+    font-size: {{ block.settings.bio_size_desktop }}px;
+    line-height: {{ block.settings.bio_line_height }};
+    color: {{ block.settings.body_color }};
+  }
+
+  .founder-story__bio-{{ai_gen_id}} p {
+    margin: 0 0 16px 0;
+  }
+
+  .founder-story__bio-{{ai_gen_id}} p:last-child {
+    margin-bottom: 0;
+  }
+
+  {% if block.settings.show_quote %}
+    .founder-story__quote-{{ai_gen_id}} {
+      background-color: {{ block.settings.quote_bg_color }};
+      border-left: {{ block.settings.quote_border_width }}px solid {{ block.settings.accent_color }};
+      border-radius: {{ block.settings.quote_border_radius }}px;
+      padding: {{ block.settings.quote_padding }}px;
+      margin-top: 8px;
+    }
+
+    .founder-story__quote-text-{{ai_gen_id}} {
+      font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+      font-weight: {{ settings.type_body_font.weight }};
+      font-size: {{ block.settings.quote_size }}px;
+      font-style: italic;
+      line-height: 1.6;
+      color: {{ block.settings.heading_color }};
+      margin: 0;
+    }
+  {% endif %}
+
+  {% if block.settings.show_credentials %}
+    .founder-story__credentials-{{ai_gen_id}} {
+      display: flex;
+      align-items: center;
+      gap: {{ block.settings.credentials_gap }}px;
+      margin-top: 8px;
+    }
+
+    .founder-story__credential-{{ai_gen_id}} {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .founder-story__credential-value-{{ai_gen_id}} {
+      font-family: {{ settings.type_accent_font.family }}, {{ settings.type_accent_font.fallback_families }};
+      font-weight: {{ settings.type_accent_font.weight }};
+      font-size: {{ block.settings.credential_value_size }}px;
+      color: {{ block.settings.accent_color }};
+      line-height: 1;
+      margin: 0;
+    }
+
+    .founder-story__credential-caption-{{ai_gen_id}} {
+      font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+      font-weight: {{ settings.type_body_font.weight }};
+      font-size: {{ block.settings.credential_caption_size }}px;
+      color: {{ block.settings.body_color }};
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .founder-story__credential-divider-{{ai_gen_id}} {
+      width: 1px;
+      height: {{ block.settings.credential_divider_height }}px;
+      background-color: {{ block.settings.accent_color }};
+      opacity: 0.3;
+    }
+  {% endif %}
+
+  @media screen and (max-width: 989px) {
+    .founder-story-{{ai_gen_id}} {
+      padding: {{ block.settings.padding_top_mobile }}px 20px {{ block.settings.padding_bottom_mobile }}px;
+    }
+
+    .founder-story__container-{{ai_gen_id}} {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .founder-story__image-column-{{ai_gen_id}} {
+      width: 100%;
+    }
+
+    .founder-story__heading-{{ai_gen_id}} {
+      font-size: {{ block.settings.heading_size_mobile }}px;
+    }
+
+    .founder-story__bio-{{ai_gen_id}} {
+      font-size: {{ block.settings.bio_size_mobile }}px;
+    }
+
+    .founder-story__credentials-{{ai_gen_id}} {
+      flex-wrap: wrap;
+    }
+
+    {% if block.settings.stack_credentials_mobile %}
+      .founder-story__credentials-{{ai_gen_id}} {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .founder-story__credential-divider-{{ai_gen_id}} {
+        display: none;
+      }
+    {% endif %}
+  }
+{% endstyle %}
+
+<founder-story-{{ai_gen_id}} class="founder-story-{{ai_gen_id}}" {{ block.shopify_attributes }}>
+  <div class="founder-story__container-{{ai_gen_id}}">
+    <div class="founder-story__image-column-{{ai_gen_id}}">
+      <div class="founder-story__image-wrapper-{{ai_gen_id}}">
+        {% if block.settings.founder_image %}
+          <img
+            src="{{ block.settings.founder_image | image_url: width: 1000 }}"
+            alt="{{ block.settings.image_alt | default: block.settings.heading }}"
+            loading="lazy"
+            width="{{ block.settings.founder_image.width }}"
+            height="{{ block.settings.founder_image.height }}"
+            class="founder-story__image-{{ai_gen_id}}"
+          >
+        {% else %}
+          <div class="founder-story__image-placeholder-{{ai_gen_id}}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="founder-story__content-column-{{ai_gen_id}}">
+      {% if block.settings.eyebrow != blank %}
+        <p class="founder-story__eyebrow-{{ai_gen_id}}">{{ block.settings.eyebrow }}</p>
+      {% endif %}
+
+      {% if block.settings.heading != blank %}
+        <h2 class="founder-story__heading-{{ai_gen_id}}">{{ block.settings.heading }}</h2>
+      {% endif %}
+
+      {% if block.settings.role != blank %}
+        <p class="founder-story__role-{{ai_gen_id}}">{{ block.settings.role }}</p>
+      {% endif %}
+
+      <hr class="founder-story__divider-{{ai_gen_id}}">
+
+      {% if block.settings.biography != blank %}
+        <div class="founder-story__bio-{{ai_gen_id}}">
+          {{ block.settings.biography }}
+        </div>
+      {% endif %}
+
+      {% if block.settings.show_quote and block.settings.quote_text != blank %}
+        <div class="founder-story__quote-{{ai_gen_id}}">
+          <p class="founder-story__quote-text-{{ai_gen_id}}">{{ block.settings.quote_text }}</p>
+        </div>
+      {% endif %}
+
+      {% if block.settings.show_credentials %}
+        <div class="founder-story__credentials-{{ai_gen_id}}">
+          {% if block.settings.credential_1_value != blank %}
+            <div class="founder-story__credential-{{ai_gen_id}}">
+              <p class="founder-story__credential-value-{{ai_gen_id}}">{{ block.settings.credential_1_value }}</p>
+              {% if block.settings.credential_1_caption != blank %}
+                <p class="founder-story__credential-caption-{{ai_gen_id}}">{{ block.settings.credential_1_caption }}</p>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          {% if block.settings.credential_1_value != blank and block.settings.credential_2_value != blank and block.settings.show_credential_divider %}
+            <div class="founder-story__credential-divider-{{ai_gen_id}}"></div>
+          {% endif %}
+
+          {% if block.settings.credential_2_value != blank %}
+            <div class="founder-story__credential-{{ai_gen_id}}">
+              <p class="founder-story__credential-value-{{ai_gen_id}}">{{ block.settings.credential_2_value }}</p>
+              {% if block.settings.credential_2_caption != blank %}
+                <p class="founder-story__credential-caption-{{ai_gen_id}}">{{ block.settings.credential_2_caption }}</p>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</founder-story-{{ai_gen_id}}>
+
+{% schema %}
+{
+  "name": "Founder story",
+  "tag": null,
+  "class": "founder-story-block",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "FOUNDER STORY & PROFESSIONAL BACKGROUND"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Meet Denise Baron"
+    },
+    {
+      "type": "text",
+      "id": "role",
+      "label": "Role/subheading",
+      "default": "Lead Counselor & Founder"
+    },
+    {
+      "type": "richtext",
+      "id": "biography",
+      "label": "Biography",
+      "default": "<p>With over two decades of dedicated service, I've had the privilege of walking alongside individuals and families through their most challenging moments. My approach combines evidence-based therapeutic practices with compassionate, faith-centered guidance.</p><p>Every person's journey is unique, and I'm committed to creating a safe, non-judgmental space where healing and transformation can occur. Together, we'll work towards sustainable growth and lasting positive change.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "founder_image",
+      "label": "Founder image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text"
+    },
+    {
+      "type": "select",
+      "id": "image_focal_point",
+      "label": "Image focal point",
+      "options": [
+        { "value": "center", "label": "Center" },
+        { "value": "top", "label": "Top" },
+        { "value": "bottom", "label": "Bottom" },
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Quote box"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quote",
+      "label": "Show quote box",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "quote_text",
+      "label": "Quote text",
+      "default": "True transformation happens when we create space for vulnerability, embrace our authentic selves, and trust the journey of growth."
+    },
+    {
+      "type": "header",
+      "content": "Credentials"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_credentials",
+      "label": "Show credentials row",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "credential_1_value",
+      "label": "First credential value",
+      "default": "20+"
+    },
+    {
+      "type": "text",
+      "id": "credential_1_caption",
+      "label": "First credential caption",
+      "default": "Years of Service"
+    },
+    {
+      "type": "text",
+      "id": "credential_2_value",
+      "label": "Second credential value",
+      "default": "ELEVATE"
+    },
+    {
+      "type": "text",
+      "id": "credential_2_caption",
+      "label": "Second credential caption",
+      "default": "Counseling Model"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_credential_divider",
+      "label": "Show divider between credentials",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum content width",
+      "min": 800,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "left_column_width",
+      "label": "Left column width",
+      "min": 35,
+      "max": 55,
+      "step": 1,
+      "unit": "%",
+      "default": 47
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column gap",
+      "min": 30,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section background",
+      "default": "#faf8f5"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1a2b3c"
+    },
+    {
+      "type": "color",
+      "id": "body_color",
+      "label": "Body text color",
+      "default": "#5a6c7d"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#c9a961"
+    },
+    {
+      "type": "color",
+      "id": "role_color",
+      "label": "Role color",
+      "default": "#6b8e7f"
+    },
+    {
+      "type": "color",
+      "id": "quote_bg_color",
+      "label": "Quote background",
+      "default": "#f5f0e8"
+    },
+    {
+      "type": "color",
+      "id": "outline_color",
+      "label": "Image outline color",
+      "default": "#d4b87d"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Heading size (desktop)",
+      "min": 28,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size (mobile)",
+      "min": 24,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "role_size",
+      "label": "Role size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "bio_size_desktop",
+      "label": "Biography size (desktop)",
+      "min": 13,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "bio_size_mobile",
+      "label": "Biography size (mobile)",
+      "min": 13,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "bio_line_height",
+      "label": "Biography line height",
+      "min": 1.4,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.7
+    },
+    {
+      "type": "range",
+      "id": "quote_size",
+      "label": "Quote size",
+      "min": 13,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "credential_value_size",
+      "label": "Credential value size",
+      "min": 24,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "credential_caption_size",
+      "label": "Credential caption size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "header",
+      "content": "Image style"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Image corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image_outline",
+      "label": "Show decorative outline",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "outline_offset",
+      "label": "Outline offset",
+      "min": 5,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Divider style"
+    },
+    {
+      "type": "range",
+      "id": "divider_width",
+      "label": "Divider width",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "divider_height",
+      "label": "Divider height",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Quote style"
+    },
+    {
+      "type": "range",
+      "id": "quote_padding",
+      "label": "Quote padding",
+      "min": 12,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "quote_border_width",
+      "label": "Quote border width",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "unit": "px",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "quote_border_radius",
+      "label": "Quote corner radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Credentials style"
+    },
+    {
+      "type": "range",
+      "id": "credentials_gap",
+      "label": "Gap between credentials",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "credential_divider_height",
+      "label": "Divider height",
+      "min": 30,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 45
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Top padding (desktop)",
+      "min": 40,
+      "max": 160,
+      "step": 10,
+      "unit": "px",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Bottom padding (desktop)",
+      "min": 40,
+      "max": 160,
+      "step": 10,
+      "unit": "px",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top padding (mobile)",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom padding (mobile)",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Mobile options"
+    },
+    {
+      "type": "checkbox",
+      "id": "stack_credentials_mobile",
+      "label": "Stack credentials on mobile",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Founder story"
+    }
+  ]
+}
+{% endschema %}
