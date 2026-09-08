@@ -1,0 +1,249 @@
+<script src="{{ 'elcc-interactions.js' | asset_url }}" type="module"></script>
+{% capture children %}
+<elcc-rotator class="elcc-rotator" data-interval="{{ section.settings.interval }}" data-pause-label="{{ section.settings.pause_label | escape }}" data-play-label="{{ section.settings.play_label | escape }}">
+  <div class="elcc-quote-slides" aria-live="off">
+  {% for block in section.blocks %}
+    <div class="elcc-quote" data-quote data-story-reveal style="--elcc-delay: {{ forloop.index0 | at_most: 7 | times: 80 }}ms;" id="Quote-{{ section.id }}-{{ block.id }}" {% unless forloop.first %}hidden{% endunless %} {{ block.shopify_attributes }}>
+      <div>
+        <div class="elcc-icon" aria-hidden="true" style="color: {{ block.settings.icon_color }};">{% render 'custom-icons', icon: block.settings %}</div>
+      </div>
+      <blockquote class="rte" style="color: {{ block.settings.quote_color }}; font-size: {{ block.settings.quote_size }}px;">{{ block.settings.quote }}</blockquote>
+      <div class="elcc-quote-support" style="color: {{ block.settings.support_color }}; font-size: {{ block.settings.support_size }}px;">{{ block.settings.support }}</div>
+    </div>
+  {% endfor %}
+  </div>
+  {% if section.blocks.size > 1 %}<div class="elcc-quote-controls" hidden style="color: {{ section.settings.accent }};">
+    {% for block in section.blocks %}<button type="button" class="elcc-dot" data-quote-index="{{ forloop.index0 }}" aria-controls="Quote-{{ section.id }}-{{ block.id }}" aria-label="{{ forloop.index }} / {{ section.blocks.size }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}"></button>{% endfor %}
+    <button type="button" class="elcc-pause" data-quote-pause>{{ section.settings.pause_label }}</button>
+  </div>{% endif %}
+</elcc-rotator>
+{% endcapture %}
+{% render 'elcc-section', section: section, children: children, kind: 'quotes' %}
+{% schema %}
+{
+  "name": "Scripture rotator",
+  "tag": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#153957"
+    },
+    {
+      "type": "color",
+      "id": "accent",
+      "label": "Gold line / Accent",
+      "default": "#d6ad29"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 72,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 72,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 600,
+      "max": 1440,
+      "step": 20,
+      "default": 1120,
+      "unit": "px"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#153957"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "interval",
+      "label": "Rotation interval",
+      "min": 3,
+      "max": 15,
+      "step": 1,
+      "default": 7,
+      "unit": "s"
+    },
+    {
+      "type": "text",
+      "id": "pause_label",
+      "label": "Pause label",
+      "default": "Pause"
+    },
+    {
+      "type": "text",
+      "id": "play_label",
+      "label": "Play label",
+      "default": "Play"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "default": 32,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Quote",
+      "settings": [
+        {
+          "type": "select",
+          "id": "type",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "partners",
+              "label": "Partners"
+            },
+            {
+              "value": "graduation",
+              "label": "Graduation"
+            },
+            {
+              "value": "flower",
+              "label": "Flower"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "air",
+              "label": "Air"
+            },
+            {
+              "value": "sun",
+              "label": "Sun"
+            },
+            {
+              "value": "care",
+              "label": "Care"
+            }
+          ],
+          "default": "heart"
+        },
+        {
+          "type": "color",
+          "id": "icon_color",
+          "label": "Icon color",
+          "default": "#d6ad29"
+        },
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "Quote",
+          "default": "<p>The Lord is close to the brokenhearted and saves those who are crushed in spirit.</p>"
+        },
+        {
+          "type": "color",
+          "id": "quote_color",
+          "label": "Quote color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "range",
+          "id": "quote_size",
+          "label": "Quote size",
+          "min": 20,
+          "max": 44,
+          "step": 1,
+          "default": 32,
+          "unit": "px"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "support",
+          "label": "Text below",
+          "default": "Psalm 34:18"
+        },
+        {
+          "type": "color",
+          "id": "support_color",
+          "label": "Supporting text color",
+          "default": "#d6ad29"
+        },
+        {
+          "type": "range",
+          "id": "support_size",
+          "label": "Supporting text size",
+          "min": 10,
+          "max": 22,
+          "step": 1,
+          "default": 12,
+          "unit": "px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scripture rotator",
+      "blocks": [
+        {
+          "type": "quote",
+          "settings": {
+            "type": "care"
+          }
+        },
+        {
+          "type": "quote",
+          "settings": {
+            "type": "heart",
+            "quote": "<p>Cast all your anxiety on him because he cares for you.</p>",
+            "support": "1 Peter 5:7"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

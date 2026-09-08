@@ -1,0 +1,8 @@
+<div class="elcc-footer-brand" {{ block.shopify_attributes }}>
+  {% content_for 'block', type: 'logo', id: 'footer-logo' %}
+  <h2>{{ block.settings.title }}</h2>
+  <div class="rte">{{ block.settings.description }}</div>
+</div>
+{% schema %}
+{"name":"Footer brand","tag":null,"settings":[{"type":"inline_richtext","id":"title","label":"Tagline","default":"Hope. Healing. Restoration."},{"type":"richtext","id":"description","label":"Description","default":"<p>Trauma-informed, Christ-centered counseling for individuals, couples, and families.</p>"}],"presets":[{"name":"Footer brand"}]}
+{% endschema %}

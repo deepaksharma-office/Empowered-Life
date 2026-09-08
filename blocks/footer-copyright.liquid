@@ -15,15 +15,24 @@
   <span class="footer-utilities__text">
     &copy; {{ 'now' | date: '%Y' }}
     {{ shop.name | link_to: routes.root_url -}}
+    {{ block_settings.copyright_suffix }}
     {%- if block_settings.show_powered_by -%}
       , {{ powered_by_link }}
     {%- endif -%}
   </span>
+  {% if block_settings.footer_note != blank %}<span class="footer-utilities__text">{{ block_settings.footer_note }}</span>{% endif %}
 </div>
 
 {% stylesheet %}
   .footer-utilities__group-copyright {
     color: var(--color-utilities, var(--color-foreground-muted));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    grid-column: 1 / -1;
+    text-wrap: pretty;
   }
 {% endstylesheet %}
 
@@ -95,6 +104,16 @@
         }
       ],
       "default": "none"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "copyright_suffix",
+      "label": "Copyright text"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "footer_note",
+      "label": "Footer note"
     }
   ],
   "presets": [

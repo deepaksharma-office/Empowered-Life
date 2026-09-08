@@ -8,6 +8,7 @@
   @param {string} [first] - Optional captured HTML for the first item (typically drawer menu for top row)
   @param {string} [logo] - Captured HTML for the logo element
   @param {string} [menu] - Captured HTML for the menu navigation
+  @param {string} [button] - Existing theme Button block, displayed after desktop navigation
   @param {string} [actions] - Captured HTML for header actions (cart, account buttons, etc.)
   @param {string} [localization] - Captured HTML for language/country selector
   @param {string} [search] - Captured HTML for search input
@@ -31,6 +32,11 @@
     assign item_column = settings[column_key] | default: 'left'
 
     case item
+      when 'logo'
+        assign item_column = 'left'
+      when 'menu'
+        assign item_row = 'top'
+        assign item_column = 'center'
       when 'actions'
         assign item_column = 'right'
     endcase
@@ -46,6 +52,10 @@
       endcase
     endif
   endfor
+
+  if row == 'top' and button != blank
+    assign right = right | append: 'button '
+  endif
 
   assign columns = 'left,center,right' | split: ','
 -%}
@@ -86,6 +96,10 @@
               {{ drawer_search }}
             {% when 'actions' %}
               {{ actions }}
+            {% when 'button' %}
+              <div class="header__button">
+                {{ button }}
+              </div>
           {% endcase %}
         {% endunless %}
       {% endfor %}

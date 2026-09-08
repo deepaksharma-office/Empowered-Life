@@ -1,0 +1,289 @@
+{% capture children %}{% render 'elcc-card-grid', section: section, kind: 'testimonials' %}{% endcapture %}
+{% render 'elcc-section', section: section, children: children, kind: 'testimonials' %}
+{% schema %}
+{
+  "name": "Stories of Healing",
+  "tag": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#f5f1e8"
+    },
+    {
+      "type": "color",
+      "id": "accent",
+      "label": "Gold line / Accent",
+      "default": "#d6ad29"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 72,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 72,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 600,
+      "max": 1440,
+      "step": 20,
+      "default": 1120,
+      "unit": "px"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#f5f1e8"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "%"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Testimonials"
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow color",
+      "default": "#b78b25"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Eyebrow size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 11,
+      "unit": "px"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "Stories of Healing"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#123e63"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 24,
+      "max": 64,
+      "step": 2,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line",
+      "label": "Show gold line",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Client confidentiality is respected in every detail. Names withheld to protect privacy.</p>"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#58738b"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Desktop row gap",
+      "min": 8,
+      "max": 64,
+      "step": 2,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Desktop column gap",
+      "min": 8,
+      "max": 64,
+      "step": 2,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "label": "Card title size",
+      "min": 14,
+      "max": 32,
+      "step": 1,
+      "default": 19,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_content_size",
+      "label": "Card content size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "default": 26,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "richtext",
+          "id": "review",
+          "label": "Review",
+          "default": "<p>Add an approved client testimonial here.</p>"
+        },
+        {
+          "type": "color",
+          "id": "review_color",
+          "label": "Review color",
+          "default": "#123e63"
+        },
+        {
+          "type": "range",
+          "id": "review_size",
+          "label": "Review size",
+          "min": 14,
+          "max": 26,
+          "step": 1,
+          "default": 18,
+          "unit": "px"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "client",
+          "label": "Client information",
+          "default": "Client"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "support",
+          "label": "Supporting information",
+          "default": "Counseling service"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stories of Healing",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "review": "<p>My fianc? and I chose ELCC for faith-based pre-marital counseling. We had an incredible experience. It helped strengthen our communication, we learned practical biblical tools for resolving conflict and grew closer to each other and to God. We feel more confident and prepared for a strong, Christ-centered marriage. We highly recommend ELCC to any couple looking to build a solid foundation for their future together.</p>",
+            "client": "Clients, Ages 26 and 29",
+            "support": "Premarital Counseling"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "review": "<p>Our marriage was on the brink. Through the ELEVATE process, we learned to communicate, forgive, and rebuild. We are closer now than we have ever been.</p>",
+            "client": "Couple, Married 12 Years",
+            "support": "Marriage Counseling"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "review": "<p>Losing my mother left me shattered. The grief counseling gave me tools and hope. I learned that healing does not mean forgetting, it means carrying love forward.</p>",
+            "client": "Client, Age 45",
+            "support": "Grief Counseling"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

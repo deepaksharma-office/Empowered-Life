@@ -1,0 +1,343 @@
+{{ 'service-card-grid.css' | asset_url | stylesheet_tag }}
+{% comment %}Reuse the existing viewport reveal component without its founder-specific layout styles.{% endcomment %}
+<script src="{{ 'founder-story.js' | asset_url }}" type="module"></script>
+
+<founder-story class="service-card-grid"
+  style="
+    --services-background: {{ section.settings.background }};
+    --services-card-background: {{ section.settings.card_background }};
+    --services-title-color: {{ section.settings.title_color }};
+    --services-content-color: {{ section.settings.content_color }};
+    --services-title-size: {{ section.settings.title_size }}px;
+    --services-content-size: {{ section.settings.content_size }}px;
+    --services-icon-size: {{ section.settings.icon_size }}px;
+    --services-row-gap: {{ section.settings.row_gap }}px;
+    --services-column-gap: {{ section.settings.column_gap }}px;
+    --services-padding-start: {{ section.settings.padding_top }}px;
+    --services-padding-end: {{ section.settings.padding_bottom }}px;
+    --services-width: {{ section.settings.content_width }}px;
+  "
+>
+  <ul class="service-card-grid__list list-unstyled" role="list">
+    {% for block in section.blocks %}
+      <li class="service-card-grid__item" data-story-reveal
+        style="--services-delay: {{ forloop.index0 | at_most: 6 | times: 90 }}ms;"
+        {{ block.shopify_attributes }}
+      >
+        <article class="service-card-grid__card"
+          style="--services-icon-background: {{ block.settings.icon_background }}; --services-icon-color: {{ block.settings.icon_color }}; --services-icon-hover-background: {{ block.settings.icon_hover_background }}; --services-icon-hover-color: {{ block.settings.icon_hover_color }};"
+        >
+          <div class="service-card-grid__icon">
+            {% if block.settings.image != blank %}
+              {% render 'image', image: block.settings.image, height: section.settings.icon_size %}
+            {% else %}
+              <span class="service-card-grid__symbol" aria-hidden="true">
+                {% comment %}The snippet switches on icon.type; pass the settings object, not a string.{% endcomment %}
+                {% render 'custom-icons', icon: block.settings %}
+              </span>
+            {% endif %}
+          </div>
+          {% if block.settings.title != blank %}
+            <{{ section.settings.heading_tag }} class="service-card-grid__title">{{ block.settings.title }}</{{ section.settings.heading_tag }}>
+          {% endif %}
+          {% if block.settings.content != blank %}
+            <div class="service-card-grid__description rte">{{ block.settings.content }}</div>
+          {% endif %}
+        </article>
+      </li>
+    {% endfor %}
+  </ul>
+</founder-story>
+
+{% schema %}
+{
+  "name": "Service card grid",
+  "tag": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Desktop row gap",
+      "min": 8,
+      "max": 64,
+      "step": 2,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Desktop column gap",
+      "min": 8,
+      "max": 64,
+      "step": 2,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 16,
+      "max": 36,
+      "step": 1,
+      "default": 22,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_size",
+      "label": "Content size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "default": 26,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Card heading level",
+      "options": [
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section background",
+      "default": "#edeae4"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#154b70"
+    },
+    {
+      "type": "color",
+      "id": "content_color",
+      "label": "Content color",
+      "default": "#586f82"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 800,
+      "max": 1440,
+      "step": 20,
+      "default": 1200,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 32,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "type",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "partners",
+              "label": "Partners"
+            },
+            {
+              "value": "graduation",
+              "label": "Graduation"
+            },
+            {
+              "value": "flower",
+              "label": "Flower"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "air",
+              "label": "Air"
+            },
+            {
+              "value": "sun",
+              "label": "Sun"
+            },
+            {
+              "value": "care",
+              "label": "Care"
+            }
+          ],
+          "default": "flower",
+          "info": "Options match the case values in snippets/custom-icons.liquid. Update this selector when adding icons."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom icon image",
+          "info": "Replaces the selected icon. Uploaded images retain their original colors on hover."
+        },
+        {
+          "type": "color",
+          "id": "icon_background",
+          "label": "Icon background",
+          "default": "#f1f5f0"
+        },
+        {
+          "type": "color",
+          "id": "icon_color",
+          "label": "Icon color",
+          "default": "#527666"
+        },
+        {
+          "type": "color",
+          "id": "icon_hover_background",
+          "label": "Icon hover background",
+          "default": "#527666"
+        },
+        {
+          "type": "color",
+          "id": "icon_hover_color",
+          "label": "Icon hover color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title",
+          "default": "Service title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Describe this service and how it can help.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Service card grid",
+      "blocks": [
+        {
+          "type": "service",
+          "settings": {
+            "type": "flower",
+            "title": "Grief Counseling",
+            "content": "<p>Navigate loss with compassionate support and find a path toward hope and healing.</p>"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "type": "shield",
+            "title": "Trauma Recovery",
+            "content": "<p>Evidence-based, trauma-informed care to process and heal from past wounds.</p>"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "type": "heart",
+            "title": "PTSD Support",
+            "content": "<p>Specialized treatment for post-traumatic stress in a safe, confidential environment.</p>"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "type": "air",
+            "title": "Anxiety Counseling",
+            "content": "<p>Practical, faith-integrated tools to manage anxiety and find lasting peace.</p>"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "type": "sun",
+            "title": "Depression Care",
+            "content": "<p>Compassionate support to help you rediscover joy, purpose, and renewed hope.</p>"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "type": "sun",
+            "title": "Life Transitions",
+            "content": "<p>Guidance through career changes, relocation, parenthood, and major life shifts.</p>"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "type": "care",
+            "title": "Relationship Counseling",
+            "content": "<p>Strengthen bonds, resolve conflict, and build healthier, God-honoring relationships.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

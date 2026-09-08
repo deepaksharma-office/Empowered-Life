@@ -1,0 +1,358 @@
+{% capture children %}{% render 'elcc-card-grid', section: section, kind: 'features' %}{% endcapture %}
+{% render 'elcc-section', section: section, children: children, kind: 'features' %}
+{% schema %}
+{
+  "name": "Why Choose ELCC",
+  "tag": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#f8f6f2"
+    },
+    {
+      "type": "color",
+      "id": "accent",
+      "label": "Gold line / Accent",
+      "default": "#d6ad29"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 72,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 72,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 600,
+      "max": 1440,
+      "step": 20,
+      "default": 1120,
+      "unit": "px"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Why Choose Us"
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow color",
+      "default": "#b78b25"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Eyebrow size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 11,
+      "unit": "px"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "Why Choose ELCC"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#123e63"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 24,
+      "max": 64,
+      "step": 2,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line",
+      "label": "Show gold line",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>A practice built on trust, expertise, and unwavering compassion.</p>"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#58738b"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Desktop row gap",
+      "min": 8,
+      "max": 64,
+      "step": 2,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Desktop column gap",
+      "min": 8,
+      "max": 64,
+      "step": 2,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "label": "Card title size",
+      "min": 14,
+      "max": 32,
+      "step": 1,
+      "default": 19,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_content_size",
+      "label": "Card content size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "default": 26,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#f8f6f2"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Card border",
+      "default": "#dfe4dc"
+    },
+    {
+      "type": "color",
+      "id": "border_hover",
+      "label": "Hover border",
+      "default": "#d6ad29"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "type",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "partners",
+              "label": "Partners"
+            },
+            {
+              "value": "graduation",
+              "label": "Graduation"
+            },
+            {
+              "value": "flower",
+              "label": "Flower"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "air",
+              "label": "Air"
+            },
+            {
+              "value": "sun",
+              "label": "Sun"
+            },
+            {
+              "value": "care",
+              "label": "Care"
+            }
+          ],
+          "default": "heart"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom icon image"
+        },
+        {
+          "type": "color",
+          "id": "icon_color",
+          "label": "Icon color",
+          "default": "#d6ad29"
+        },
+        {
+          "type": "color",
+          "id": "icon_background",
+          "label": "Icon background",
+          "default": "#d3dde1"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature title"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title color",
+          "default": "#123e63"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Describe this feature.</p>"
+        },
+        {
+          "type": "color",
+          "id": "content_color",
+          "label": "Content color",
+          "default": "#58738b"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Choose ELCC",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "type": "shield",
+            "title": "20+ Years Experience",
+            "content": "<p>Two decades of trauma and crisis intervention expertise.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "type": "heart",
+            "title": "Trauma-Informed",
+            "content": "<p>Care that understands the impact of trauma on the whole person.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "type": "graduation",
+            "title": "Biblical Integration",
+            "content": "<p>Scriptural wisdom woven thoughtfully into every session.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "type": "sun",
+            "title": "Evidence-Based Care",
+            "content": "<p>Proven therapeutic methods grounded in clinical research.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "type": "care",
+            "title": "Prayer Available",
+            "content": "<p>Optional prayer support for those who desire it.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "type": "shield",
+            "title": "Confidential",
+            "content": "<p>Your privacy and trust are sacred and fully protected.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "type": "heart",
+            "title": "Safe Environment",
+            "content": "<p>A welcoming, judgment-free space to be fully yourself.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "type": "care",
+            "title": "Personalized Treatment",
+            "content": "<p>Care plans tailored uniquely to your story and goals.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

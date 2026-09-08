@@ -1,0 +1,534 @@
+{{ 'elevate-model.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'founder-story.js' | asset_url }}" type="module"></script>
+
+<founder-story class="elevate-model"
+  style="
+    --elevate-overlay: {{ section.settings.overlay_color }};
+    --elevate-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --elevate-top: {{ section.settings.padding_top }}px;
+    --elevate-bottom: {{ section.settings.padding_bottom }}px;
+    --elevate-width: {{ section.settings.list_width }}px;
+    --elevate-gap: {{ section.settings.item_gap }}px;
+    --elevate-header-gap: {{ section.settings.header_gap }}px;
+    --elevate-circle-size: {{ section.settings.circle_size }}px;
+    --elevate-circle-background: {{ section.settings.circle_background }};
+    --elevate-circle-border: {{ section.settings.circle_border }};
+  "
+>
+  <div class="elevate-model__background" aria-hidden="true"
+    {% if section.settings.image != blank %}
+      style="--elevate-image: url('{{ section.settings.image | image_url: width: 2560 }}'); --elevate-image-mobile: url('{{ section.settings.image | image_url: width: 1100 }}'); background-position: {{ section.settings.image.presentation.focal_point | default: 'center' }};"
+    {% endif %}
+  ></div>
+  <div class="elevate-model__overlay" aria-hidden="true"></div>
+  <div class="elevate-model__content">
+    <header class="elevate-model__header">
+      {% if section.settings.eyebrow != blank %}
+        <div class="elevate-model__eyebrow" data-story-reveal style="--elevate-delay: 0ms; color: {{ section.settings.eyebrow_color }}; font-size: {{ section.settings.eyebrow_size }}px; letter-spacing: {{ section.settings.eyebrow_tracking | divided_by: 100.0 }}em;">{{ section.settings.eyebrow }}</div>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <{{ section.settings.heading_tag }} class="elevate-model__title" data-story-reveal style="--elevate-delay: 90ms; --elevate-title-size: {{ section.settings.title_size }}px; --elevate-title-mobile: {{ section.settings.title_mobile }}px; color: {{ section.settings.title_color }}; line-height: {{ section.settings.title_leading | divided_by: 100.0 }}; text-align: {{ section.settings.title_alignment }};">{{ section.settings.title }}</{{ section.settings.heading_tag }}>
+      {% endif %}
+      {% if section.settings.show_line %}
+        <div class="elevate-model__line" aria-hidden="true" data-story-reveal style="--elevate-delay: 135ms; --elevate-line-color: {{ section.settings.line_color }}; width: {{ section.settings.line_width }}px;"></div>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <div class="elevate-model__description rte" data-story-reveal style="--elevate-delay: 180ms; color: {{ section.settings.description_color }}; font-size: {{ section.settings.description_size }}px; line-height: {{ section.settings.description_leading | divided_by: 100.0 }};">{{ section.settings.description }}</div>
+      {% endif %}
+    </header>
+    {% if section.blocks.size > 0 %}
+      <ol class="elevate-model__list list-unstyled" role="list">
+        {% for block in section.blocks %}
+          <li class="elevate-model__item" data-story-reveal style="--elevate-delay: {{ forloop.index0 | times: 90 | plus: 270 }}ms;" {{ block.shopify_attributes }}>
+            <div class="elevate-model__circle" aria-hidden="true" style="color: {{ block.settings.large_color }}; font-size: {{ block.settings.large_size }}px;">
+              {{ block.settings.large_text | strip_html | escape }}
+            </div>
+            <div class="elevate-model__item-content">
+              {% if block.settings.title != blank %}
+                <{{ section.settings.item_heading_tag }} class="elevate-model__item-title" style="color: {{ block.settings.title_color }}; font-size: {{ block.settings.title_size }}px;">{{ block.settings.title }}</{{ section.settings.item_heading_tag }}>
+              {% endif %}
+              {% if block.settings.content != blank %}
+                <div class="elevate-model__item-description rte" style="color: {{ block.settings.content_color }}; font-size: {{ block.settings.content_size }}px; line-height: {{ block.settings.content_leading | divided_by: 100.0 }};">{{ block.settings.content }}</div>
+              {% endif %}
+            </div>
+          </li>
+        {% endfor %}
+      </ol>
+    {% endif %}
+  </div>
+</founder-story>
+
+{% schema %}
+{
+  "name": "ELEVATE Model / Approach",
+  "tag": "section",
+  "max_blocks": 7,
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#153957"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Our Approach"
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow color",
+      "default": "#d6b33e"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Eyebrow size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 11,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_tracking",
+      "label": "Letter spacing",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 20,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "The ELEVATE Model"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 24,
+      "max": 64,
+      "step": 2,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "title_mobile",
+      "label": "Mobile title size",
+      "min": 20,
+      "max": 48,
+      "step": 2,
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "title_leading",
+      "label": "Title line height",
+      "min": 100,
+      "max": 180,
+      "step": 5,
+      "default": 120,
+      "unit": "%"
+    },
+    {
+      "type": "select",
+      "id": "title_alignment",
+      "label": "Title alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Section heading level",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "header",
+      "content": "Accent line"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line",
+      "label": "Show accent line",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Line color",
+      "default": "#d6b33e"
+    },
+    {
+      "type": "range",
+      "id": "line_width",
+      "label": "Line width",
+      "min": 20,
+      "max": 160,
+      "step": 4,
+      "default": 64,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Description"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>A proprietary seven-step framework that guides every counseling journey from first session to lasting transformation.</p>"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#edf1f5"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "description_leading",
+      "label": "Description line height",
+      "min": 110,
+      "max": 200,
+      "step": 5,
+      "default": 150,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Framework layout"
+    },
+    {
+      "type": "select",
+      "id": "item_heading_tag",
+      "label": "Item heading level",
+      "options": [
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "range",
+      "id": "list_width",
+      "label": "List width",
+      "min": 400,
+      "max": 1000,
+      "step": 20,
+      "default": 860,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "label": "Framework item gap",
+      "min": 8,
+      "max": 48,
+      "step": 2,
+      "default": 22,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "header_gap",
+      "label": "Space before list",
+      "min": 20,
+      "max": 100,
+      "step": 4,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "circle_size",
+      "label": "Circle size",
+      "min": 40,
+      "max": 96,
+      "step": 2,
+      "default": 58,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "circle_background",
+      "label": "Circle background",
+      "default": "#d6b33e26",
+      "alpha": true
+    },
+    {
+      "type": "color",
+      "id": "circle_border",
+      "label": "Circle border",
+      "default": "#d6b33e80",
+      "alpha": true
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 112,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 112,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "framework_item",
+      "name": "Framework Item",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "large_text",
+          "label": "Large text",
+          "default": "E",
+          "info": "Use a letter or short identifier. Decorative: the title should communicate the step."
+        },
+        {
+          "type": "color",
+          "id": "large_color",
+          "label": "Large text color",
+          "default": "#d6b33e"
+        },
+        {
+          "type": "range",
+          "id": "large_size",
+          "label": "Large text size",
+          "min": 14,
+          "max": 36,
+          "step": 1,
+          "default": 24,
+          "unit": "px"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title",
+          "default": "Empower"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "label": "Title size",
+          "min": 14,
+          "max": 32,
+          "step": 1,
+          "default": 20,
+          "unit": "px"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Helping clients discover their God-given strength and identity.</p>"
+        },
+        {
+          "type": "color",
+          "id": "content_color",
+          "label": "Content color",
+          "default": "#edf1f5"
+        },
+        {
+          "type": "range",
+          "id": "content_size",
+          "label": "Content size",
+          "min": 12,
+          "max": 22,
+          "step": 1,
+          "default": 14,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "content_leading",
+          "label": "Content line height",
+          "min": 110,
+          "max": 200,
+          "step": 5,
+          "default": 150,
+          "unit": "%"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ELEVATE Model / Approach",
+      "blocks": [
+        {
+          "type": "framework_item",
+          "settings": {
+            "large_text": "E",
+            "title": "Empower",
+            "content": "<p>Helping clients discover their God-given strength and identity.</p>"
+          }
+        },
+        {
+          "type": "framework_item",
+          "settings": {
+            "large_text": "L",
+            "title": "Listen",
+            "content": "<p>Creating a safe space where every story is heard with compassion.</p>"
+          }
+        },
+        {
+          "type": "framework_item",
+          "settings": {
+            "large_text": "E",
+            "title": "Equip",
+            "content": "<p>Providing practical, evidence-based tools for lasting change.</p>"
+          }
+        },
+        {
+          "type": "framework_item",
+          "settings": {
+            "large_text": "V",
+            "title": "Validate",
+            "content": "<p>Honoring each person's pain and journey without judgment.</p>"
+          }
+        },
+        {
+          "type": "framework_item",
+          "settings": {
+            "large_text": "A",
+            "title": "Activate",
+            "content": "<p>Describe how this step helps clients put their learning into practice.</p>"
+          }
+        },
+        {
+          "type": "framework_item",
+          "settings": {
+            "large_text": "T",
+            "title": "Transform",
+            "content": "<p>Describe the transformation supported by this step.</p>"
+          }
+        },
+        {
+          "type": "framework_item",
+          "settings": {
+            "large_text": "E",
+            "title": "Evolve",
+            "content": "<p>Describe how this step supports continued growth.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

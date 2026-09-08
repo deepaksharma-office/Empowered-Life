@@ -1,0 +1,250 @@
+<script src="{{ 'elcc-interactions.js' | asset_url }}" type="module"></script>
+{% capture children %}<elcc-faq class="elcc-faq" style="--elcc-card-title: {{ section.settings.question_size }}px; --elcc-card-content: {{ section.settings.answer_size }}px;">
+{% for block in section.blocks %}
+<div data-story-reveal style="--elcc-delay: {{ forloop.index0 | at_most: 7 | times: 80 }}ms;" {{ block.shopify_attributes }}>
+{% capture accordion_content %}<details name="FAQ-{{ section.id }}">
+<summary style="color: {{ section.settings.question_color }};">{{ block.settings.question | strip_html | escape }}<span class="elcc-chevron" aria-hidden="true"></span></summary>
+<div class="elcc-faq-answer rte" style="color: {{ section.settings.answer_color }};">{{ block.settings.answer }}</div>
+</details>{% endcapture %}
+{% render 'accordion-custom-component', children: accordion_content, close_with_escape: true %}
+</div>{% endfor %}</elcc-faq>{% endcapture %}
+{% render 'elcc-section', section: section, children: children, kind: 'faq' %}
+{% schema %}
+{
+  "name": "Counseling FAQ",
+  "tag": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#f8f6f2"
+    },
+    {
+      "type": "color",
+      "id": "accent",
+      "label": "Gold line / Accent",
+      "default": "#d6ad29"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 72,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 72,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 600,
+      "max": 1440,
+      "step": 20,
+      "default": 1120,
+      "unit": "px"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow color",
+      "default": "#b78b25"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Eyebrow size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 11,
+      "unit": "px"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "Your Questions, Answered"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#123e63"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 24,
+      "max": 64,
+      "step": 2,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line",
+      "label": "Show gold line",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Find answers to common questions about our practice.</p>"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#58738b"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "question_color",
+      "label": "Question color",
+      "default": "#123e63"
+    },
+    {
+      "type": "color",
+      "id": "answer_color",
+      "label": "Answer color",
+      "default": "#58738b"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#dfe4dc"
+    },
+    {
+      "type": "range",
+      "id": "question_size",
+      "label": "Question size",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "default": 18,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "answer_size",
+      "label": "Answer size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Item spacing",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "default": 12,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "question",
+          "label": "Question",
+          "default": "Your question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Add the practice?s answer here before publishing.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Counseling FAQ",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Do you accept insurance?"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How is faith integrated into counseling?"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Is everything confidential?"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Do you offer virtual appointments?"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What should I expect at my first visit?"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Do you provide counseling to children?"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

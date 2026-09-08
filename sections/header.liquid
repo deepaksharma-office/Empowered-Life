@@ -88,6 +88,10 @@
     content_for 'block', type: '_header-menu', id: 'header-menu'
   endcapture
 
+  capture button
+    content_for 'block', type: 'button', id: 'header-button'
+  endcapture
+
   capture drawer_menu
     content_for 'block', type: '_header-menu', id: 'header-menu', variant: 'mobile'
   endcapture
@@ -164,9 +168,7 @@
 
   assign bottom_row_blocks = ''
 
-  if section.settings.menu_row == 'bottom'
-    assign bottom_row_blocks = bottom_row_blocks | append: 'menu,'
-  endif
+  # The primary menu now shares the top row with the logo and Button block.
 
   if section.settings.show_search
     if section.settings.search_row == 'bottom'
@@ -451,6 +453,7 @@
         first: first,
         logo: logo,
         menu: menu,
+        button: button,
         actions: actions,
         localization: localization_markup,
         search: search,
@@ -487,6 +490,46 @@
 ></script>
 
 {% stylesheet %}
+  .header__button {
+    display: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    /* Follow the theme's touch/overflow drawer mode as well as its breakpoint. */
+    #header-component[data-menu-style='menu'] {
+      .header__row--bottom {
+        display: none;
+      }
+
+      .header__columns {
+        grid-template-columns: minmax(max-content, 1fr) minmax(0, max-content) auto;
+        grid-template-areas: 'left center right';
+        align-items: center;
+        --padding-block-end: var(--header-padding);
+      }
+
+      .header__column--center {
+        min-width: 0;
+        justify-content: flex-end;
+      }
+
+      .header__column--center header-menu .overflow-menu::part(list) {
+        justify-content: flex-end;
+      }
+
+      .header__column > :is(header-actions, .search-action, .dropdown-localization) {
+        display: none;
+      }
+
+      .header__button {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        white-space: nowrap;
+      }
+    }
+  }
+
   body {
     --header-height: 60px;
     --header-group-height: var(--header-height);

@@ -1,5 +1,13 @@
 
 
+{{ 'elcc-footer.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'founder-story.js' | asset_url }}" type="module"></script>
+{% style %}
+  {% for block in section.blocks %}
+    #shopify-section-{{ section.id }} .footer-content > :nth-child({{ forloop.index }}) { --footer-delay: {{ forloop.index0 | at_most: 7 | times: 80 }}ms; }
+  {% endfor %}
+{% endstyle %}
+<founder-story class="elcc-footer" style="--elcc-footer-text: {{ section.settings.elcc_text_color }}; --elcc-footer-accent: {{ section.settings.elcc_accent_color }};">
 {% liquid
   if section.settings.background_color != blank
     render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
@@ -54,6 +62,7 @@
   </div>
 </div>
 
+</founder-story>
 {% stylesheet %}
   .footer-content {
     contain: content;
@@ -145,10 +154,18 @@
     },
     {
       "type": "email-signup"
+    },
+    {
+      "type": "_elcc-footer-brand"
+    },
+    {
+      "type": "_elcc-footer-contact"
     }
   ],
   "enabled_on": {
-    "groups": ["footer"]
+    "groups": [
+      "footer"
+    ]
   },
   "settings": [
     {
@@ -206,6 +223,18 @@
       "step": 1,
       "unit": "px",
       "default": 20
+    },
+    {
+      "type": "color",
+      "id": "elcc_text_color",
+      "label": "Footer text color",
+      "default": "#dce6ef"
+    },
+    {
+      "type": "color",
+      "id": "elcc_accent_color",
+      "label": "Footer accent color",
+      "default": "#d6ad29"
     }
   ],
   "presets": [
@@ -248,7 +277,10 @@
               }
             }
           },
-          "block_order": ["newsletter-heading", "newsletter-text"]
+          "block_order": [
+            "newsletter-heading",
+            "newsletter-text"
+          ]
         },
         "newsletter-form": {
           "type": "email-signup",
@@ -257,7 +289,10 @@
           }
         }
       },
-      "block_order": ["newsletter-group", "newsletter-form"]
+      "block_order": [
+        "newsletter-group",
+        "newsletter-form"
+      ]
     }
   ]
 }

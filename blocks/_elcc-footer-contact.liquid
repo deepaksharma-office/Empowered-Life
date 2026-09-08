@@ -1,0 +1,14 @@
+<div class="elcc-footer-contact" {{ block.shopify_attributes }}>
+  <h2>{{ block.settings.heading }}</h2>
+  {% assign phone = block.settings.phone | strip_html | strip %}{% assign email = block.settings.email | strip_html | strip %}
+  <dl>
+    {% if phone != blank %}<dt>{{ block.settings.phone_label }}</dt><dd><a href="tel:{{ phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' | escape }}">{{ phone | escape }}</a></dd>{% endif %}
+    {% if email != blank %}<dt>{{ block.settings.email_label }}</dt><dd><a href="mailto:{{ email | escape }}">{{ email | escape }}</a></dd>{% endif %}
+    {% if block.settings.hours != blank %}<dt>{{ block.settings.hours_label }}</dt><dd>{{ block.settings.hours }}</dd>{% endif %}
+    {% if block.settings.address != blank %}<dt>{{ block.settings.address_label }}</dt><dd class="rte">{{ block.settings.address }}</dd>{% endif %}
+  </dl>
+  {% content_for 'block', type: 'button', id: 'footer-button' %}
+</div>
+{% schema %}
+{"name":"Footer contact","tag":null,"settings":[{"type":"inline_richtext","id":"heading","label":"Heading","default":"Contact"},{"type":"inline_richtext","id":"phone_label","label":"Phone label","default":"Phone"},{"type":"inline_richtext","id":"phone","label":"Phone","default":"(727) 473-3696"},{"type":"inline_richtext","id":"email_label","label":"Email label","default":"Email"},{"type":"inline_richtext","id":"email","label":"Email","default":"hello@empoweredlifecc.com"},{"type":"inline_richtext","id":"hours_label","label":"Hours label","default":"Office Hours"},{"type":"inline_richtext","id":"hours","label":"Office hours","default":"Mon - Fri, 9am - 6pm"},{"type":"inline_richtext","id":"address_label","label":"Address label","default":"Address"},{"type":"richtext","id":"address","label":"Address","default":"<p>7901 4th St N. Suite 300<br>St. Petersburg, Florida 33702</p>"}],"presets":[{"name":"Footer contact"}]}
+{% endschema %}

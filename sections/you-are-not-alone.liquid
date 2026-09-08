@@ -1,0 +1,333 @@
+{% capture children %}{% render 'elcc-card-grid', section: section, kind: 'audience' %}{% endcapture %}
+{% render 'elcc-section', section: section, children: children, kind: 'audience' %}
+{% schema %}
+{
+  "name": "You Are Not Alone",
+  "tag": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#edeae4"
+    },
+    {
+      "type": "color",
+      "id": "accent",
+      "label": "Gold line / Accent",
+      "default": "#d6ad29"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 72,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 72,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 600,
+      "max": 1440,
+      "step": 20,
+      "default": 1120,
+      "unit": "px"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Who We Help"
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow color",
+      "default": "#b78b25"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Eyebrow size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 11,
+      "unit": "px"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "You Are Not Alone"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#123e63"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 24,
+      "max": 64,
+      "step": 2,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line",
+      "label": "Show gold line",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Whatever you are facing, there is a path forward. We are here to walk it with you.</p>"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#58738b"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Desktop row gap",
+      "min": 8,
+      "max": 64,
+      "step": 2,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Desktop column gap",
+      "min": 8,
+      "max": 64,
+      "step": 2,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "label": "Card title size",
+      "min": 14,
+      "max": 32,
+      "step": 1,
+      "default": 19,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_content_size",
+      "label": "Card content size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "default": 26,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#e2e2df"
+    },
+    {
+      "type": "color",
+      "id": "card_hover",
+      "label": "Card hover background",
+      "default": "#d6dad8"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "audience",
+      "name": "Audience Card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "type",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "partners",
+              "label": "Partners"
+            },
+            {
+              "value": "graduation",
+              "label": "Graduation"
+            },
+            {
+              "value": "flower",
+              "label": "Flower"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "air",
+              "label": "Air"
+            },
+            {
+              "value": "sun",
+              "label": "Sun"
+            },
+            {
+              "value": "care",
+              "label": "Care"
+            }
+          ],
+          "default": "heart"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom icon image"
+        },
+        {
+          "type": "color",
+          "id": "icon_color",
+          "label": "Icon color",
+          "default": "#d6ad29"
+        },
+        {
+          "type": "color",
+          "id": "icon_background",
+          "label": "Icon background",
+          "default": "#d3dde1"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature title"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title color",
+          "default": "#123e63"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Describe this feature.</p>"
+        },
+        {
+          "type": "color",
+          "id": "content_color",
+          "label": "Content color",
+          "default": "#58738b"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "You Are Not Alone",
+      "blocks": [
+        {
+          "type": "audience",
+          "settings": {
+            "type": "heart",
+            "title": "Individuals",
+            "content": "<p>Personal healing for anxiety, depression, trauma, and grief.</p>",
+            "icon_color": "#62879e"
+          }
+        },
+        {
+          "type": "audience",
+          "settings": {
+            "type": "partners",
+            "title": "Couples",
+            "content": "<p>Restoring connection, trust, and communication in relationships.</p>",
+            "icon_color": "#62879e"
+          }
+        },
+        {
+          "type": "audience",
+          "settings": {
+            "type": "heart",
+            "title": "Families",
+            "content": "<p>Building healthier dynamics and stronger family bonds.</p>",
+            "icon_color": "#62879e"
+          }
+        },
+        {
+          "type": "audience",
+          "settings": {
+            "type": "care",
+            "title": "Caregivers",
+            "content": "<p>Compassionate care for those who care for others.</p>",
+            "icon_color": "#62879e"
+          }
+        },
+        {
+          "type": "audience",
+          "settings": {
+            "type": "graduation",
+            "title": "Engaged Couples",
+            "content": "<p>Preparation for a Christ-centered, lasting marriage.</p>",
+            "icon_color": "#62879e"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

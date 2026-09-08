@@ -128,19 +128,109 @@
             "padding-inline-end": 0
           },
           "blocks": {}
+        },
+        "elcc_brand": {
+          "type": "_elcc-footer-brand",
+          "settings": {},
+          "blocks": {
+            "footer-logo": {
+              "type": "logo",
+              "static": true,
+              "settings": {
+                "inverse": true,
+                "font": "heading",
+                "unit": "pixel",
+                "percent_width": 100,
+                "pixel_height": 48,
+                "custom_mobile_size": false,
+                "unit_mobile": "percent",
+                "percent_width_mobile": 100,
+                "pixel_height_mobile": 120,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          }
+        },
+        "elcc_services": {
+          "type": "menu",
+          "settings": {
+            "menu": "main-menu",
+            "menu_spacing": 12,
+            "show_as_accordion": false,
+            "accordion_icon": "caret",
+            "accordion_dividers": false,
+            "heading_preset": "h3",
+            "link_preset": "paragraph",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "text_color": "#dce6ef",
+            "background_color": "#203e60",
+            "heading": "Services"
+          },
+          "blocks": {}
+        },
+        "elcc_resources": {
+          "type": "menu",
+          "settings": {
+            "menu": "main-menu",
+            "menu_spacing": 12,
+            "show_as_accordion": false,
+            "accordion_icon": "caret",
+            "accordion_dividers": false,
+            "heading_preset": "h3",
+            "link_preset": "paragraph",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "text_color": "#dce6ef",
+            "background_color": "#203e60",
+            "heading": "Resources"
+          },
+          "blocks": {}
+        },
+        "elcc_contact": {
+          "type": "_elcc-footer-contact",
+          "settings": {},
+          "blocks": {
+            "footer-button": {
+              "type": "button",
+              "static": true,
+              "settings": {
+                "label": "Schedule a Consultation",
+                "style_class": "button-custom",
+                "custom_button_background": "#d6ad29",
+                "custom_button_text": "#123e63",
+                "custom_button_border": "#d6ad29"
+              },
+              "blocks": {}
+            }
+          }
         }
       },
       "block_order": [
+        "elcc_brand",
+        "elcc_services",
+        "elcc_resources",
+        "elcc_contact",
         "group_H6VpwJ",
         "email_signup_crihX7"
       ],
       "name": "t:names.footer",
       "settings": {
         "section_width": "page-width",
-        "gap": 20,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 30,
-        "padding-block-end": 30
+        "gap": 40,
+        "background_color": "#203e60",
+        "padding-block-start": 56,
+        "padding-block-end": 30,
+        "elcc_text_color": "#dce6ef",
+        "elcc_accent_color": "#d6ad29"
       }
     },
     "footer_utilities_jLGE8U": {
@@ -151,7 +241,10 @@
           "settings": {
             "show_powered_by": true,
             "font_size": "0.75rem",
-            "case": "none"
+            "case": "none",
+            "copyright_suffix": "All rights reserved.",
+            "footer_note": "Where faith meets healing.",
+            "text_color": "#b5c8d8"
           },
           "blocks": {}
         },
@@ -185,8 +278,8 @@
         "section_width": "page-width",
         "gap": 24,
         "divider_thickness": 1,
-        "divider_color": "{{ settings.color_palette.color2 }}",
-        "background_color": "{{ settings.color_palette.background }}",
+        "divider_color": "#45607d",
+        "background_color": "#203e60",
         "padding-block-start": 20,
         "padding-block-end": 48
       }

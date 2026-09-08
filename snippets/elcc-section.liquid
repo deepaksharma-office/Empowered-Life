@@ -1,0 +1,23 @@
+{% doc %}
+  Shared shell for the counseling sections.
+  @param {object} section
+  @param {string} children
+  @param {string} [kind]
+{% enddoc %}
+{{ 'elcc-sections.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'founder-story.js' | asset_url }}" type="module"></script>
+<founder-story class="elcc-section elcc-section--{{ kind }}" style="--elcc-bg: {{ section.settings.background }}; --elcc-overlay: {{ section.settings.overlay_color | default: section.settings.background }}; --elcc-opacity: {{ section.settings.overlay_opacity | default: 0 | divided_by: 100.0 }}; --elcc-top: {{ section.settings.padding_top }}px; --elcc-bottom: {{ section.settings.padding_bottom }}px; --elcc-width: {{ section.settings.content_width }}px; --elcc-accent: {{ section.settings.accent }}; --elcc-row-gap: {{ section.settings.row_gap | default: 20 }}px; --elcc-column-gap: {{ section.settings.column_gap | default: 20 }}px; --elcc-card-bg: {{ section.settings.card_background | default: section.settings.background }}; --elcc-card-hover: {{ section.settings.card_hover | default: section.settings.background }}; --elcc-border: {{ section.settings.border_color }}; --elcc-border-hover: {{ section.settings.border_hover }}; --elcc-card-title: {{ section.settings.card_title_size | default: 20 }}px; --elcc-card-content: {{ section.settings.card_content_size | default: 14 }}px; --elcc-icon-size: {{ section.settings.icon_size | default: 26 }}px;">
+  {% if section.settings.image != blank %}<div class="elcc-background" aria-hidden="true">{{ section.settings.image | image_url: width: 2560 | image_tag: widths: '750, 1100, 1600, 2000, 2560', sizes: '100vw', loading: 'lazy', alt: '' }}</div>{% endif %}
+  <div class="elcc-overlay" aria-hidden="true"></div>
+  <div class="elcc-inner">
+    {% if section.settings.title != blank or section.settings.eyebrow != blank or section.settings.description != blank %}
+      <header class="elcc-header">
+        {% if section.settings.eyebrow != blank %}<div class="elcc-eyebrow" data-story-reveal style="color: {{ section.settings.eyebrow_color }}; font-size: {{ section.settings.eyebrow_size }}px;">{{ section.settings.eyebrow }}</div>{% endif %}
+        {% if section.settings.title != blank %}<h2 class="elcc-heading" data-story-reveal style="--elcc-delay: 80ms; --elcc-heading-size: {{ section.settings.title_size }}px; color: {{ section.settings.title_color }};">{{ section.settings.title }}</h2>{% endif %}
+        {% if section.settings.show_line %}{% render 'elcc-gold-line' %}{% endif %}
+        {% if section.settings.description != blank %}<div class="elcc-description rte" data-story-reveal style="--elcc-delay: 160ms; color: {{ section.settings.description_color }}; font-size: {{ section.settings.description_size }}px;">{{ section.settings.description }}</div>{% endif %}
+      </header>
+    {% endif %}
+    {{ children }}
+  </div>
+</founder-story>

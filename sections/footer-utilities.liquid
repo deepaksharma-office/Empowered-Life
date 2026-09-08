@@ -1,5 +1,13 @@
 
 
+{{ 'elcc-footer.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'founder-story.js' | asset_url }}" type="module"></script>
+{% style %}
+  {% for block in section.blocks %}
+    #shopify-section-{{ section.id }} .utilities > :nth-child({{ forloop.index }}) { --footer-delay: {{ forloop.index0 | at_most: 7 | times: 80 }}ms; }
+  {% endfor %}
+{% endstyle %}
+<founder-story class="elcc-footer">
 {% liquid
   if section.settings.background_color != blank
     render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
@@ -22,6 +30,7 @@
   </div>
 </div>
 
+</founder-story>
 {% stylesheet %}
   .utilities {
     width: 100%;

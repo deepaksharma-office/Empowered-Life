@@ -1,0 +1,27 @@
+{% doc %}
+  @param {object} section
+  @param {string} kind
+{% enddoc %}
+<ul class="elcc-grid list-unstyled" role="list">
+  {% for block in section.blocks %}
+    <li data-story-reveal style="--elcc-delay: {{ forloop.index0 | at_most: 7 | times: 80 }}ms;" {{ block.shopify_attributes }}>
+      <article class="elcc-card">
+        {% if kind == 'testimonials' %}
+          <div>
+            <div class="elcc-stars" role="img" aria-label="{{ block.settings.rating }} / 5"><span aria-hidden="true">{% for star in (1..block.settings.rating) %}★{% endfor %}</span></div>
+            <blockquote class="elcc-review rte" style="color: {{ block.settings.review_color }}; font-size: {{ block.settings.review_size }}px;">{{ block.settings.review }}</blockquote>
+          </div>
+          <div class="elcc-client">{% render 'elcc-gold-line' %}<div>{{ block.settings.client }}</div><div>{{ block.settings.support }}</div></div>
+        {% else %}
+          <div class="elcc-card-heading">
+            <div class="elcc-icon" style="color: {{ block.settings.icon_color }}; --elcc-icon-bg: {{ block.settings.icon_background }};">
+              {% if block.settings.image != blank %}{% render 'image', image: block.settings.image, height: section.settings.icon_size %}{% else %}<span aria-hidden="true">{% render 'custom-icons', icon: block.settings %}</span>{% endif %}
+            </div>
+            <h3 style="color: {{ block.settings.title_color }};">{{ block.settings.title }}</h3>
+          </div>
+          <div class="rte" style="color: {{ block.settings.content_color }};">{{ block.settings.content }}</div>
+        {% endif %}
+      </article>
+    </li>
+  {% endfor %}
+</ul>

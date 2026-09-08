@@ -1,0 +1,446 @@
+{{ 'cinematic-hero.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'cinematic-hero.js' | asset_url }}" type="module"></script>
+
+{% liquid
+  assign loading = 'lazy'
+  assign priority = 'auto'
+  if section.index == 1
+    assign loading = 'eager'
+    assign priority = 'high'
+  endif
+%}
+
+<cinematic-hero
+  id="CinematicHero-{{ section.id }}"
+  class="cinematic-hero"
+  style="
+    --hero-height: {% if section.settings.section_height == 'full-screen' %}100svh{% else %}var(--section-height-{{ section.settings.section_height }}){% endif %};
+    --hero-overlay: {{ section.settings.overlay_color }};
+    --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --hero-color: {{ section.settings.text_color }};
+    --hero-content-width: {{ section.settings.content_width }}px;
+    --hero-padding: {{ section.settings.padding_top }}px;
+    --hero-button-radius: {{ section.settings.button_radius }}px;
+  "
+>
+  <div class="cinematic-hero__media" aria-hidden="true">
+    {% if section.settings.image != blank %}
+      {{ section.settings.image | image_url: width: 3840 | image_tag:
+        widths: '416, 750, 1100, 1500, 2000, 2560, 3840',
+        sizes: '100vw', loading: loading, fetchpriority: priority, alt: ''
+      }}
+    {% else %}
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'cinematic-hero__placeholder' }}
+    {% endif %}
+  </div>
+  <div class="cinematic-hero__content">
+    {% for block in section.blocks %}
+      <div
+        class="cinematic-hero__block cinematic-hero__block--{{ block.type }}"
+        style="--hero-delay: {{ forloop.index0 | times: 150 }}ms; {% if block.settings.color != blank %}color: {{ block.settings.color }};{% endif %}"
+        {% unless block.type == 'button' %}{{ block.shopify_attributes }}{% endunless %}
+      >
+        {% case block.type %}
+          {% when 'eyebrow' %}
+            <p class="cinematic-hero__eyebrow">{{ block.settings.text | escape }}</p>
+          {% when 'heading' %}
+            <{{ block.settings.tag }} class="cinematic-hero__heading" style="--hero-heading-size: {{ block.settings.size }}px; --hero-heading-mobile: {{ block.settings.size_mobile }}px;">
+              {{ block.settings.text }}
+            </{{ block.settings.tag }}>
+          {% when 'description' %}
+            <div class="cinematic-hero__description rte">{{ block.settings.text }}</div>
+          {% when 'button' %}
+            {% render 'button', block: block, link: block.settings.link %}
+          {% when 'scroll' %}
+            {% if block.settings.enabled %}
+              <button class="cinematic-hero__scroll button-unstyled" type="button" data-hero-scroll aria-label="{{ block.settings.label | escape }}" hidden>
+                <svg viewBox="0 0 10 6" aria-hidden="true" focusable="false">{% render 'icon', icon: 'caret' %}</svg>
+              </button>
+            {% endif %}
+        {% endcase %}
+      </div>
+    {% endfor %}
+  </div>
+</cinematic-hero>
+
+{% schema %}
+{
+  "name": "Cinematic hero",
+  "tag": "section",
+  "class": "cinematic-hero-section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#29231c"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 22,
+      "unit": "%"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "select",
+      "id": "section_height",
+      "label": "Height",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "full-screen",
+          "label": "Full viewport"
+        }
+      ],
+      "default": "large"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 600,
+      "max": 1200,
+      "step": 20,
+      "default": 900,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 20,
+      "max": 180,
+      "step": 4,
+      "default": 76,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Button corner radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 50,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "eyebrow",
+      "name": "Eyebrow",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "HOPE. HEALING. RESTORATION."
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Text color",
+          "default": "#143f83"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Heading",
+          "default": "Healing Begins With Hope."
+        },
+        {
+          "type": "select",
+          "id": "tag",
+          "label": "Heading level",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            }
+          ],
+          "default": "h1"
+        },
+        {
+          "type": "range",
+          "id": "size",
+          "label": "Desktop font size",
+          "min": 32,
+          "max": 96,
+          "step": 2,
+          "default": 52,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "size_mobile",
+          "label": "Mobile font size",
+          "min": 24,
+          "max": 60,
+          "step": 2,
+          "default": 36,
+          "unit": "px"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Trauma-informed, Christ-centered counseling helping individuals, couples, and families experience emotional healing, healthier relationships, and renewed purpose.</p>"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:settings.label",
+          "default": "t:text_defaults.button_label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:settings.link"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_in_new_tab",
+          "label": "t:settings.open_new_tab",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "style_class",
+          "label": "t:settings.style",
+          "options": [
+            {
+              "value": "button",
+              "label": "t:options.primary"
+            },
+            {
+              "value": "button-secondary",
+              "label": "t:options.secondary"
+            },
+            {
+              "value": "button-unstyled",
+              "label": "t:options.link"
+            },
+            {
+              "value": "button-custom",
+              "label": "t:options.custom"
+            }
+          ],
+          "default": "button",
+          "info": "t:info.edit_button_style_in_theme_settings"
+        },
+        {
+          "type": "header",
+          "content": "t:content.button_colors",
+          "visible_if": "{{ block.settings.style_class == \"button-custom\" }}"
+        },
+        {
+          "type": "color",
+          "id": "custom_button_background",
+          "label": "t:settings.background",
+          "default": "{{ settings.color_palette.foreground }}",
+          "alpha": true,
+          "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+        },
+        {
+          "type": "color",
+          "id": "custom_button_text",
+          "label": "t:settings.text",
+          "default": "{{ settings.color_palette.background }}",
+          "alpha": true,
+          "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+        },
+        {
+          "type": "color",
+          "id": "custom_button_border",
+          "label": "t:settings.borders",
+          "default": "{{ settings.color_palette.background }}",
+          "alpha": true,
+          "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+        },
+        {
+          "type": "color",
+          "id": "link_text_color",
+          "label": "t:settings.link_text_color",
+          "placeholder": "t:settings.default",
+          "visible_if": "{{ block.settings.style_class == 'button-unstyled' }}"
+        },
+        {
+          "type": "header",
+          "content": "t:content.size"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "t:settings.width_desktop",
+          "options": [
+            {
+              "value": "fit-content",
+              "label": "t:options.fit_content"
+            },
+            {
+              "value": "custom",
+              "label": "t:options.custom"
+            }
+          ],
+          "default": "fit-content"
+        },
+        {
+          "type": "range",
+          "id": "custom_width",
+          "label": "t:settings.custom_width",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 100,
+          "visible_if": "{{ block.settings.width == \"custom\" }}"
+        },
+        {
+          "type": "select",
+          "id": "width_mobile",
+          "label": "t:settings.width_mobile",
+          "options": [
+            {
+              "value": "fit-content",
+              "label": "t:options.fit_content"
+            },
+            {
+              "value": "custom",
+              "label": "t:options.custom"
+            }
+          ],
+          "default": "fit-content"
+        },
+        {
+          "type": "range",
+          "id": "custom_width_mobile",
+          "label": "t:settings.custom_width",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 100,
+          "visible_if": "{{ block.settings.width_mobile == \"custom\" }}"
+        }
+      ]
+    },
+    {
+      "type": "scroll",
+      "name": "Scroll indicator",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enabled",
+          "label": "Show scroll indicator",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Accessible label",
+          "default": "Scroll to next section"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cinematic hero",
+      "blocks": [
+        {
+          "type": "eyebrow"
+        },
+        {
+          "type": "heading"
+        },
+        {
+          "type": "description"
+        },
+        {
+          "type": "button",
+          "settings": {
+            "label": "Schedule a Consultation",
+            "style_class": "button-custom",
+            "custom_button_background": "#d6b32b",
+            "custom_button_text": "#102d55",
+            "custom_button_border": "#d6b32b"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "label": "Learn About Our Services",
+            "style_class": "button-custom",
+            "custom_button_background": "#ffffff00",
+            "custom_button_text": "#ffffff",
+            "custom_button_border": "#ffffff"
+          }
+        },
+        {
+          "type": "scroll"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

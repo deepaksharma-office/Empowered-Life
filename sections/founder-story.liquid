@@ -1,0 +1,580 @@
+{{ 'founder-story.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'founder-story.js' | asset_url }}" type="module"></script>
+
+<founder-story class="founder-story founder-story--{{ section.settings.image_position }}"
+  style="--story-background: {{ section.settings.background }}; --story-accent: {{ section.settings.accent }}; --story-radius: {{ section.settings.radius }}px; --story-spacing: {{ section.settings.spacing }}px; --story-width: {{ section.settings.content_width }}px; --story-separator: {{ section.settings.separator }};"
+>
+  <div class="founder-story__layout">
+    <div class="founder-story__portrait" data-story-reveal style="--story-delay: 0ms;">
+      {% if section.settings.image != blank %}
+        {% liquid
+          assign loading = 'lazy'
+          if section.index == 1
+            assign loading = 'eager'
+          endif
+        %}
+        {{ section.settings.image | image_url: width: 1600 | image_tag: widths: '375, 550, 750, 1100, 1600', sizes: '(min-width: 750px) 45vw, 90vw', loading: loading }}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'founder-story__placeholder' }}
+      {% endif %}
+    </div>
+    <div class="founder-story__content">
+      {% for block in section.blocks %}
+        <div class="founder-story__block founder-story__block--{{ block.type }}" data-story-reveal
+          style="--story-delay: {{ forloop.index | at_most: 12 | times: 80 }}ms; --story-color: {{ block.settings.color }}; --story-size: {{ block.settings.size }}px; --story-leading: {{ block.settings.line_height | default: 150 | divided_by: 100.0 }}; --story-align: {{ block.settings.alignment | default: 'left' }}; --story-margin: {{ block.settings.spacing | default: 0 }}px;"
+          {{ block.shopify_attributes }}
+        >
+          {% case block.type %}
+            {% when 'eyebrow' %}
+              <p class="founder-story__eyebrow" style="--story-tracking: {{ block.settings.tracking | divided_by: 100.0 }}em;">{{ block.settings.text }}</p>
+            {% when 'title' %}
+              <{{ block.settings.tag }} class="founder-story__title" style="--story-mobile-size: {{ block.settings.mobile_size }}px;">{{ block.settings.text }}</{{ block.settings.tag }}>
+            {% when 'role' %}
+              <p>{{ block.settings.text }}</p>
+            {% when 'body_text' %}
+              <div class="rte">{{ block.settings.text }}</div>
+            {% when 'gold_line' %}
+              <div class="gold-line" aria-hidden="true" style="--story-line-width: {{ block.settings.width }}px;"></div>
+            {% when 'highlight_dialogue' %}
+              <blockquote class="founder-story__dialogue rte" style="--story-quote-bg: {{ block.settings.background }}; --story-quote-border: {{ block.settings.border_color }}; --story-quote-border-width: {{ block.settings.border_width }}px; --story-quote-padding: {{ block.settings.padding }}px;">{{ block.settings.text }}</blockquote>
+            {% when 'information_item' %}
+              {% if block.settings.image != blank %}
+                <div class="founder-story__icon">{% render 'image', image: block.settings.image, height: 40 %}</div>
+              {% endif %}
+              <p class="founder-story__stat">{{ block.settings.text }}</p>
+              <p class="founder-story__support" style="color: {{ block.settings.support_color }}; font-size: {{ block.settings.support_size }}px;">{{ block.settings.support }}</p>
+          {% endcase %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</founder-story>
+
+{% schema %}
+{
+  "name": "Founder Story / About",
+  "tag": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Portrait image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#f8f6f2"
+    },
+    {
+      "type": "color",
+      "id": "accent",
+      "label": "Image border color",
+      "default": "#d8c691"
+    },
+    {
+      "type": "color",
+      "id": "separator",
+      "label": "Information separator color",
+      "default": "#dadfd5"
+    },
+    {
+      "type": "range",
+      "id": "radius",
+      "label": "Image corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "label": "Vertical spacing",
+      "min": 20,
+      "max": 140,
+      "step": 4,
+      "default": 64,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 800,
+      "max": 1440,
+      "step": 20,
+      "default": 1120,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "eyebrow",
+      "name": "Eyebrow",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "Founder Story & Professional Background"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Text color",
+          "default": "#b68a24"
+        },
+        {
+          "type": "range",
+          "id": "size",
+          "label": "Font size",
+          "min": 10,
+          "max": 72,
+          "step": 1,
+          "default": 11,
+          "unit": "px"
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "range",
+          "id": "tracking",
+          "label": "Letter spacing",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "default": 16,
+          "unit": "%"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Title",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "Meet Denise Baron"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Text color",
+          "default": "#123c5a"
+        },
+        {
+          "type": "range",
+          "id": "size",
+          "label": "Font size",
+          "min": 10,
+          "max": 72,
+          "step": 1,
+          "default": 42,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "line_height",
+          "label": "Line height",
+          "min": 100,
+          "max": 220,
+          "step": 5,
+          "default": 150,
+          "unit": "%"
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "range",
+          "id": "mobile_size",
+          "label": "Mobile font size",
+          "min": 20,
+          "max": 50,
+          "step": 1,
+          "default": 32,
+          "unit": "px"
+        },
+        {
+          "type": "select",
+          "id": "tag",
+          "label": "Heading level",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            }
+          ],
+          "default": "h2"
+        }
+      ]
+    },
+    {
+      "type": "role",
+      "name": "Role / Subtitle",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "Lead Counselor & Founder"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Text color",
+          "default": "#123c5a"
+        },
+        {
+          "type": "range",
+          "id": "size",
+          "label": "Font size",
+          "min": 10,
+          "max": 72,
+          "step": 1,
+          "default": 12,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "spacing",
+          "label": "Space below",
+          "min": 0,
+          "max": 48,
+          "step": 2,
+          "default": 18,
+          "unit": "px"
+        }
+      ]
+    },
+    {
+      "type": "body_text",
+      "name": "Body Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Share your founder?s story, experience, and approach here.</p>"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Text color",
+          "default": "#52697a"
+        },
+        {
+          "type": "range",
+          "id": "size",
+          "label": "Font size",
+          "min": 10,
+          "max": 72,
+          "step": 1,
+          "default": 15,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "line_height",
+          "label": "Line height",
+          "min": 100,
+          "max": 220,
+          "step": 5,
+          "default": 150,
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "spacing",
+          "label": "Space below",
+          "min": 0,
+          "max": 40,
+          "step": 2,
+          "default": 0,
+          "unit": "px"
+        }
+      ]
+    },
+    {
+      "type": "gold_line",
+      "name": "Gold Line",
+      "settings": [
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Line color",
+          "default": "#b68a24"
+        },
+        {
+          "type": "range",
+          "id": "width",
+          "label": "Width",
+          "min": 20,
+          "max": 200,
+          "step": 4,
+          "default": 64,
+          "unit": "px"
+        }
+      ]
+    },
+    {
+      "type": "highlight_dialogue",
+      "name": "Highlight Dialogue",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>?I believe every person carries a story worth honoring. My approach is rooted in the conviction that healing is possible, hope is available, and no one should have to walk through life?s challenges alone.?</p>"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Text color",
+          "default": "#123c5a"
+        },
+        {
+          "type": "range",
+          "id": "size",
+          "label": "Font size",
+          "min": 10,
+          "max": 72,
+          "step": 1,
+          "default": 16,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "line_height",
+          "label": "Line height",
+          "min": 100,
+          "max": 220,
+          "step": 5,
+          "default": 150,
+          "unit": "%"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background",
+          "default": "#f4f0e2"
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Left border color",
+          "default": "#b68a24"
+        },
+        {
+          "type": "range",
+          "id": "border_width",
+          "label": "Border width",
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "default": 2,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "padding",
+          "label": "Padding",
+          "min": 12,
+          "max": 40,
+          "step": 2,
+          "default": 24,
+          "unit": "px"
+        }
+      ]
+    },
+    {
+      "type": "information_item",
+      "name": "Bottom Information Item",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon / Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "20+"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Text color",
+          "default": "#b68a24"
+        },
+        {
+          "type": "range",
+          "id": "size",
+          "label": "Font size",
+          "min": 10,
+          "max": 72,
+          "step": 1,
+          "default": 24,
+          "unit": "px"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "support",
+          "label": "Supporting text",
+          "default": "Years of Service"
+        },
+        {
+          "type": "color",
+          "id": "support_color",
+          "label": "Supporting text color",
+          "default": "#52697a"
+        },
+        {
+          "type": "range",
+          "id": "support_size",
+          "label": "Supporting text size",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "default": 11,
+          "unit": "px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Founder Story / About",
+      "blocks": [
+        {
+          "type": "eyebrow"
+        },
+        {
+          "type": "title"
+        },
+        {
+          "type": "role"
+        },
+        {
+          "type": "body_text",
+          "settings": {
+            "text": "<p>Denise Baron is a Licensed Christian Counselor and advocate with over 20 years of experience in domestic violence intervention, crisis support, and trauma-informed care. Her professional work has centered on empowering individuals in crisis to rebuild safety, stability, and self-worth.</p>"
+          }
+        },
+        {
+          "type": "body_text",
+          "settings": {
+            "text": "<p>She is a proud graduate of Kingdom Christian University (KCU), a Licensed Christian Counselor and ordained minister.</p>"
+          }
+        },
+        {
+          "type": "body_text",
+          "settings": {
+            "text": "<p>Her counseling philosophy is shaped by both professional training and personal life experience. Having walked through her own seasons of pain, transition, and restoration, she brings a deeply empathetic and grounded approach to her work.</p>"
+          }
+        },
+        {
+          "type": "body_text",
+          "settings": {
+            "text": "<p>She is also a mother of two adopted sons and resides in Florida, where her environment of peace, warmth, and coastal beauty reflects her commitment to restoration and renewal.</p>"
+          }
+        },
+        {
+          "type": "gold_line"
+        },
+        {
+          "type": "highlight_dialogue"
+        },
+        {
+          "type": "information_item"
+        },
+        {
+          "type": "information_item",
+          "settings": {
+            "text": "ELEVATE",
+            "support": "Counseling Model"
+          }
+        },
+        {
+          "type": "information_item",
+          "settings": {
+            "text": "Your focus",
+            "support": "Add a meaningful detail"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

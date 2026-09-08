@@ -1,0 +1,362 @@
+{% capture children %}<div class="elcc-cta">
+<div class="elcc-icon" data-story-reveal aria-hidden="true" style="color: {{ section.settings.accent }};">{% render 'custom-icons', icon: section.settings %}</div>
+<h2 class="elcc-heading" data-story-reveal style="--elcc-delay: 80ms; --elcc-heading-size: {{ section.settings.heading_size }}px; color: {{ section.settings.heading_color }};">{{ section.settings.heading }}</h2>
+<div class="elcc-description rte" data-story-reveal style="--elcc-delay: 160ms; color: {{ section.settings.copy_color }}; font-size: {{ section.settings.copy_size }}px;">{{ section.settings.copy }}</div>
+{% for block in section.blocks %}<div data-story-reveal style="--elcc-delay: {{ forloop.index0 | times: 80 | plus: 240 }}ms;">{% render 'button', block: block, link: block.settings.link %}</div>{% endfor %}
+<div class="elcc-contact-links" data-story-reveal style="--elcc-delay: 320ms; color: {{ section.settings.contact_color }};">
+{% assign phone = section.settings.phone | strip_html | strip %}{% assign email = section.settings.email | strip_html | strip %}
+{% if phone != blank %}<a href="tel:{{ phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' | escape }}">{{ phone | escape }}</a>{% endif %}
+{% if email != blank %}<a href="mailto:{{ email | escape }}">{{ email | escape }}</a>{% endif %}
+</div></div>{% endcapture %}
+{% render 'elcc-section', section: section, children: children, kind: 'cta' %}
+{% schema %}
+{
+  "name": "Consultation CTA",
+  "tag": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#153957"
+    },
+    {
+      "type": "color",
+      "id": "accent",
+      "label": "Gold line / Accent",
+      "default": "#d6ad29"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 72,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 72,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 600,
+      "max": 1440,
+      "step": 20,
+      "default": 1120,
+      "unit": "px"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#153957"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80,
+      "unit": "%"
+    },
+    {
+      "type": "select",
+      "id": "type",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "partners",
+          "label": "Partners"
+        },
+        {
+          "value": "graduation",
+          "label": "Graduation"
+        },
+        {
+          "value": "flower",
+          "label": "Flower"
+        },
+        {
+          "value": "shield",
+          "label": "Shield"
+        },
+        {
+          "value": "air",
+          "label": "Air"
+        },
+        {
+          "value": "sun",
+          "label": "Sun"
+        },
+        {
+          "value": "care",
+          "label": "Care"
+        }
+      ],
+      "default": "heart"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "You don't have to walk through this alone."
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 24,
+      "max": 64,
+      "step": 2,
+      "default": 44,
+      "unit": "px"
+    },
+    {
+      "type": "richtext",
+      "id": "copy",
+      "label": "Supporting text",
+      "default": "<p>Let's begin your healing journey together. Schedule a confidential consultation today.</p>"
+    },
+    {
+      "type": "color",
+      "id": "copy_color",
+      "label": "Supporting text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "copy_size",
+      "label": "Supporting text size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "phone",
+      "label": "Phone",
+      "default": "(727) 473-3696"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "email",
+      "label": "Email",
+      "default": "hello@empoweredlifecc.com"
+    },
+    {
+      "type": "color",
+      "id": "contact_color",
+      "label": "Contact text color",
+      "default": "#e4eaf0"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:settings.label",
+          "default": "t:text_defaults.button_label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:settings.link"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_in_new_tab",
+          "label": "t:settings.open_new_tab",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "style_class",
+          "label": "t:settings.style",
+          "options": [
+            {
+              "value": "button",
+              "label": "t:options.primary"
+            },
+            {
+              "value": "button-secondary",
+              "label": "t:options.secondary"
+            },
+            {
+              "value": "button-unstyled",
+              "label": "t:options.link"
+            },
+            {
+              "value": "button-custom",
+              "label": "t:options.custom"
+            }
+          ],
+          "default": "button",
+          "info": "t:info.edit_button_style_in_theme_settings"
+        },
+        {
+          "type": "header",
+          "content": "t:content.button_colors",
+          "visible_if": "{{ block.settings.style_class == \"button-custom\" }}"
+        },
+        {
+          "type": "color",
+          "id": "custom_button_background",
+          "label": "t:settings.background",
+          "default": "{{ settings.color_palette.foreground }}",
+          "alpha": true,
+          "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+        },
+        {
+          "type": "color",
+          "id": "custom_button_text",
+          "label": "t:settings.text",
+          "default": "{{ settings.color_palette.background }}",
+          "alpha": true,
+          "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+        },
+        {
+          "type": "color",
+          "id": "custom_button_border",
+          "label": "t:settings.borders",
+          "default": "{{ settings.color_palette.background }}",
+          "alpha": true,
+          "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+        },
+        {
+          "type": "color",
+          "id": "link_text_color",
+          "label": "t:settings.link_text_color",
+          "placeholder": "t:settings.default",
+          "visible_if": "{{ block.settings.style_class == 'button-unstyled' }}"
+        },
+        {
+          "type": "header",
+          "content": "t:content.size"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "t:settings.width_desktop",
+          "options": [
+            {
+              "value": "fit-content",
+              "label": "t:options.fit_content"
+            },
+            {
+              "value": "custom",
+              "label": "t:options.custom"
+            }
+          ],
+          "default": "fit-content"
+        },
+        {
+          "type": "range",
+          "id": "custom_width",
+          "label": "t:settings.custom_width",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 100,
+          "visible_if": "{{ block.settings.width == \"custom\" }}"
+        },
+        {
+          "type": "select",
+          "id": "width_mobile",
+          "label": "t:settings.width_mobile",
+          "options": [
+            {
+              "value": "fit-content",
+              "label": "t:options.fit_content"
+            },
+            {
+              "value": "custom",
+              "label": "t:options.custom"
+            }
+          ],
+          "default": "fit-content"
+        },
+        {
+          "type": "range",
+          "id": "custom_width_mobile",
+          "label": "t:settings.custom_width",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 100,
+          "visible_if": "{{ block.settings.width_mobile == \"custom\" }}"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Consultation CTA",
+      "blocks": [
+        {
+          "type": "button",
+          "settings": {
+            "label": "Schedule a Consultation",
+            "style_class": "button-custom",
+            "custom_button_background": "#d6ad29",
+            "custom_button_text": "#123e63",
+            "custom_button_border": "#d6ad29"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
