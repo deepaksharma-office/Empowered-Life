@@ -92,7 +92,7 @@
         "text_color": "#ffffff",
         "section_height": "large",
         "content_width": 900,
-        "padding_top": 76,
+        "padding_top": 180,
         "button_radius": 50
       }
     },
