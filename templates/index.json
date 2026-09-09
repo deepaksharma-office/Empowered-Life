@@ -1610,6 +1610,7 @@
         "padding_top": 72,
         "padding_bottom": 72,
         "content_width": 1120,
+        "image": "shopify://shop_images/sky-clouds.png",
         "overlay_color": "#f5f1e8",
         "overlay_opacity": 80,
         "eyebrow": "Testimonials",
