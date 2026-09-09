@@ -889,6 +889,15 @@
           },
           "blocks": {}
         },
+        "gold_line_hf9bfG": {
+          "type": "gold-line",
+          "name": "Gold Line",
+          "settings": {
+            "color": "#b68a24",
+            "width": 64
+          },
+          "blocks": {}
+        },
         "text_gKRHcb": {
           "type": "text",
           "name": "t:names.text",
@@ -919,6 +928,7 @@
       "block_order": [
         "text_jdwjpW",
         "text_KxNb44",
+        "gold_line_hf9bfG",
         "text_gKRHcb"
       ],
       "name": "t:names.rich_text_section",
