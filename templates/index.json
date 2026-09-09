@@ -1025,6 +1025,42 @@
     "service_card_grid_WrF6JH": {
       "type": "service-card-grid",
       "blocks": {
+        "service_dDMHAx": {
+          "type": "service",
+          "settings": {
+            "type": "flower",
+            "icon_background": "#f1f5f0",
+            "icon_color": "#527666",
+            "icon_hover_background": "#527666",
+            "icon_hover_color": "#ffffff",
+            "title": "Service title",
+            "content": "<p>Describe this service and how it can help.</p>"
+          }
+        },
+        "service_6GkmGm": {
+          "type": "service",
+          "settings": {
+            "type": "flower",
+            "icon_background": "#f1f5f0",
+            "icon_color": "#527666",
+            "icon_hover_background": "#527666",
+            "icon_hover_color": "#ffffff",
+            "title": "Service title",
+            "content": "<p>Describe this service and how it can help.</p>"
+          }
+        },
+        "service_pmghKx": {
+          "type": "service",
+          "settings": {
+            "type": "flower",
+            "icon_background": "#f1f5f0",
+            "icon_color": "#527666",
+            "icon_hover_background": "#527666",
+            "icon_hover_color": "#ffffff",
+            "title": "Service title",
+            "content": "<p>Describe this service and how it can help.</p>"
+          }
+        },
         "service_7jYWEF": {
           "type": "service",
           "settings": {
@@ -1111,6 +1147,9 @@
         }
       },
       "block_order": [
+        "service_dDMHAx",
+        "service_6GkmGm",
+        "service_pmghKx",
         "service_7jYWEF",
         "service_JzX7Pt",
         "service_NiNGUp",
@@ -1133,7 +1172,7 @@
         "content_color": "#586f82",
         "content_width": 1200,
         "padding_top": 32,
-        "padding_bottom": 32
+        "padding_bottom": 84
       }
     },
     "17887843081ba5740a": {
