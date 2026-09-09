@@ -1175,84 +1175,156 @@
         "padding_bottom": 84
       }
     },
-    "17887843081ba5740a": {
-      "type": "_blocks",
+    "elevate_model_GkdBd3": {
+      "type": "elevate-model",
       "blocks": {
-        "ai_gen_block_e165d19_pUi4wF": {
-          "type": "ai_gen_block_e165d19",
+        "framework_item_z6n9NM": {
+          "type": "framework_item",
           "settings": {
-            "background_image": "shopify://shop_images/Section026.png",
-            "overlay_color": "#173a5e",
-            "overlay_opacity": 75,
-            "section_padding_top": 120,
-            "section_padding_bottom": 120,
-            "content_max_width": 600,
-            "eyebrow_text": "OUR APPROACH",
-            "heading": "The ELEVATE Model",
-            "subheading": "A proprietary seven-step framework that guides every counseling journey from first session to lasting transformation.",
-            "step_1_title": "Empower",
-            "step_1_description": "Helping clients discover their God-given strength and identity.",
-            "step_2_title": "Listen",
-            "step_2_description": "Creating a safe space where every story is heard with compassion.",
-            "step_3_title": "Equip",
-            "step_3_description": "Providing practical, evidence-based tools for lasting change.",
-            "step_4_title": "Validate",
-            "step_4_description": "Honoring each person's pain and journey without judgment.",
-            "step_5_title": "Activate",
-            "step_5_description": "Mobilizing faith and purpose toward meaningful action and growth.",
-            "step_6_title": "Transform",
-            "step_6_description": "Facilitating deep, Spirit-led healing that renews the heart and mind.",
-            "step_7_title": "Establish",
-            "step_7_description": "Building resilient foundations for sustained emotional and spiritual health.",
-            "heading_font": "serif",
-            "body_font": "system_ui_n4",
-            "eyebrow_font": "system_ui_n4",
-            "heading_size": 48,
-            "body_text_size": 14,
-            "step_title_size": 16,
-            "step_desc_size": 12,
-            "heading_color": "#f5f2ea",
-            "body_text_color": "#b8c5d0",
-            "step_desc_color": "#8899aa",
-            "accent_color": "#a8954f",
-            "circle_size": 40,
-            "step_spacing": 32,
-            "desktop_width_percent": 100
-          },
-          "blocks": {}
+            "large_text": "E",
+            "large_color": "#d6b33e",
+            "large_size": 24,
+            "title": "Empower",
+            "title_color": "#ffffff",
+            "title_size": 20,
+            "content": "<p>Helping clients discover their God-given strength and identity.</p>",
+            "content_color": "#edf1f5",
+            "content_size": 14,
+            "content_leading": 150
+          }
+        },
+        "framework_item_6rx7TU": {
+          "type": "framework_item",
+          "settings": {
+            "large_text": "L",
+            "large_color": "#d6b33e",
+            "large_size": 24,
+            "title": "Listen",
+            "title_color": "#ffffff",
+            "title_size": 20,
+            "content": "<p>Creating a safe space where every story is heard with compassion.</p>",
+            "content_color": "#edf1f5",
+            "content_size": 14,
+            "content_leading": 150
+          }
+        },
+        "framework_item_WELzPL": {
+          "type": "framework_item",
+          "settings": {
+            "large_text": "E",
+            "large_color": "#d6b33e",
+            "large_size": 24,
+            "title": "Equip",
+            "title_color": "#ffffff",
+            "title_size": 20,
+            "content": "<p>Providing practical, evidence-based tools for lasting change.</p>",
+            "content_color": "#edf1f5",
+            "content_size": 14,
+            "content_leading": 150
+          }
+        },
+        "framework_item_pJfq8k": {
+          "type": "framework_item",
+          "settings": {
+            "large_text": "V",
+            "large_color": "#d6b33e",
+            "large_size": 24,
+            "title": "Validate",
+            "title_color": "#ffffff",
+            "title_size": 20,
+            "content": "<p>Honoring each person's pain and journey without judgment.</p>",
+            "content_color": "#edf1f5",
+            "content_size": 14,
+            "content_leading": 150
+          }
+        },
+        "framework_item_7hjc9E": {
+          "type": "framework_item",
+          "settings": {
+            "large_text": "A",
+            "large_color": "#d6b33e",
+            "large_size": 24,
+            "title": "Activate",
+            "title_color": "#ffffff",
+            "title_size": 20,
+            "content": "<p>Describe how this step helps clients put their learning into practice.</p>",
+            "content_color": "#edf1f5",
+            "content_size": 14,
+            "content_leading": 150
+          }
+        },
+        "framework_item_RgrWLQ": {
+          "type": "framework_item",
+          "settings": {
+            "large_text": "T",
+            "large_color": "#d6b33e",
+            "large_size": 24,
+            "title": "Transform",
+            "title_color": "#ffffff",
+            "title_size": 20,
+            "content": "<p>Describe the transformation supported by this step.</p>",
+            "content_color": "#edf1f5",
+            "content_size": 14,
+            "content_leading": 150
+          }
+        },
+        "framework_item_PYMffz": {
+          "type": "framework_item",
+          "settings": {
+            "large_text": "E",
+            "large_color": "#d6b33e",
+            "large_size": 24,
+            "title": "Evolve",
+            "title_color": "#ffffff",
+            "title_size": 20,
+            "content": "<p>Describe how this step supports continued growth.</p>",
+            "content_color": "#edf1f5",
+            "content_size": 14,
+            "content_leading": 150
+          }
         }
       },
       "block_order": [
-        "ai_gen_block_e165d19_pUi4wF"
+        "framework_item_z6n9NM",
+        "framework_item_6rx7TU",
+        "framework_item_WELzPL",
+        "framework_item_pJfq8k",
+        "framework_item_7hjc9E",
+        "framework_item_RgrWLQ",
+        "framework_item_PYMffz"
       ],
+      "name": "ELEVATE Model / Approach",
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "image",
-        "background_color": "",
-        "video_position": "cover",
-        "background_image": "shopify://shop_images/Section026.png",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "",
-        "border_radius": 0,
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "image": "shopify://shop_images/forest-path.png",
+        "overlay_color": "#153957",
+        "overlay_opacity": 80,
+        "eyebrow": "Our Approach",
+        "eyebrow_color": "#d6b33e",
+        "eyebrow_size": 11,
+        "eyebrow_tracking": 20,
+        "title": "The ELEVATE Model",
+        "title_color": "#ffffff",
+        "title_size": 40,
+        "title_mobile": 30,
+        "title_leading": 120,
+        "title_alignment": "center",
+        "heading_tag": "h2",
+        "show_line": true,
+        "line_color": "#d6b33e",
+        "line_width": 64,
+        "description": "<p>A proprietary seven-step framework that guides every counseling journey from first session to lasting transformation.</p>",
+        "description_color": "#edf1f5",
+        "description_size": 16,
+        "description_leading": 150,
+        "item_heading_tag": "h3",
+        "list_width": 860,
+        "item_gap": 22,
+        "header_gap": 60,
+        "circle_size": 58,
+        "circle_background": "#d6b33e26",
+        "circle_border": "#d6b33e80",
+        "padding_top": 112,
+        "padding_bottom": 112
       }
     },
     "section_XCL4Dk": {
@@ -2702,7 +2774,7 @@
     "section_eia934",
     "section_D3hGir",
     "service_card_grid_WrF6JH",
-    "17887843081ba5740a",
+    "elevate_model_GkdBd3",
     "section_XCL4Dk",
     "1788791126a7b44d9c",
     "section_eiaXA9",
