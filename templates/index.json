@@ -1345,7 +1345,7 @@
         "feature_iBhpFM": {
           "type": "feature",
           "settings": {
-            "type": "heart",
+            "type": "heartbeat",
             "icon_color": "#d6ad29",
             "icon_background": "#d3dde1",
             "title": "Trauma-Informed",
@@ -1357,7 +1357,7 @@
         "feature_Wd7Nbp": {
           "type": "feature",
           "settings": {
-            "type": "graduation",
+            "type": "book",
             "icon_color": "#d6ad29",
             "icon_background": "#d3dde1",
             "title": "Biblical Integration",
@@ -1369,7 +1369,7 @@
         "feature_NdUTz7": {
           "type": "feature",
           "settings": {
-            "type": "sun",
+            "type": "primogem",
             "icon_color": "#d6ad29",
             "icon_background": "#d3dde1",
             "title": "Evidence-Based Care",
@@ -1381,7 +1381,7 @@
         "feature_VyARTz": {
           "type": "feature",
           "settings": {
-            "type": "care",
+            "type": "prayer",
             "icon_color": "#d6ad29",
             "icon_background": "#d3dde1",
             "title": "Prayer Available",
@@ -1393,7 +1393,7 @@
         "feature_ETFtDQ": {
           "type": "feature",
           "settings": {
-            "type": "shield",
+            "type": "lock",
             "icon_color": "#d6ad29",
             "icon_background": "#d3dde1",
             "title": "Confidential",
@@ -1405,7 +1405,7 @@
         "feature_E3qrTr": {
           "type": "feature",
           "settings": {
-            "type": "heart",
+            "type": "home",
             "icon_color": "#d6ad29",
             "icon_background": "#d3dde1",
             "title": "Safe Environment",
@@ -1417,7 +1417,7 @@
         "feature_wcQwhM": {
           "type": "feature",
           "settings": {
-            "type": "care",
+            "type": "heartcare",
             "icon_color": "#d6ad29",
             "icon_background": "#d3dde1",
             "title": "Personalized Treatment",
@@ -1470,7 +1470,7 @@
         "audience_3qEQCq": {
           "type": "audience",
           "settings": {
-            "type": "heart",
+            "type": "simpleheart",
             "icon_color": "#62879e",
             "icon_background": "#d3dde1",
             "title": "Individuals",
@@ -1494,7 +1494,7 @@
         "audience_UbKX3D": {
           "type": "audience",
           "settings": {
-            "type": "heart",
+            "type": "home",
             "icon_color": "#62879e",
             "icon_background": "#d3dde1",
             "title": "Families",
@@ -1506,7 +1506,7 @@
         "audience_mdgKHE": {
           "type": "audience",
           "settings": {
-            "type": "care",
+            "type": "prayer",
             "icon_color": "#62879e",
             "icon_background": "#d3dde1",
             "title": "Caregivers",
