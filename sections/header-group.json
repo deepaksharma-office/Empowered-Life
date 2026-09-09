@@ -52,9 +52,9 @@
           "type": "button",
           "static": true,
           "settings": {
-            "label": "Shop now",
-            "link": "",
-            "open_in_new_tab": false,
+            "label": "Schedule a Consultation",
+            "link": "https://allen.store/empoweredlife",
+            "open_in_new_tab": true,
             "style_class": "button",
             "custom_button_background": "{{ settings.color_palette.foreground }}",
             "custom_button_text": "{{ settings.color_palette.background }}",
