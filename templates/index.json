@@ -692,96 +692,146 @@
         "padding-block-end": 48
       }
     },
-    "17887804507b6e632d": {
-      "type": "_blocks",
+    "founder_story_cUABLw": {
+      "type": "founder-story",
       "blocks": {
-        "ai_gen_block_43c317f_K8VdWM": {
-          "type": "ai_gen_block_43c317f",
+        "eyebrow_w44PRy": {
+          "type": "eyebrow",
           "settings": {
-            "eyebrow": "FOUNDER STORY & PROFESSIONAL BACKGROUND",
-            "heading": "Meet Denise Baron",
-            "role": "Lead Counselor & Founder",
-            "biography": "<p>With over two decades of dedicated service, I've had the privilege of walking alongside individuals and families through their most challenging moments. My approach combines evidence-based therapeutic practices with compassionate, faith-centered guidance.</p><p>Every person's journey is unique, and I'm committed to creating a safe, non-judgmental space where healing and transformation can occur. Together, we'll work towards sustainable growth and lasting positive change.</p>",
-            "founder_image": "shopify://shop_images/Container645.png",
-            "image_alt": "",
-            "image_focal_point": "center",
-            "show_quote": true,
-            "quote_text": "True transformation happens when we create space for vulnerability, embrace our authentic selves, and trust the journey of growth.",
-            "show_credentials": true,
-            "credential_1_value": "20+",
-            "credential_1_caption": "Years of Service",
-            "credential_2_value": "ELEVATE",
-            "credential_2_caption": "Counseling Model",
-            "show_credential_divider": true,
-            "max_width": 1200,
-            "left_column_width": 47,
-            "column_gap": 50,
-            "desktop_width_percent": 100,
-            "section_bg_color": "#faf8f5",
-            "heading_color": "#1a2b3c",
-            "body_color": "#5a6c7d",
-            "accent_color": "#c9a961",
-            "role_color": "#6b8e7f",
-            "quote_bg_color": "#f5f0e8",
-            "outline_color": "#d4b87d",
-            "heading_size_desktop": 44,
-            "heading_size_mobile": 34,
-            "role_size": 16,
-            "bio_size_desktop": 16,
-            "bio_size_mobile": 15,
-            "bio_line_height": 1.7,
-            "quote_size": 15,
-            "credential_value_size": 32,
-            "credential_caption_size": 11,
-            "image_border_radius": 14,
-            "show_image_outline": true,
-            "outline_offset": 10,
-            "divider_width": 40,
-            "divider_height": 2,
-            "quote_padding": 22,
-            "quote_border_width": 3,
-            "quote_border_radius": 8,
-            "credentials_gap": 40,
-            "credential_divider_height": 45,
-            "padding_top_desktop": 90,
-            "padding_bottom_desktop": 90,
-            "padding_top_mobile": 50,
-            "padding_bottom_mobile": 50,
-            "stack_credentials_mobile": false
-          },
-          "blocks": {}
+            "text": "Founder Story & Professional Background",
+            "color": "#b68a24",
+            "size": 11,
+            "alignment": "left",
+            "tracking": 16
+          }
+        },
+        "title_PnNzxm": {
+          "type": "title",
+          "settings": {
+            "text": "Meet Denise Baron",
+            "color": "#123c5a",
+            "size": 42,
+            "line_height": 150,
+            "alignment": "left",
+            "mobile_size": 32,
+            "tag": "h2"
+          }
+        },
+        "role_hbUWTy": {
+          "type": "role",
+          "settings": {
+            "text": "Lead Counselor & Founder",
+            "color": "#123c5a",
+            "size": 12,
+            "spacing": 18
+          }
+        },
+        "gold_line_YNQciH": {
+          "type": "gold_line",
+          "settings": {
+            "color": "#b68a24",
+            "width": 64
+          }
+        },
+        "body_text_ykcTnV": {
+          "type": "body_text",
+          "settings": {
+            "text": "<p>Denise Baron is a Licensed Christian Counselor and advocate with over 20 years of experience in domestic violence intervention, crisis support, and trauma-informed care. Her professional work has centered on empowering individuals in crisis to rebuild safety, stability, and self-worth.</p>",
+            "color": "#52697a",
+            "size": 15,
+            "line_height": 150,
+            "spacing": 0
+          }
+        },
+        "body_text_h7NCfG": {
+          "type": "body_text",
+          "settings": {
+            "text": "<p>She is a proud graduate of Kingdom Christian University (KCU), a Licensed Christian Counselor and ordained minister.</p>",
+            "color": "#52697a",
+            "size": 15,
+            "line_height": 150,
+            "spacing": 0
+          }
+        },
+        "body_text_dNBiiB": {
+          "type": "body_text",
+          "settings": {
+            "text": "<p>Her counseling philosophy is shaped by both professional training and personal life experience. Having walked through her own seasons of pain, transition, and restoration, she brings a deeply empathetic and grounded approach to her work.</p>",
+            "color": "#52697a",
+            "size": 15,
+            "line_height": 150,
+            "spacing": 0
+          }
+        },
+        "body_text_X3wbKH": {
+          "type": "body_text",
+          "settings": {
+            "text": "<p>She is also a mother of two adopted sons and resides in Florida, where her environment of peace, warmth, and coastal beauty reflects her commitment to restoration and renewal.</p>",
+            "color": "#52697a",
+            "size": 15,
+            "line_height": 150,
+            "spacing": 0
+          }
+        },
+        "highlight_dialogue_NxVUMC": {
+          "type": "highlight_dialogue",
+          "settings": {
+            "text": "<p>\"I believe every person carries a story worth honoring. My approach is rooted in the conviction that healing is possible, hope is available, and no one should have to walk through life?s challenges alone.\"</p>",
+            "color": "#123c5a",
+            "size": 16,
+            "line_height": 150,
+            "background": "#f4f0e2",
+            "border_color": "#b68a24",
+            "border_width": 2,
+            "padding": 24
+          }
+        },
+        "information_item_R7Fadt": {
+          "type": "information_item",
+          "settings": {
+            "text": "20+",
+            "color": "#b68a24",
+            "size": 24,
+            "support": "Years of Service",
+            "support_color": "#52697a",
+            "support_size": 11
+          }
+        },
+        "information_item_qTAUyE": {
+          "type": "information_item",
+          "settings": {
+            "text": "ELEVATE",
+            "color": "#b68a24",
+            "size": 24,
+            "support": "Counseling Model",
+            "support_color": "#52697a",
+            "support_size": 11
+          }
         }
       },
       "block_order": [
-        "ai_gen_block_43c317f_K8VdWM"
+        "eyebrow_w44PRy",
+        "title_PnNzxm",
+        "role_hbUWTy",
+        "gold_line_YNQciH",
+        "body_text_ykcTnV",
+        "body_text_h7NCfG",
+        "body_text_dNBiiB",
+        "body_text_X3wbKH",
+        "highlight_dialogue_NxVUMC",
+        "information_item_R7Fadt",
+        "information_item_qTAUyE"
       ],
+      "name": "Founder Story / About",
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "",
-        "border_radius": 0,
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "image": "shopify://shop_images/counselor-portrait.png",
+        "image_position": "left",
+        "background": "#f8f6f2",
+        "accent": "#d8c691",
+        "separator": "#dadfd5",
+        "radius": 16,
+        "spacing": 64,
+        "content_width": 1120
       }
     },
     "section_eia934": {
@@ -3813,7 +3863,7 @@
   "order": [
     "cinematic_hero_jTp4YE",
     "section_GG77Vb",
-    "17887804507b6e632d",
+    "founder_story_cUABLw",
     "section_eia934",
     "section_8DEU4w",
     "17887843081ba5740a",
