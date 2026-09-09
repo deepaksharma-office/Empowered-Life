@@ -2,7 +2,8 @@
 {% comment %}Reuse the existing viewport reveal component without its founder-specific layout styles.{% endcomment %}
 <script src="{{ 'founder-story.js' | asset_url }}" type="module"></script>
 
-<founder-story class="service-card-grid"
+<founder-story
+  class="service-card-grid"
   style="
     --services-background: {{ section.settings.background }};
     --services-card-background: {{ section.settings.card_background }};
@@ -20,11 +21,14 @@
 >
   <ul class="service-card-grid__list list-unstyled" role="list">
     {% for block in section.blocks %}
-      <li class="service-card-grid__item" data-story-reveal
+      <li
+        class="service-card-grid__item"
+        data-story-reveal
         style="--services-delay: {{ forloop.index0 | at_most: 6 | times: 90 }}ms;"
         {{ block.shopify_attributes }}
       >
-        <article class="service-card-grid__card"
+        <article
+          class="service-card-grid__card"
           style="--services-icon-background: {{ block.settings.icon_background }}; --services-icon-color: {{ block.settings.icon_color }}; --services-icon-hover-background: {{ block.settings.icon_hover_background }}; --services-icon-hover-color: {{ block.settings.icon_hover_color }};"
         >
           <div class="service-card-grid__icon">
@@ -38,7 +42,9 @@
             {% endif %}
           </div>
           {% if block.settings.title != blank %}
-            <{{ section.settings.heading_tag }} class="service-card-grid__title">{{ block.settings.title }}</{{ section.settings.heading_tag }}>
+            <{{ section.settings.heading_tag }} class="service-card-grid__title">
+              {{- block.settings.title -}}
+            </{{ section.settings.heading_tag }}>
           {% endif %}
           {% if block.settings.content != blank %}
             <div class="service-card-grid__description rte">{{ block.settings.content }}</div>
@@ -54,10 +60,7 @@
   "name": "Service card grid",
   "tag": "section",
   "disabled_on": {
-    "groups": [
-      "header",
-      "footer"
-    ]
+    "groups": ["header", "footer"]
   },
   "settings": [
     {
@@ -196,8 +199,8 @@
           "label": "Icon",
           "options": [
             {
-              "value": "heart",
-              "label": "Heart"
+              "value": "simpleheart",
+              "label": "Simple Heart"
             },
             {
               "value": "partners",
@@ -216,6 +219,10 @@
               "label": "Shield"
             },
             {
+              "value": "heartbeat",
+              "label": "Heartbeat"
+            },
+            {
               "value": "air",
               "label": "Air"
             },
@@ -224,8 +231,32 @@
               "label": "Sun"
             },
             {
-              "value": "care",
-              "label": "Care"
+              "value": "tree",
+              "label": "Tree"
+            },
+            {
+              "value": "heartcare",
+              "label": "Heart Care"
+            },
+            {
+              "value": "book",
+              "label": "Book"
+            },
+            {
+              "value": "primogem",
+              "label": "Primogem"
+            },
+            {
+              "value": "prayer",
+              "label": "Prayer"
+            },
+            {
+              "value": "lock",
+              "label": "Lock"
+            },
+            {
+              "value": "home",
+              "label": "Home"
             }
           ],
           "default": "flower",
