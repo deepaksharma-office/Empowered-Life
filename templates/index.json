@@ -1819,6 +1819,7 @@
         "padding_top": 72,
         "padding_bottom": 72,
         "content_width": 1120,
+        "image": "shopify://shop_images/garden-scene.png",
         "overlay_color": "#153957",
         "overlay_opacity": 80,
         "type": "heart",
