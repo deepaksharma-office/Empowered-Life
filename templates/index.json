@@ -826,7 +826,7 @@
       "settings": {
         "image": "shopify://shop_images/counselor-portrait.png",
         "image_position": "left",
-        "background": "#f8f6f2",
+        "background": "#F8F6F2",
         "accent": "#d8c691",
         "separator": "#dadfd5",
         "radius": 16,
@@ -837,6 +837,32 @@
     "section_eia934": {
       "type": "section",
       "blocks": {
+        "text_jdwjpW": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>Our Services</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "#D4AF37",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "text_KxNb44": {
           "type": "text",
           "name": "t:names.heading",
@@ -857,7 +883,7 @@
             "background_color": "#00000026",
             "corner_radius": 0,
             "padding-block-start": 0,
-            "padding-block-end": 0,
+            "padding-block-end": 12,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
@@ -882,7 +908,7 @@
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
-            "padding-block-start": 0,
+            "padding-block-start": 20,
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
@@ -891,6 +917,7 @@
         }
       },
       "block_order": [
+        "text_jdwjpW",
         "text_KxNb44",
         "text_gKRHcb"
       ],
@@ -903,12 +930,12 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 25,
+        "gap": 0,
         "section_width": "page-width",
         "section_height": "custom",
         "section_height_custom": 0,
         "background_media": "none",
-        "background_color": "#f8f6f2",
+        "background_color": "#EDE9E3",
         "video_position": "cover",
         "background_image_position": "cover",
         "toggle_overlay": false,
@@ -920,7 +947,7 @@
         "border_opacity": 100,
         "border_color": "",
         "border_radius": 0,
-        "padding-block-start": 0,
+        "padding-block-start": 80,
         "padding-block-end": 0
       }
     },
@@ -2324,7 +2351,7 @@
         "section_height": "",
         "section_height_custom": 50,
         "background_media": "none",
-        "background_color": "#f8f6f2",
+        "background_color": "#EDE9E3",
         "video_position": "cover",
         "background_image_position": "cover",
         "toggle_overlay": false,
@@ -2336,8 +2363,8 @@
         "border_opacity": 100,
         "border_color": "",
         "border_radius": 0,
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 0,
+        "padding-block-end": 56
       }
     },
     "17887843081ba5740a": {
