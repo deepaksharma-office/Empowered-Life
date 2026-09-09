@@ -1,5 +1,11 @@
-<div class="gold-line" aria-hidden="true" style="width: {{ block.settings.width }}px; background-color: {{ block.settings.color }}; height: 1px;"></div>
-
+<div class="gold-line" aria-hidden="true" style="--story-line-width: {{ block.settings.width }}px;"></div>
+<style>
+  .gold-line{
+      width: min(100%, var(--story-line-width));
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--story-color), transparent);
+  }
+</style>
 {% schema %}
 {
   "name": "Gold Line",
