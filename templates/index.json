@@ -1006,7 +1006,7 @@
         "section_height": "small",
         "section_height_custom": 50,
         "background_media": "none",
-        "background_color": "#EDE9E3",
+        "background_color": "#ede9e3",
         "video_position": "cover",
         "background_image_position": "cover",
         "toggle_overlay": false,
@@ -1028,37 +1028,37 @@
         "service_dDMHAx": {
           "type": "service",
           "settings": {
-            "type": "flower",
+            "type": "simpleheart",
             "icon_background": "#f1f5f0",
             "icon_color": "#527666",
             "icon_hover_background": "#527666",
             "icon_hover_color": "#ffffff",
-            "title": "Service title",
-            "content": "<p>Describe this service and how it can help.</p>"
+            "title": "Individual Counseling",
+            "content": "<p>Personalized one-on-one support for anxiety, depression, grief, trauma, and life transitions.</p>"
           }
         },
         "service_6GkmGm": {
           "type": "service",
           "settings": {
-            "type": "flower",
+            "type": "partners",
             "icon_background": "#f1f5f0",
             "icon_color": "#527666",
             "icon_hover_background": "#527666",
             "icon_hover_color": "#ffffff",
-            "title": "Service title",
-            "content": "<p>Describe this service and how it can help.</p>"
+            "title": "Marriage Counseling",
+            "content": "<p>Rebuild connection, improve communication, and restore intimacy in your relationship.</p>"
           }
         },
         "service_pmghKx": {
           "type": "service",
           "settings": {
-            "type": "flower",
+            "type": "graduation",
             "icon_background": "#f1f5f0",
             "icon_color": "#527666",
             "icon_hover_background": "#527666",
             "icon_hover_color": "#ffffff",
-            "title": "Service title",
-            "content": "<p>Describe this service and how it can help.</p>"
+            "title": "Premarital Counseling",
+            "content": "<p>Lay a Christ-centered foundation for a lasting, healthy, and thriving marriage.</p>"
           }
         },
         "service_7jYWEF": {
@@ -1088,7 +1088,7 @@
         "service_NiNGUp": {
           "type": "service",
           "settings": {
-            "type": "heart",
+            "type": "heartbeat",
             "icon_background": "#f1f5f0",
             "icon_color": "#527666",
             "icon_hover_background": "#527666",
@@ -1124,7 +1124,7 @@
         "service_J8pYPt": {
           "type": "service",
           "settings": {
-            "type": "sun",
+            "type": "tree",
             "icon_background": "#f1f5f0",
             "icon_color": "#527666",
             "icon_hover_background": "#527666",
@@ -1136,7 +1136,7 @@
         "service_d8AHYd": {
           "type": "service",
           "settings": {
-            "type": "care",
+            "type": "heartcare",
             "icon_background": "#f1f5f0",
             "icon_color": "#527666",
             "icon_hover_background": "#527666",
