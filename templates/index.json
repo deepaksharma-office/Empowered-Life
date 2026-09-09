@@ -1327,1443 +1327,481 @@
         "padding_bottom": 112
       }
     },
-    "section_XCL4Dk": {
-      "type": "section",
+    "why_choose_elcc_KpBGH6": {
+      "type": "why-choose-elcc",
       "blocks": {
-        "group_XineeU": {
-          "type": "group",
-          "name": "t:names.group",
+        "feature_bgn7KW": {
+          "type": "feature",
           "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "background_color": "",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "text_m76bix": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<p>Why Choose Us</p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "#d4af37",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_Pr6nDr": {
-              "type": "text",
-              "name": "t:names.heading",
-              "settings": {
-                "text": "<h2>Why Choose ELCC<br/></h2>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "#1f3a5f",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_DwwhVJ": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<p>A practice built on trust, expertise, and unwavering compassion.</p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_m76bix",
-            "text_Pr6nDr",
-            "text_DwwhVJ"
-          ]
+            "type": "shield",
+            "icon_color": "#d6ad29",
+            "icon_background": "#d3dde1",
+            "title": "20+ Years Experience",
+            "title_color": "#123e63",
+            "content": "<p>Two decades of trauma and crisis intervention expertise.</p>",
+            "content_color": "#58738b"
+          }
         },
-        "group_RjJCEM": {
-          "type": "group",
-          "name": "t:names.group",
+        "feature_iBhpFM": {
+          "type": "feature",
           "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "background_color": "",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "group_inq4J9": {
-              "type": "group",
-              "name": "t:names.group",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "background_media": "none",
-                "background_color": "",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "toggle_overlay": false,
-                "overlay_color": "#00000003",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "border": "solid",
-                "border_width": 1,
-                "border_opacity": 0,
-                "border_color": "#a8bfa3",
-                "border_radius": 15,
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 30,
-                "padding-block-end": 30,
-                "padding-inline-start": 20,
-                "padding-inline-end": 20
-              },
-              "blocks": {
-                "icon_Q7dp3r": {
-                  "type": "icon",
-                  "name": "t:names.icon",
-                  "settings": {
-                    "icon": "price_tag",
-                    "image_upload": "shopify://shop_images/Icon.png",
-                    "width": 50,
-                    "link": "",
-                    "open_in_new_tab": false,
-                    "icon_color": ""
-                  },
-                  "blocks": {}
-                },
-                "text_pXY8Qr": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "settings": {
-                    "text": "<h4>Individual Counseling<br/></h4>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "#1f3a5f",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "text_MAfqwM": {
-                  "type": "text",
-                  "name": "t:names.text",
-                  "settings": {
-                    "text": "<p>Personalized one-on-one support for anxiety, depression, grief, trauma, and life transitions.</p>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "#1f3a5f",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "icon_Q7dp3r",
-                "text_pXY8Qr",
-                "text_MAfqwM"
-              ]
-            },
-            "group_BE8ye4": {
-              "type": "group",
-              "name": "t:names.group",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "background_media": "none",
-                "background_color": "",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "border": "solid",
-                "border_width": 1,
-                "border_opacity": 20,
-                "border_color": "#a8bfa3",
-                "border_radius": 15,
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 30,
-                "padding-block-end": 30,
-                "padding-inline-start": 20,
-                "padding-inline-end": 20
-              },
-              "blocks": {
-                "icon_4E8h3P": {
-                  "type": "icon",
-                  "name": "t:names.icon",
-                  "settings": {
-                    "icon": "price_tag",
-                    "image_upload": "shopify://shop_images/Icon-1.png",
-                    "width": 50,
-                    "link": "",
-                    "open_in_new_tab": false,
-                    "icon_color": ""
-                  },
-                  "blocks": {}
-                },
-                "text_h4nmBi": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "settings": {
-                    "text": "<h4>Individual Counseling<br/></h4>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "#1f3a5f",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "text_qUC7fp": {
-                  "type": "text",
-                  "name": "t:names.text",
-                  "settings": {
-                    "text": "<p>Personalized one-on-one support for anxiety, depression, grief, trauma, and life transitions.</p>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "#1f3a5f",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "icon_4E8h3P",
-                "text_h4nmBi",
-                "text_qUC7fp"
-              ]
-            },
-            "group_zhGf8f": {
-              "type": "group",
-              "name": "t:names.group",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "background_media": "none",
-                "background_color": "",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "border": "solid",
-                "border_width": 1,
-                "border_opacity": 20,
-                "border_color": "#a8bfa3",
-                "border_radius": 15,
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 30,
-                "padding-block-end": 30,
-                "padding-inline-start": 20,
-                "padding-inline-end": 20
-              },
-              "blocks": {
-                "icon_ajyQWg": {
-                  "type": "icon",
-                  "name": "t:names.icon",
-                  "settings": {
-                    "icon": "price_tag",
-                    "image_upload": "shopify://shop_images/Icon-2.png",
-                    "width": 50,
-                    "link": "",
-                    "open_in_new_tab": false,
-                    "icon_color": ""
-                  },
-                  "blocks": {}
-                },
-                "text_DVfGDD": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "settings": {
-                    "text": "<h4>Individual Counseling<br/></h4>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "#1f3a5f",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "text_nmjcT7": {
-                  "type": "text",
-                  "name": "t:names.text",
-                  "settings": {
-                    "text": "<p>Personalized one-on-one support for anxiety, depression, grief, trauma, and life transitions.</p>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "#1f3a5f",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "icon_ajyQWg",
-                "text_DVfGDD",
-                "text_nmjcT7"
-              ]
-            }
-          },
-          "block_order": [
-            "group_inq4J9",
-            "group_BE8ye4",
-            "group_zhGf8f"
-          ]
+            "type": "heart",
+            "icon_color": "#d6ad29",
+            "icon_background": "#d3dde1",
+            "title": "Trauma-Informed",
+            "title_color": "#123e63",
+            "content": "<p>Care that understands the impact of trauma on the whole person.</p>",
+            "content_color": "#58738b"
+          }
         },
-        "group_bEKeeJ": {
-          "type": "group",
-          "name": "t:names.group",
+        "feature_Wd7Nbp": {
+          "type": "feature",
           "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "background_color": "",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "group_6xkmMY": {
-              "type": "group",
-              "name": "t:names.group",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "background_media": "none",
-                "background_color": "",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "border": "solid",
-                "border_width": 1,
-                "border_opacity": 20,
-                "border_color": "#a8bfa3",
-                "border_radius": 15,
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 30,
-                "padding-block-end": 30,
-                "padding-inline-start": 20,
-                "padding-inline-end": 20
-              },
-              "blocks": {
-                "icon_ccCrBy": {
-                  "type": "icon",
-                  "name": "t:names.icon",
-                  "settings": {
-                    "icon": "price_tag",
-                    "image_upload": "shopify://shop_images/Icon-4.png",
-                    "width": 50,
-                    "link": "",
-                    "open_in_new_tab": false,
-                    "icon_color": ""
-                  },
-                  "blocks": {}
-                },
-                "text_MgqrUp": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "settings": {
-                    "text": "<h4>Individual Counseling<br/></h4>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "#1f3a5f",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "text_xKXyxY": {
-                  "type": "text",
-                  "name": "t:names.text",
-                  "settings": {
-                    "text": "<p>Personalized one-on-one support for anxiety, depression, grief, trauma, and life transitions.</p>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "#1f3a5f",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "icon_ccCrBy",
-                "text_MgqrUp",
-                "text_xKXyxY"
-              ]
-            },
-            "group_LVkeqJ": {
-              "type": "group",
-              "name": "t:names.group",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "background_media": "none",
-                "background_color": "",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "border": "solid",
-                "border_width": 1,
-                "border_opacity": 20,
-                "border_color": "#a8bfa3",
-                "border_radius": 15,
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 30,
-                "padding-block-end": 30,
-                "padding-inline-start": 20,
-                "padding-inline-end": 20
-              },
-              "blocks": {
-                "icon_FTxHmh": {
-                  "type": "icon",
-                  "name": "t:names.icon",
-                  "settings": {
-                    "icon": "price_tag",
-                    "image_upload": "shopify://shop_images/Icon-5.png",
-                    "width": 50,
-                    "link": "",
-                    "open_in_new_tab": false,
-                    "icon_color": ""
-                  },
-                  "blocks": {}
-                },
-                "text_tzH9jG": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "settings": {
-                    "text": "<h4>Individual Counseling<br/></h4>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "#1f3a5f",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "text_gEd6gE": {
-                  "type": "text",
-                  "name": "t:names.text",
-                  "settings": {
-                    "text": "<p>Personalized one-on-one support for anxiety, depression, grief, trauma, and life transitions.</p>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "#1f3a5f",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "icon_FTxHmh",
-                "text_tzH9jG",
-                "text_gEd6gE"
-              ]
-            },
-            "group_tNMth8": {
-              "type": "group",
-              "name": "t:names.group",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "background_media": "none",
-                "background_color": "",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "border": "solid",
-                "border_width": 1,
-                "border_opacity": 20,
-                "border_color": "#a8bfa3",
-                "border_radius": 15,
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 30,
-                "padding-block-end": 30,
-                "padding-inline-start": 20,
-                "padding-inline-end": 20
-              },
-              "blocks": {
-                "icon_hV437B": {
-                  "type": "icon",
-                  "name": "t:names.icon",
-                  "settings": {
-                    "icon": "price_tag",
-                    "image_upload": "shopify://shop_images/Icon-6.png",
-                    "width": 50,
-                    "link": "",
-                    "open_in_new_tab": false,
-                    "icon_color": ""
-                  },
-                  "blocks": {}
-                },
-                "text_bBEGi3": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "settings": {
-                    "text": "<h4>Individual Counseling<br/></h4>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "#1f3a5f",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "text_jQLfYm": {
-                  "type": "text",
-                  "name": "t:names.text",
-                  "settings": {
-                    "text": "<p>Personalized one-on-one support for anxiety, depression, grief, trauma, and life transitions.</p>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "#1f3a5f",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "icon_hV437B",
-                "text_bBEGi3",
-                "text_jQLfYm"
-              ]
-            }
-          },
-          "block_order": [
-            "group_6xkmMY",
-            "group_LVkeqJ",
-            "group_tNMth8"
-          ]
+            "type": "graduation",
+            "icon_color": "#d6ad29",
+            "icon_background": "#d3dde1",
+            "title": "Biblical Integration",
+            "title_color": "#123e63",
+            "content": "<p>Scriptural wisdom woven thoughtfully into every session.</p>",
+            "content_color": "#58738b"
+          }
+        },
+        "feature_NdUTz7": {
+          "type": "feature",
+          "settings": {
+            "type": "sun",
+            "icon_color": "#d6ad29",
+            "icon_background": "#d3dde1",
+            "title": "Evidence-Based Care",
+            "title_color": "#123e63",
+            "content": "<p>Proven therapeutic methods grounded in clinical research.</p>",
+            "content_color": "#58738b"
+          }
+        },
+        "feature_VyARTz": {
+          "type": "feature",
+          "settings": {
+            "type": "care",
+            "icon_color": "#d6ad29",
+            "icon_background": "#d3dde1",
+            "title": "Prayer Available",
+            "title_color": "#123e63",
+            "content": "<p>Optional prayer support for those who desire it.</p>",
+            "content_color": "#58738b"
+          }
+        },
+        "feature_ETFtDQ": {
+          "type": "feature",
+          "settings": {
+            "type": "shield",
+            "icon_color": "#d6ad29",
+            "icon_background": "#d3dde1",
+            "title": "Confidential",
+            "title_color": "#123e63",
+            "content": "<p>Your privacy and trust are sacred and fully protected.</p>",
+            "content_color": "#58738b"
+          }
+        },
+        "feature_E3qrTr": {
+          "type": "feature",
+          "settings": {
+            "type": "heart",
+            "icon_color": "#d6ad29",
+            "icon_background": "#d3dde1",
+            "title": "Safe Environment",
+            "title_color": "#123e63",
+            "content": "<p>A welcoming, judgment-free space to be fully yourself.</p>",
+            "content_color": "#58738b"
+          }
+        },
+        "feature_wcQwhM": {
+          "type": "feature",
+          "settings": {
+            "type": "care",
+            "icon_color": "#d6ad29",
+            "icon_background": "#d3dde1",
+            "title": "Personalized Treatment",
+            "title_color": "#123e63",
+            "content": "<p>Care plans tailored uniquely to your story and goals.</p>",
+            "content_color": "#58738b"
+          }
         }
       },
       "block_order": [
-        "group_XineeU",
-        "group_RjJCEM",
-        "group_bEKeeJ"
+        "feature_bgn7KW",
+        "feature_iBhpFM",
+        "feature_Wd7Nbp",
+        "feature_NdUTz7",
+        "feature_VyARTz",
+        "feature_ETFtDQ",
+        "feature_E3qrTr",
+        "feature_wcQwhM"
       ],
-      "name": "t:names.multicolumn",
+      "name": "Why Choose ELCC",
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "flex-start",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 16,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "#f8f6f2",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "",
-        "border_radius": 0,
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "background": "#f8f6f2",
+        "accent": "#d6ad29",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "content_width": 1120,
+        "eyebrow": "Why Choose Us",
+        "eyebrow_color": "#b78b25",
+        "eyebrow_size": 11,
+        "title": "Why Choose ELCC",
+        "title_color": "#123e63",
+        "title_size": 40,
+        "show_line": true,
+        "description": "<p>A practice built on trust, expertise, and unwavering compassion.</p>",
+        "description_color": "#58738b",
+        "description_size": 15,
+        "row_gap": 20,
+        "column_gap": 20,
+        "card_title_size": 19,
+        "card_content_size": 14,
+        "icon_size": 26,
+        "card_background": "#f8f6f2",
+        "border_color": "#dfe4dc",
+        "border_hover": "#d6ad29"
       }
     },
-    "1788791126a7b44d9c": {
-      "type": "_blocks",
+    "you_are_not_alone_DEFU9r": {
+      "type": "you-are-not-alone",
       "blocks": {
-        "ai_gen_block_2596a52_cHXWtg": {
-          "type": "ai_gen_block_2596a52",
+        "audience_3qEQCq": {
+          "type": "audience",
           "settings": {
-            "background_color": "#f7f4ec",
-            "texture_opacity": 100,
-            "container_width": 840,
-            "section_padding_top": 70,
-            "section_padding_bottom": 70,
-            "eyebrow_text": "TESTIMONIALS",
-            "eyebrow_size": 10,
-            "eyebrow_spacing": 3,
-            "eyebrow_color": "#c99d2e",
-            "eyebrow_margin": 12,
-            "heading": "Stories of Healing",
-            "heading_font": "serif",
-            "heading_size": 34,
-            "heading_color": "#173a63",
-            "divider_margin_top": 18,
-            "divider_width": 45,
-            "divider_height": 1,
-            "divider_color": "#c99d2e",
-            "divider_margin_bottom": 18,
-            "subtext": "Client confidentiality is respected in every detail. Names withheld to protect privacy.",
-            "subtext_size": 11,
-            "subtext_color": "#6b7e92",
-            "header_spacing": 50,
-            "cards_margin_top": 40,
-            "card_gap": 16,
-            "card_background": "#fefdfc",
-            "card_radius": 12,
-            "card_padding": 22,
-            "shadow_x": 0,
-            "shadow_y": 8,
-            "shadow_blur": 25,
-            "shadow_color": "#1e2d3c0f",
-            "star_size": 14,
-            "star_spacing": 3,
-            "star_color": "#d3a329",
-            "stars_margin": 16,
-            "text_font": "serif",
-            "text_size": 13,
-            "text_line_height": 1.6,
-            "text_color": "#38516d",
-            "footer_margin_top": 20,
-            "footer_padding_top": 16,
-            "footer_line_width": 28,
-            "footer_line_height": 1,
-            "footer_line_color": "#d3a329",
-            "client_size": 11,
-            "client_color": "#173a63",
-            "client_margin": 4,
-            "service_size": 9,
-            "service_color": "#6b8e7f",
-            "testimonial_1": "My fiancé and I chose ELCC for faith-based pre-marital counseling. We had an incredible experience. It helped strengthen our communication, we learned practical biblical tools for resolving conflict and grew closer to each other and to God. We feel more confident and prepared for a strong, Christ-centered marriage. We highly recommend ELCC to any couple looking to build a solid foundation for their future together.",
-            "client_1": "Clients, Ages 26 and 29",
-            "service_1": "Premarital Counseling",
-            "testimonial_2": "Our marriage was on the brink. Through the ELAVATE process, we learned to communicate, forgive, and rebuild. We are closer now than we have ever been.",
-            "client_2": "Couple, Married 12 Years",
-            "service_2": "Marriage Counseling",
-            "testimonial_3": "Losing my mother left me shattered. The grief counseling gave me tools and hope. I learned that healing does not mean forgetting, it means carrying love forward.",
-            "client_3": "Client, Age 45",
-            "service_3": "Grief Counseling"
-          },
-          "blocks": {}
+            "type": "heart",
+            "icon_color": "#62879e",
+            "icon_background": "#d3dde1",
+            "title": "Individuals",
+            "title_color": "#123e63",
+            "content": "<p>Personal healing for anxiety, depression, trauma, and grief.</p>",
+            "content_color": "#58738b"
+          }
+        },
+        "audience_YAJtqT": {
+          "type": "audience",
+          "settings": {
+            "type": "partners",
+            "icon_color": "#62879e",
+            "icon_background": "#d3dde1",
+            "title": "Couples",
+            "title_color": "#123e63",
+            "content": "<p>Restoring connection, trust, and communication in relationships.</p>",
+            "content_color": "#58738b"
+          }
+        },
+        "audience_UbKX3D": {
+          "type": "audience",
+          "settings": {
+            "type": "heart",
+            "icon_color": "#62879e",
+            "icon_background": "#d3dde1",
+            "title": "Families",
+            "title_color": "#123e63",
+            "content": "<p>Building healthier dynamics and stronger family bonds.</p>",
+            "content_color": "#58738b"
+          }
+        },
+        "audience_mdgKHE": {
+          "type": "audience",
+          "settings": {
+            "type": "care",
+            "icon_color": "#62879e",
+            "icon_background": "#d3dde1",
+            "title": "Caregivers",
+            "title_color": "#123e63",
+            "content": "<p>Compassionate care for those who care for others.</p>",
+            "content_color": "#58738b"
+          }
+        },
+        "audience_LdCYU4": {
+          "type": "audience",
+          "settings": {
+            "type": "graduation",
+            "icon_color": "#62879e",
+            "icon_background": "#d3dde1",
+            "title": "Engaged Couples",
+            "title_color": "#123e63",
+            "content": "<p>Preparation for a Christ-centered, lasting marriage.</p>",
+            "content_color": "#58738b"
+          }
         }
       },
       "block_order": [
-        "ai_gen_block_2596a52_cHXWtg"
+        "audience_3qEQCq",
+        "audience_YAJtqT",
+        "audience_UbKX3D",
+        "audience_mdgKHE",
+        "audience_LdCYU4"
       ],
+      "name": "You Are Not Alone",
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "#f3f4f1",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "",
-        "border_radius": 0,
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "background": "#edeae4",
+        "accent": "#d6ad29",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "content_width": 1120,
+        "eyebrow": "Who We Help",
+        "eyebrow_color": "#b78b25",
+        "eyebrow_size": 11,
+        "title": "You Are Not Alone",
+        "title_color": "#123e63",
+        "title_size": 40,
+        "show_line": true,
+        "description": "<p>Whatever you are facing, there is a path forward. We are here to walk it with you.</p>",
+        "description_color": "#58738b",
+        "description_size": 15,
+        "row_gap": 20,
+        "column_gap": 20,
+        "card_title_size": 19,
+        "card_content_size": 14,
+        "icon_size": 26,
+        "card_background": "#e2e2df",
+        "card_hover": "#d6dad8"
       }
     },
-    "section_eiaXA9": {
-      "type": "section",
+    "stories_of_healing_iJUtqa": {
+      "type": "stories-of-healing",
       "blocks": {
-        "text_UJRXiF": {
-          "type": "text",
-          "name": "t:names.heading",
+        "testimonial_8JPEwg": {
+          "type": "testimonial",
           "settings": {
-            "text": "<h2>Frequently asked questions</h2>",
+            "rating": 5,
+            "review": "<p>My fianc? and I chose ELCC for faith-based pre-marital counseling. We had an incredible experience. It helped strengthen our communication, we learned practical biblical tools for resolving conflict and grew closer to each other and to God. We feel more confident and prepared for a strong, Christ-centered marriage. We highly recommend ELCC to any couple looking to build a solid foundation for their future together.</p>",
+            "review_color": "#123e63",
+            "review_size": 18,
+            "client": "Clients, Ages 26 and 29",
+            "support": "Premarital Counseling"
+          }
+        },
+        "testimonial_nJx6Mp": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review": "<p>Our marriage was on the brink. Through the ELEVATE process, we learned to communicate, forgive, and rebuild. We are closer now than we have ever been.</p>",
+            "review_color": "#123e63",
+            "review_size": 18,
+            "client": "Couple, Married 12 Years",
+            "support": "Marriage Counseling"
+          }
+        },
+        "testimonial_Vma9VD": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review": "<p>Losing my mother left me shattered. The grief counseling gave me tools and hope. I learned that healing does not mean forgetting, it means carrying love forward.</p>",
+            "review_color": "#123e63",
+            "review_size": 18,
+            "client": "Client, Age 45",
+            "support": "Grief Counseling"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_8JPEwg",
+        "testimonial_nJx6Mp",
+        "testimonial_Vma9VD"
+      ],
+      "name": "Stories of Healing",
+      "settings": {
+        "background": "#f5f1e8",
+        "accent": "#d6ad29",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "content_width": 1120,
+        "overlay_color": "#f5f1e8",
+        "overlay_opacity": 80,
+        "eyebrow": "Testimonials",
+        "eyebrow_color": "#b78b25",
+        "eyebrow_size": 11,
+        "title": "Stories of Healing",
+        "title_color": "#123e63",
+        "title_size": 40,
+        "show_line": true,
+        "description": "<p>Client confidentiality is respected in every detail. Names withheld to protect privacy.</p>",
+        "description_color": "#58738b",
+        "description_size": 15,
+        "row_gap": 20,
+        "column_gap": 20,
+        "card_title_size": 19,
+        "card_content_size": 14,
+        "icon_size": 26,
+        "card_background": "#ffffff"
+      }
+    },
+    "scripture_rotator_kGaTVN": {
+      "type": "scripture-rotator",
+      "blocks": {
+        "quote_chBzmD": {
+          "type": "quote",
+          "settings": {
+            "type": "care",
+            "icon_color": "#d6ad29",
+            "quote": "<p>The Lord is close to the brokenhearted and saves those who are crushed in spirit.</p>",
+            "quote_color": "#ffffff",
+            "quote_size": 32,
+            "support": "Psalm 34:18",
+            "support_color": "#d6ad29",
+            "support_size": 12
+          }
+        },
+        "quote_K4Ke7P": {
+          "type": "quote",
+          "settings": {
+            "type": "heart",
+            "icon_color": "#d6ad29",
+            "quote": "<p>Cast all your anxiety on him because he cares for you.</p>",
+            "quote_color": "#ffffff",
+            "quote_size": 32,
+            "support": "1 Peter 5:7",
+            "support_color": "#d6ad29",
+            "support_size": 12
+          }
+        }
+      },
+      "block_order": [
+        "quote_chBzmD",
+        "quote_K4Ke7P"
+      ],
+      "name": "Scripture rotator",
+      "settings": {
+        "background": "#153957",
+        "accent": "#d6ad29",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "content_width": 1120,
+        "overlay_color": "#153957",
+        "overlay_opacity": 80,
+        "interval": 7,
+        "pause_label": "Pause",
+        "play_label": "Play",
+        "icon_size": 32
+      }
+    },
+    "counseling_faq_GNN8AD": {
+      "type": "counseling-faq",
+      "blocks": {
+        "faq_QMbJFd": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you accept insurance?",
+            "answer": "<p>Add the practice?s answer here before publishing.</p>"
+          }
+        },
+        "faq_derWe3": {
+          "type": "faq",
+          "settings": {
+            "question": "How is faith integrated into counseling?",
+            "answer": "<p>Add the practice?s answer here before publishing.</p>"
+          }
+        },
+        "faq_hWYYzz": {
+          "type": "faq",
+          "settings": {
+            "question": "Is everything confidential?",
+            "answer": "<p>Add the practice?s answer here before publishing.</p>"
+          }
+        },
+        "faq_3yEhQH": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you offer virtual appointments?",
+            "answer": "<p>Add the practice?s answer here before publishing.</p>"
+          }
+        },
+        "faq_h9m4WU": {
+          "type": "faq",
+          "settings": {
+            "question": "What should I expect at my first visit?",
+            "answer": "<p>Add the practice?s answer here before publishing.</p>"
+          }
+        },
+        "faq_98NGqP": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you provide counseling to children?",
+            "answer": "<p>Add the practice?s answer here before publishing.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_QMbJFd",
+        "faq_derWe3",
+        "faq_hWYYzz",
+        "faq_3yEhQH",
+        "faq_h9m4WU",
+        "faq_98NGqP"
+      ],
+      "name": "Counseling FAQ",
+      "settings": {
+        "background": "#f8f6f2",
+        "accent": "#d6ad29",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "content_width": 1120,
+        "eyebrow": "Frequently Asked Questions",
+        "eyebrow_color": "#b78b25",
+        "eyebrow_size": 11,
+        "title": "Your Questions, Answered",
+        "title_color": "#123e63",
+        "title_size": 40,
+        "show_line": true,
+        "description": "<p>Find answers to common questions about our practice.</p>",
+        "description_color": "#58738b",
+        "description_size": 15,
+        "question_color": "#123e63",
+        "answer_color": "#58738b",
+        "border_color": "#dfe4dc",
+        "question_size": 18,
+        "answer_size": 15,
+        "row_gap": 12
+      }
+    },
+    "consultation_cta_VMLkQx": {
+      "type": "consultation-cta",
+      "blocks": {
+        "button_b4ECUB": {
+          "type": "button",
+          "settings": {
+            "label": "Schedule a Consultation",
+            "link": "",
+            "open_in_new_tab": false,
+            "style_class": "button-custom",
+            "custom_button_background": "#d6ad29",
+            "custom_button_text": "#123e63",
+            "custom_button_border": "#d6ad29",
+            "link_text_color": "",
             "width": "fit-content",
-            "max_width": "narrow",
-            "alignment": "left",
-            "type_preset": "h3",
-            "font": "var(--font-body--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "accordion_Ex6NFK": {
-          "type": "accordion",
-          "name": "t:names.accordion",
-          "settings": {
-            "icon": "caret",
-            "dividers": true,
-            "divider_color": "",
-            "type_preset": "h5",
-            "background_color": "",
-            "text_color": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "accordion_row_J934R4": {
-              "type": "_accordion-row",
-              "settings": {
-                "heading": "Do you accept insurance?",
-                "open_by_default": false,
-                "icon": "none",
-                "width": 20
-              },
-              "blocks": {
-                "text_rhCRk9": {
-                  "type": "text",
-                  "settings": {
-                    "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_rhCRk9"
-              ]
-            },
-            "accordion_row_dAhzhc": {
-              "type": "_accordion-row",
-              "settings": {
-                "heading": "How is faith integrated into counseling?",
-                "open_by_default": false,
-                "icon": "none",
-                "width": 20
-              },
-              "blocks": {
-                "text_Y6MM4f": {
-                  "type": "text",
-                  "settings": {
-                    "text": "<p>We are unable to accept returns on certain items. These will be carefully marked before purchase.</p>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_Y6MM4f"
-              ]
-            },
-            "accordion_row_tfwQ8Q": {
-              "type": "_accordion-row",
-              "name": "t:names.accordion_row",
-              "settings": {
-                "heading": "Is everything confidential?",
-                "open_by_default": false,
-                "icon": "none",
-                "width": 20
-              },
-              "blocks": {
-                "text_KyAArg": {
-                  "type": "text",
-                  "name": "t:names.text",
-                  "settings": {
-                    "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_KyAArg"
-              ]
-            },
-            "accordion_row_BzV4wK": {
-              "type": "_accordion-row",
-              "name": "t:names.accordion_row",
-              "settings": {
-                "heading": "Do you offer virtual appointments?",
-                "open_by_default": false,
-                "icon": "none",
-                "width": 20
-              },
-              "blocks": {
-                "text_BHRMry": {
-                  "type": "text",
-                  "name": "t:names.text",
-                  "settings": {
-                    "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_BHRMry"
-              ]
-            },
-            "accordion_row_gMC7zG": {
-              "type": "_accordion-row",
-              "name": "t:names.accordion_row",
-              "settings": {
-                "heading": "What should I expect at my first visit?",
-                "open_by_default": false,
-                "icon": "none",
-                "width": 20
-              },
-              "blocks": {
-                "text_GaGwEk": {
-                  "type": "text",
-                  "name": "t:names.text",
-                  "settings": {
-                    "text": "<p>Shipping is calculated based on your location and the items in your order. You will always know the shipping price before you purchase.</p>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_GaGwEk"
-              ]
-            },
-            "accordion_row_pNyRdF": {
-              "type": "_accordion-row",
-              "name": "t:names.accordion_row",
-              "settings": {
-                "heading": "Do you provide counseling to children?",
-                "open_by_default": false,
-                "icon": "none",
-                "width": 20
-              },
-              "blocks": {
-                "text_6MyLNd": {
-                  "type": "text",
-                  "name": "t:names.text",
-                  "settings": {
-                    "text": "<p>Shipping is calculated based on your location and the items in your order. You will always know the shipping price before you purchase.</p>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_6MyLNd"
-              ]
-            }
-          },
-          "block_order": [
-            "accordion_row_J934R4",
-            "accordion_row_dAhzhc",
-            "accordion_row_tfwQ8Q",
-            "accordion_row_BzV4wK",
-            "accordion_row_gMC7zG",
-            "accordion_row_pNyRdF"
-          ]
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          }
         }
       },
       "block_order": [
-        "text_UJRXiF",
-        "accordion_Ex6NFK"
+        "button_b4ECUB"
       ],
-      "name": "t:names.faq_section",
+      "name": "Consultation CTA",
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 32,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "#f3f4f1",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "",
-        "border_radius": 0,
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
-    },
-    "17887955600d10eebe": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_9f6c86f_bMnCt6": {
-          "type": "ai_gen_block_9f6c86f",
-          "settings": {
-            "background_image": "shopify://shop_images/Section051.png",
-            "overlay_color": "#1a3a52",
-            "overlay_opacity": 75,
-            "show_icon": true,
-            "icon_size": 48,
-            "icon_size_mobile": 36,
-            "heading": "You don't have to walk through this alone.",
-            "heading_size_desktop": 42,
-            "heading_size_mobile": 32,
-            "description": "Let's begin your healing journey together. Schedule a confidential consultation today.",
-            "description_size": 14,
-            "description_size_mobile": 14,
-            "button_label": "Schedule a Consultation",
-            "button_link": "",
-            "phone_number": "(727) 473-3696",
-            "email_address": "hello@empoweredlifecc.com",
-            "heading_color": "#ffffff",
-            "description_color": "#e8e8e8",
-            "accent_color": "#d4af37",
-            "button_text_color": "#1a3a52",
-            "section_height_desktop": 500,
-            "section_height_mobile": 480,
-            "content_width": 560,
-            "divider_width": 60,
-            "spacing_top": 60,
-            "spacing_bottom": 60,
-            "spacing_top_mobile": 50,
-            "spacing_bottom_mobile": 50
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_9f6c86f_bMnCt6"
-      ],
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "image",
-        "background_color": "",
-        "video_position": "cover",
-        "background_image": "shopify://shop_images/Section051.png",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "",
-        "border_radius": 0,
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "background": "#153957",
+        "accent": "#d6ad29",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "content_width": 1120,
+        "overlay_color": "#153957",
+        "overlay_opacity": 80,
+        "type": "heart",
+        "icon_size": 32,
+        "heading": "You don't have to walk through this alone.",
+        "heading_color": "#ffffff",
+        "heading_size": 44,
+        "copy": "<p>Let's begin your healing journey together. Schedule a confidential consultation today.</p>",
+        "copy_color": "#ffffff",
+        "copy_size": 16,
+        "phone": "(727) 473-3696",
+        "email": "hello@empoweredlifecc.com",
+        "contact_color": "#e4eaf0"
       }
     }
   },
@@ -2775,9 +1813,11 @@
     "section_D3hGir",
     "service_card_grid_WrF6JH",
     "elevate_model_GkdBd3",
-    "section_XCL4Dk",
-    "1788791126a7b44d9c",
-    "section_eiaXA9",
-    "17887955600d10eebe"
+    "why_choose_elcc_KpBGH6",
+    "you_are_not_alone_DEFU9r",
+    "stories_of_healing_iJUtqa",
+    "scripture_rotator_kGaTVN",
+    "counseling_faq_GNN8AD",
+    "consultation_cta_VMLkQx"
   ]
 }
