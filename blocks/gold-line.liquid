@@ -1,0 +1,25 @@
+<div class="gold-line" aria-hidden="true" style="--story-line-width: {{ block.settings.width }}px;"></div>
+
+{% schema %}
+{
+  "name": "Gold Line",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Line color",
+      "default": "#b68a24"
+    },
+    {
+      "type": "range",
+      "id": "width",
+      "label": "Width",
+      "min": 20,
+      "max": 200,
+      "step": 4,
+      "default": 64,
+      "unit": "px"
+    }
+  ]
+}
+{% endschema %}
