@@ -14,124 +14,12 @@
     "footer_m9NzUG": {
       "type": "footer",
       "blocks": {
-        "group_H6VpwJ": {
-          "type": "group",
-          "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 6,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "open_in_new_tab": false,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "text_LWt8Pz": {
-              "type": "text",
-              "settings": {
-                "text": "<h2>Join our email list</h2>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_f9CFLH": {
-              "type": "text",
-              "settings": {
-                "text": "<p>Get exclusive deals and early access to new products.</p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_LWt8Pz",
-            "text_f9CFLH"
-          ]
-        },
-        "email_signup_crihX7": {
-          "type": "email-signup",
-          "settings": {
-            "width": "fill",
-            "custom_width": 100,
-            "heading_preset": "h3",
-            "border_style": "all",
-            "input_style": "custom",
-            "border_width": 1,
-            "border_radius": 100,
-            "input_background_color": "{{ settings.color_palette.background }}",
-            "input_text_color": "{{ settings.color_palette.color1 }}",
-            "input_border_color": "{{ settings.color_palette.color2 }}",
-            "input_type_preset": "paragraph",
-            "style_class": "button-unstyled",
-            "display_type": "arrow",
-            "label": "Sign up",
-            "integrated_button": true,
-            "button_type_preset": "paragraph",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "elcc_brand": {
           "type": "_elcc-footer-brand",
-          "settings": {},
+          "settings": {
+            "title": "Hope. Healing. Restoration.",
+            "description": "<p>Trauma-informed, Christ-centered counseling for individuals, couples, and families.</p>"
+          },
           "blocks": {
             "footer-logo": {
               "type": "logo",
@@ -139,6 +27,7 @@
               "settings": {
                 "inverse": true,
                 "font": "heading",
+                "text_color": "",
                 "unit": "pixel",
                 "percent_width": 100,
                 "pixel_height": 48,
@@ -153,25 +42,26 @@
               },
               "blocks": {}
             }
-          }
+          },
+          "block_order": []
         },
         "elcc_services": {
           "type": "menu",
           "settings": {
             "menu": "main-menu",
+            "heading": "Services",
             "menu_spacing": 12,
             "show_as_accordion": false,
             "accordion_icon": "caret",
             "accordion_dividers": false,
+            "background_color": "#203e60",
+            "text_color": "#dce6ef",
             "heading_preset": "h3",
             "link_preset": "paragraph",
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0,
-            "text_color": "#dce6ef",
-            "background_color": "#203e60",
-            "heading": "Services"
+            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -179,48 +69,64 @@
           "type": "menu",
           "settings": {
             "menu": "main-menu",
+            "heading": "Resources",
             "menu_spacing": 12,
             "show_as_accordion": false,
             "accordion_icon": "caret",
             "accordion_dividers": false,
+            "background_color": "#203e60",
+            "text_color": "#dce6ef",
             "heading_preset": "h3",
             "link_preset": "paragraph",
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0,
-            "text_color": "#dce6ef",
-            "background_color": "#203e60",
-            "heading": "Resources"
+            "padding-inline-end": 0
           },
           "blocks": {}
         },
         "elcc_contact": {
           "type": "_elcc-footer-contact",
-          "settings": {},
+          "settings": {
+            "heading": "Contact",
+            "phone_label": "Phone",
+            "phone": "(727) 473-3696",
+            "email_label": "Email",
+            "email": "hello@empoweredlifecc.com",
+            "hours_label": "Office Hours",
+            "hours": "Mon - Fri, 9am - 6pm",
+            "address_label": "Address",
+            "address": "<p>7901 4th St N. Suite 300<br>St. Petersburg, Florida 33702</p>"
+          },
           "blocks": {
             "footer-button": {
               "type": "button",
               "static": true,
               "settings": {
                 "label": "Schedule a Consultation",
+                "link": "",
+                "open_in_new_tab": false,
                 "style_class": "button-custom",
                 "custom_button_background": "#d6ad29",
                 "custom_button_text": "#123e63",
-                "custom_button_border": "#d6ad29"
+                "custom_button_border": "#d6ad29",
+                "link_text_color": "",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
               },
               "blocks": {}
             }
-          }
+          },
+          "block_order": []
         }
       },
       "block_order": [
         "elcc_brand",
         "elcc_services",
         "elcc_resources",
-        "elcc_contact",
-        "group_H6VpwJ",
-        "email_signup_crihX7"
+        "elcc_contact"
       ],
       "name": "t:names.footer",
       "settings": {
@@ -240,17 +146,18 @@
           "type": "footer-copyright",
           "settings": {
             "show_powered_by": true,
+            "text_color": "#b5c8d8",
             "font_size": "0.75rem",
             "case": "none",
             "copyright_suffix": "All rights reserved.",
-            "footer_note": "Where faith meets healing.",
-            "text_color": "#b5c8d8"
+            "footer_note": "Where faith meets healing."
           },
           "blocks": {}
         },
         "footer_policy_list_VCdnpa": {
           "type": "footer-policy-list",
           "settings": {
+            "text_color": "",
             "font_size": "0.75rem",
             "case": "none"
           },
@@ -259,11 +166,20 @@
         "social_links_Ew63Kq": {
           "type": "social-links",
           "settings": {
+            "icon_color": "",
             "facebook_url": "https://www.facebook.com/",
             "instagram_url": "https://www.instagram.com/",
             "youtube_url": "https://www.youtube.com/",
             "tiktok_url": "https://www.tiktok.com/",
-            "twitter_url": "https://x.com/"
+            "twitter_url": "https://x.com/",
+            "threads_url": "",
+            "linkedin_url": "",
+            "bluesky_url": "",
+            "snapchat_url": "",
+            "pinterest_url": "",
+            "tumblr_url": "",
+            "vimeo_url": "",
+            "custom_url": ""
           },
           "blocks": {}
         }
@@ -277,9 +193,9 @@
       "settings": {
         "section_width": "page-width",
         "gap": 24,
+        "background_color": "#203e60",
         "divider_thickness": 1,
         "divider_color": "#45607d",
-        "background_color": "#203e60",
         "padding-block-start": 20,
         "padding-block-end": 48
       }
