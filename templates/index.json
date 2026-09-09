@@ -1639,7 +1639,7 @@
           "settings": {
             "type": "care",
             "icon_color": "#d6ad29",
-            "quote": "<p>The Lord is close to the brokenhearted and saves those who are crushed in spirit.</p>",
+            "quote": "<p><em>“The Lord is close to the brokenhearted and saves those who are crushed in spirit.”</em></p>",
             "quote_color": "#ffffff",
             "quote_size": 32,
             "support": "Psalm 34:18",
@@ -1652,10 +1652,36 @@
           "settings": {
             "type": "heart",
             "icon_color": "#d6ad29",
-            "quote": "<p>Cast all your anxiety on him because he cares for you.</p>",
+            "quote": "<p>“Come to me, all you who are weary and burdened, and I will give you rest.”</p>",
             "quote_color": "#ffffff",
             "quote_size": 32,
-            "support": "1 Peter 5:7",
+            "support": "Matthew 11:28",
+            "support_color": "#d6ad29",
+            "support_size": 12
+          }
+        },
+        "quote_EfaNCX": {
+          "type": "quote",
+          "settings": {
+            "type": "heart",
+            "icon_color": "#d6ad29",
+            "quote": "<p>“He heals the brokenhearted and binds up their wounds.”</p>",
+            "quote_color": "#ffffff",
+            "quote_size": 32,
+            "support": "Psalm 147:3",
+            "support_color": "#d6ad29",
+            "support_size": 12
+          }
+        },
+        "quote_yjAJyx": {
+          "type": "quote",
+          "settings": {
+            "type": "heart",
+            "icon_color": "#d6ad29",
+            "quote": "<p>“For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.”</p>",
+            "quote_color": "#ffffff",
+            "quote_size": 32,
+            "support": "Jeremiah 29:11",
             "support_color": "#d6ad29",
             "support_size": 12
           }
@@ -1663,7 +1689,9 @@
       },
       "block_order": [
         "quote_chBzmD",
-        "quote_K4Ke7P"
+        "quote_K4Ke7P",
+        "quote_EfaNCX",
+        "quote_yjAJyx"
       ],
       "name": "Scripture rotator",
       "settings": {
