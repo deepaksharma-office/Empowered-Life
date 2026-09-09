@@ -48,7 +48,7 @@
         "elcc_services": {
           "type": "menu",
           "settings": {
-            "menu": "main-menu",
+            "menu": "footer-first",
             "heading": "Services",
             "menu_spacing": 12,
             "show_as_accordion": false,
@@ -68,7 +68,7 @@
         "elcc_resources": {
           "type": "menu",
           "settings": {
-            "menu": "main-menu",
+            "menu": "footer-second",
             "heading": "Resources",
             "menu_spacing": 12,
             "show_as_accordion": false,
@@ -96,7 +96,7 @@
             "hours_label": "Office Hours",
             "hours": "Mon - Fri, 9am - 6pm",
             "address_label": "Address",
-            "address": "<p>7901 4th St N. Suite 300<br>St. Petersburg, Florida 33702</p>"
+            "address": "<p>7901 4th St N. Suite 300<br/>St. Petersburg, Florida 33702</p>"
           },
           "blocks": {
             "footer-button": {
