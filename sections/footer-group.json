@@ -107,7 +107,7 @@
               "static": true,
               "settings": {
                 "label": "Schedule a Consultation",
-                "link": "",
+                "link": "https://allen.store/empoweredlife",
                 "open_in_new_tab": false,
                 "style_class": "button-custom",
                 "custom_button_background": "#d6ad29",

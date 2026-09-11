@@ -38,7 +38,7 @@
           "type": "button",
           "settings": {
             "label": "Schedule a Consultation",
-            "link": "",
+            "link": "https://allen.store/empoweredlife",
             "open_in_new_tab": false,
             "style_class": "button-custom",
             "custom_button_background": "#d6b32b",
@@ -55,7 +55,7 @@
           "type": "button",
           "settings": {
             "label": "Learn About Our Services",
-            "link": "",
+            "link": "https://allen.store/empoweredlife",
             "open_in_new_tab": false,
             "style_class": "button-custom",
             "custom_button_background": "rgba(0,0,0,0)",
@@ -1795,7 +1795,7 @@
           "type": "button",
           "settings": {
             "label": "Schedule a Consultation",
-            "link": "",
+            "link": "https://allen.store/empoweredlife",
             "open_in_new_tab": false,
             "style_class": "button-custom",
             "custom_button_background": "#d6ad29",
