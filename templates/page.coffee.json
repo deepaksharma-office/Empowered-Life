@@ -498,9 +498,9 @@
       ],
       "name": "Cinematic hero",
       "settings": {
-        "image": "shopify://shop_images/Coffe_shop_brighter_1.png",
-        "overlay_color": "#29231c",
-        "overlay_opacity": 0,
+        "image": "shopify://shop_images/Image_Calm_ocean_horizon.png",
+        "overlay_color": "#1B5E8C",
+        "overlay_opacity": 32,
         "text_color": "#ffffff",
         "section_height": "large",
         "content_width": 900,
