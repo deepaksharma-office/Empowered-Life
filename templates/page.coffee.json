@@ -351,8 +351,7 @@
         "padding_horizontal": 20,
         "padding_top_mobile": 28,
         "padding_bottom_mobile": 28,
-        "padding_horizontal_mobile": 16,
-        "color_scheme": ""
+        "padding_horizontal_mobile": 16
       }
     },
     "custom_featured_collection_QKEhTB": {
@@ -429,6 +428,52 @@
         "mobile_padding_top": 40,
         "mobile_padding_bottom": 40
       }
+    },
+    "consultation_cta_AYJmF7": {
+      "type": "consultation-cta",
+      "blocks": {
+        "button_CXWmeF": {
+          "type": "button",
+          "settings": {
+            "label": "Schedule a Consultation",
+            "link": "",
+            "open_in_new_tab": false,
+            "style_class": "button-custom",
+            "custom_button_background": "#d6ad29",
+            "custom_button_text": "#123e63",
+            "custom_button_border": "#d6ad29",
+            "link_text_color": "",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          }
+        }
+      },
+      "block_order": [
+        "button_CXWmeF"
+      ],
+      "name": "Consultation CTA",
+      "settings": {
+        "background": "#153957",
+        "accent": "#d6ad29",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "content_width": 1120,
+        "overlay_color": "#153957",
+        "overlay_opacity": 80,
+        "type": "heart",
+        "icon_size": 32,
+        "heading": "Sometimes a Conversation Can Bethe Beginning of Change.",
+        "heading_color": "#ffffff",
+        "heading_size": 44,
+        "copy": "<p>If you're ready for deeper support, we're here to walk alongside you.</p>",
+        "copy_color": "#ffffff",
+        "copy_size": 16,
+        "phone": "(727) 473-3696",
+        "email": "hello@empoweredlifecc.com",
+        "contact_color": "#e4eaf0"
+      }
     }
   },
   "order": [
@@ -436,6 +481,7 @@
     "cinematic_hero_YnXyQ7",
     "section_tT8VqY",
     "col_cards_HiXyMi",
-    "custom_featured_collection_QKEhTB"
+    "custom_featured_collection_QKEhTB",
+    "consultation_cta_AYJmF7"
   ]
 }
