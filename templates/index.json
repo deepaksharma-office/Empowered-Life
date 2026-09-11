@@ -1247,7 +1247,7 @@
             "title": "Activate",
             "title_color": "#ffffff",
             "title_size": 20,
-            "content": "<p>Describe how this step helps clients put their learning into practice.</p>",
+            "content": "<p>Mobilizing faith and purpose toward meaningful action and growth.</p>",
             "content_color": "#edf1f5",
             "content_size": 14,
             "content_leading": 150
@@ -1259,10 +1259,10 @@
             "large_text": "T",
             "large_color": "#d6b33e",
             "large_size": 24,
-            "title": "Transform",
+            "title": "Establish",
             "title_color": "#ffffff",
             "title_size": 20,
-            "content": "<p>Describe the transformation supported by this step.</p>",
+            "content": "<p>Facilitating deep, Spirit-led healing that renews the heart and mind.</p>",
             "content_color": "#edf1f5",
             "content_size": 14,
             "content_leading": 150
@@ -1277,7 +1277,7 @@
             "title": "Evolve",
             "title_color": "#ffffff",
             "title_size": 20,
-            "content": "<p>Describe how this step supports continued growth.</p>",
+            "content": "<p>Building resilient foundations for sustained emotional and spiritual health.</p>",
             "content_color": "#edf1f5",
             "content_size": 14,
             "content_leading": 150
