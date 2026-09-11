@@ -22,10 +22,12 @@
             "alignment": "left",
             "type_preset": "h2",
             "font": "var(--font-body--family)",
+            "font_size": "1rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
             "wrap": "pretty",
+            "text_color": "",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -38,7 +40,9 @@
         },
         "page-content": {
           "type": "page-content",
-          "settings": {},
+          "settings": {
+            "text_color": ""
+          },
           "blocks": {}
         }
       },
@@ -46,6 +50,7 @@
         "heading",
         "page-content"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "gap": 32,
@@ -53,9 +58,71 @@
         "padding-block-start": 40,
         "padding-block-end": 80
       }
+    },
+    "cinematic_hero_YnXyQ7": {
+      "type": "cinematic-hero",
+      "blocks": {
+        "heading_cwgrEF": {
+          "type": "heading",
+          "settings": {
+            "text": "The Virtual Coffee Café",
+            "tag": "h1",
+            "size": 52,
+            "size_mobile": 36
+          }
+        },
+        "description_EMHkmh": {
+          "type": "description",
+          "settings": {
+            "text": "<p>A peaceful place to slow down, connect, reflect, and enjoy a little encouragement for your journey.</p>"
+          }
+        },
+        "button_9Ny4by": {
+          "type": "button",
+          "settings": {
+            "label": "🙏 Enter the Prayer Room",
+            "link": "",
+            "open_in_new_tab": false,
+            "style_class": "button-custom",
+            "custom_button_background": "{{ settings.color_palette.background }}",
+            "custom_button_text": "#1B5E8C",
+            "custom_button_border": "#ffffff",
+            "link_text_color": "",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          }
+        },
+        "scroll_CRmK9U": {
+          "type": "scroll",
+          "settings": {
+            "enabled": true,
+            "label": "Scroll to next section"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cwgrEF",
+        "description_EMHkmh",
+        "button_9Ny4by",
+        "scroll_CRmK9U"
+      ],
+      "name": "Cinematic hero",
+      "settings": {
+        "image": "shopify://shop_images/Coffe_shop_brighter_1.png",
+        "overlay_color": "#29231c",
+        "overlay_opacity": 0,
+        "text_color": "#ffffff",
+        "section_height": "large",
+        "content_width": 900,
+        "padding_top": 180,
+        "button_radius": 50
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "cinematic_hero_YnXyQ7"
   ]
 }
