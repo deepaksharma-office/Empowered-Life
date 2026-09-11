@@ -1,0 +1,174 @@
+{% comment %}
+  Custom Featured Product Card
+
+  Usage:
+  {% render 'custom-featured-product-card',
+    product_card_product: product,
+    section: section
+  %}
+{% endcomment %}
+
+{% liquid
+  assign card_product = product_card_product
+  assign current_variant = card_product.selected_or_first_available_variant
+  assign card_image = card_product.featured_media.preview_image
+  assign highlights = card_product.metafields.custom.highlight.value
+%}
+
+<article
+  class="cf-product-card"
+  style="
+    --card-radius: {{ section.settings.card_radius }}px;
+    --image-radius: {{ section.settings.image_radius }}px;
+    --card-border-color: {{ section.settings.card_border_color }};
+    --card-background: {{ section.settings.card_background }};
+    --title-color: {{ section.settings.card_title_color }};
+    --highlight-color: {{ section.settings.highlight_color }};
+    --excerpt-color: {{ section.settings.excerpt_color }};
+    --price-color: {{ section.settings.price_color }};
+    --button-color: {{ section.settings.button_color }};
+    --button-border-color: {{ section.settings.button_border_color }};
+    --button-background: {{ section.settings.button_background }};
+    --button-hover-background: {{ section.settings.button_hover_background }};
+    --button-hover-color: {{ section.settings.button_hover_color }};
+  "
+>
+  <a
+    href="{{ card_product.url }}"
+    class="cf-product-card__image-link"
+    aria-label="{{ card_product.title | escape }}"
+  >
+    <div class="cf-product-card__media">
+      {% if card_image != blank %}
+        {{
+          card_image
+          | image_url: width: 900
+          | image_tag:
+            loading: 'lazy',
+            widths: '300, 450, 600, 750, 900',
+            sizes: '(min-width: 990px) 25vw, 85vw',
+            class: 'cf-product-card__image',
+            alt: card_image.alt | default: card_product.title
+        }}
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'cf-product-card__placeholder' }}
+      {% endif %}
+    </div>
+  </a>
+
+  <div class="cf-product-card__content">
+
+    <div class="cf-product-card__top">
+
+      <a
+        href="{{ card_product.url }}"
+        class="cf-product-card__title-link"
+      >
+        <h3 class="cf-product-card__title">
+          {{ card_product.title }}
+        </h3>
+      </a>
+
+
+      {% comment %}
+        PRODUCT HIGHLIGHTS
+        product.metafields.custom.highlight
+
+        Expected metafield type:
+        List of single line text
+      {% endcomment %}
+
+      {% if highlights != blank %}
+        <div class="cf-product-card__highlights">
+
+          {% for highlight in highlights %}
+            <span class="cf-product-card__highlight">
+              {{ highlight }}
+            </span>
+
+            {% unless forloop.last %}
+              <span
+                class="cf-product-card__highlight-dot"
+                aria-hidden="true"
+              ></span>
+            {% endunless %}
+          {% endfor %}
+
+        </div>
+      {% endif %}
+
+
+      {% comment %}
+        PRODUCT EXCERPT
+        product.metafields.custom.excerpt
+      {% endcomment %}
+
+      {% if card_product.metafields.custom.excerpt != blank %}
+        <div class="cf-product-card__excerpt">
+          {{ card_product.metafields.custom.excerpt | metafield_tag }}
+        </div>
+      {% endif %}
+
+    </div>
+
+
+    <div class="cf-product-card__footer">
+
+      <div class="cf-product-card__price">
+        {% if card_product.compare_at_price > card_product.price %}
+          <span class="cf-product-card__compare-price">
+            {{ card_product.compare_at_price | money }}
+          </span>
+        {% endif %}
+
+        <span class="cf-product-card__current-price">
+          {{ card_product.price | money }}
+        </span>
+      </div>
+
+
+      {% if current_variant.available %}
+
+        {% form 'product',
+          card_product,
+          class: 'cf-product-card__form'
+        %}
+
+          <input
+            type="hidden"
+            name="id"
+            value="{{ current_variant.id }}"
+          >
+
+          <input
+            type="hidden"
+            name="quantity"
+            value="1"
+          >
+
+          <button
+            type="submit"
+            name="add"
+            class="cf-product-card__button"
+          >
+            {{ section.settings.add_to_cart_text }}
+          </button>
+
+        {% endform %}
+
+      {% else %}
+
+        <button
+          type="button"
+          class="cf-product-card__button cf-product-card__button--disabled"
+          disabled
+        >
+          {{ section.settings.sold_out_text }}
+        </button>
+
+      {% endif %}
+
+    </div>
+
+  </div>
+</article>
