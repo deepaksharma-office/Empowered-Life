@@ -361,7 +361,7 @@
       "type": "custom-featured-collection",
       "name": "Custom featured",
       "settings": {
-        "collection": "",
+        "collection": "frontpage",
         "products_to_show": 4,
         "eyebrow": "From our coffee counter",
         "heading": "Coffee With a Little More Meaning",
