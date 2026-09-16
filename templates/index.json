@@ -968,7 +968,7 @@
           "type": "image",
           "name": "t:names.image",
           "settings": {
-            "image": "shopify://shop_images/counselor-with-client.png",
+            "image": "shopify://shop_images/photo_for_services.png",
             "link": "",
             "image_ratio": "adapt",
             "width": "fill",
