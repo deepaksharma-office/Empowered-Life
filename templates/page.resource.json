@@ -97,7 +97,7 @@
         "overlay_color": "#1b5e8c",
         "overlay_opacity": 0,
         "text_color": "#ffffff",
-        "section_height": "full-screen",
+        "section_height": "auto",
         "content_width": 900,
         "padding_top": 180,
         "button_radius": 50
