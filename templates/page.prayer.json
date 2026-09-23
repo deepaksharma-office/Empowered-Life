@@ -62,21 +62,6 @@
     "cinematic_hero_wPGUGz": {
       "type": "cinematic-hero",
       "blocks": {
-        "heading_AcAFn8": {
-          "type": "heading",
-          "settings": {
-            "text": "Sometimes a Conversation Can Be the Beginning of Change.",
-            "tag": "h1",
-            "size": 52,
-            "size_mobile": 36
-          }
-        },
-        "description_BXKUc7": {
-          "type": "description",
-          "settings": {
-            "text": "<p>If you're ready for deeper support, we're here to walk alongside you.</p>"
-          }
-        },
         "scroll_RMLU9t": {
           "type": "scroll",
           "settings": {
@@ -86,15 +71,13 @@
         }
       },
       "block_order": [
-        "heading_AcAFn8",
-        "description_BXKUc7",
         "scroll_RMLU9t"
       ],
       "name": "Cinematic hero",
       "settings": {
-        "image": "shopify://shop_images/Image_Calm_ocean_horizon.png",
+        "image": "shopify://shop_images/Quiet_Reflection_link.png",
         "overlay_color": "#1b5e8c",
-        "overlay_opacity": 32,
+        "overlay_opacity": 0,
         "text_color": "#ffffff",
         "section_height": "large",
         "content_width": 900,
