@@ -62,6 +62,23 @@
     "cinematic_hero_wPGUGz": {
       "type": "cinematic-hero",
       "blocks": {
+        "button_Tnabpa": {
+          "type": "button",
+          "settings": {
+            "label": "Enter Prayer Room",
+            "link": "https://allen.store/empoweredlife/resources",
+            "open_in_new_tab": true,
+            "style_class": "button-custom",
+            "custom_button_background": "{{ settings.color_palette.background }}",
+            "custom_button_text": "{{ settings.color_palette.color1 }}",
+            "custom_button_border": "",
+            "link_text_color": "",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          }
+        },
         "scroll_RMLU9t": {
           "type": "scroll",
           "settings": {
@@ -71,11 +88,12 @@
         }
       },
       "block_order": [
+        "button_Tnabpa",
         "scroll_RMLU9t"
       ],
       "name": "Cinematic hero",
       "settings": {
-        "image": "shopify://shop_images/shop.png",
+        "image": "shopify://shop_images/prayer_room.png",
         "overlay_color": "#1b5e8c",
         "overlay_opacity": 0,
         "text_color": "#ffffff",
