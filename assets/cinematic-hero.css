@@ -25,6 +25,7 @@
   max-width: none;
   justify-content: var(--hero-horizontal, center);
   align-content: var(--hero-vertical, start);
+  padding: 8rem 0;
 }
 .cinematic-hero__content {
   display: flex;
