@@ -66,7 +66,7 @@
           "type": "button",
           "settings": {
             "label": "Enter Prayer Room",
-            "link": "https://allen.store/empoweredlife/resources",
+            "link": "https://allen.store/empoweredlife",
             "open_in_new_tab": true,
             "style_class": "button-custom",
             "custom_button_background": "{{ settings.color_palette.background }}",
