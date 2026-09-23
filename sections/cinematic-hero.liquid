@@ -1,66 +1,130 @@
 {{ 'cinematic-hero.css' | asset_url | stylesheet_tag }}
+
 <script src="{{ 'cinematic-hero.js' | asset_url }}" type="module"></script>
 
 {% liquid
   assign loading = 'lazy'
+
   assign priority = 'auto'
+
+  assign hero_image_alt = section.settings.image_alt | default: section.settings.image.alt
+  assign section_link_active = false
+  if section.settings.enable_section_link and section.settings.section_link != blank and section.blocks.size == 0
+    assign section_link_active = true
+  endif
   if section.index == 1
     assign loading = 'eager'
+
     assign priority = 'high'
   endif
 %}
 
 <cinematic-hero
   id="CinematicHero-{{ section.id }}"
-  class="cinematic-hero"
+
+  class="cinematic-hero{% if section.settings.section_height == 'auto' %} cinematic-hero--auto{% endif %}"
+
   style="
     --hero-height: {% if section.settings.section_height == 'full-screen' %}100svh{% elsif section.settings.section_height == 'auto' %}auto{% else %}var(--section-height-{{ section.settings.section_height }}){% endif %};
+
     --hero-overlay: {{ section.settings.overlay_color }};
+
     --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+
     --hero-color: {{ section.settings.text_color }};
+
     --hero-content-width: {{ section.settings.content_width }}px;
+
     --hero-padding: {{ section.settings.padding_top }}px;
+
     --hero-button-radius: {{ section.settings.button_radius }}px;
+    --hero-horizontal: {{ section.settings.content_horizontal }};
+    --hero-vertical: {{ section.settings.content_vertical }};
+    --hero-text-align: {{ section.settings.text_alignment }};
   "
 >
-  <div class="cinematic-hero__media" aria-hidden="true">
+  {% if section_link_active %}
+    <a
+      class="cinematic-hero__full-link"
+      href="{{ section.settings.section_link }}"
+      aria-label="{{ section.settings.link_label | default: section.settings.image.alt | default: 'View featured image' | escape }}"
+      {% if section.settings.open_link_new_tab %}
+        target="_blank" rel="noopener noreferrer"
+      {% endif %}
+    ></a>
+  {% endif %}
+  <div
+    class="cinematic-hero__media"
+    {% if section.blocks.size > 0 %}
+      aria-hidden="true"
+    {% endif %}
+  >
     {% if section.settings.image != blank %}
-      {{ section.settings.image | image_url: width: 3840 | image_tag:
-        widths: '416, 750, 1100, 1500, 2000, 2560, 3840',
-        sizes: '100vw', loading: loading, fetchpriority: priority, alt: ''
+      {{
+        section.settings.image
+        | image_url: width: 3840
+        | image_tag:
+          widths: '416, 750, 1100, 1500, 2000, 2560, 3840',
+          sizes: '100vw',
+          loading: loading,
+          fetchpriority: priority,
+          alt: hero_image_alt
       }}
+
     {% else %}
       {{ 'lifestyle-2' | placeholder_svg_tag: 'cinematic-hero__placeholder' }}
     {% endif %}
   </div>
-  <div class="cinematic-hero__content">
-    {% for block in section.blocks %}
-      <div
-        class="cinematic-hero__block cinematic-hero__block--{{ block.type }}"
-        style="--hero-delay: {{ forloop.index0 | times: 150 }}ms; {% if block.settings.color != blank %}color: {{ block.settings.color }};{% endif %}"
-        {% unless block.type == 'button' %}{{ block.shopify_attributes }}{% endunless %}
-      >
-        {% case block.type %}
-          {% when 'eyebrow' %}
-            <p class="cinematic-hero__eyebrow">{{ block.settings.text | escape }}</p>
-          {% when 'heading' %}
-            <{{ block.settings.tag }} class="cinematic-hero__heading" style="--hero-heading-size: {{ block.settings.size }}px; --hero-heading-mobile: {{ block.settings.size_mobile }}px;">
-              {{ block.settings.text }}
-            </{{ block.settings.tag }}>
-          {% when 'description' %}
-            <div class="cinematic-hero__description rte">{{ block.settings.text }}</div>
-          {% when 'button' %}
-            {% render 'button', block: block, link: block.settings.link %}
-          {% when 'scroll' %}
-            {% if block.settings.enabled %}
-              <button class="cinematic-hero__scroll button-unstyled" type="button" data-hero-scroll aria-label="{{ block.settings.label | escape }}" hidden>
-                <svg viewBox="0 0 10 6" aria-hidden="true" focusable="false">{% render 'icon', icon: 'caret' %}</svg>
-              </button>
-            {% endif %}
-        {% endcase %}
-      </div>
-    {% endfor %}
-  </div>
+
+  {% if section.blocks.size > 0 %}
+    <div class="cinematic-hero__content">
+      {% for block in section.blocks %}
+        <div
+          class="cinematic-hero__block cinematic-hero__block--{{ block.type }}"
+
+          style="--hero-delay: {{ forloop.index0 | times: 150 }}ms; {% if block.settings.color != blank %}color: {{ block.settings.color }};{% endif %}"
+
+          {% unless block.type == 'button' %}
+            {{- block.shopify_attributes -}}
+          {% endunless %}
+        >
+          {% case block.type %}
+            {% when 'eyebrow' %}
+              <p class="cinematic-hero__eyebrow">{{ block.settings.text | escape }}</p>
+
+            {% when 'heading' %}
+              <{{ block.settings.tag }}
+                class="cinematic-hero__heading"
+                style="--hero-heading-size: {{ block.settings.size }}px; --hero-heading-mobile: {{ block.settings.size_mobile }}px;"
+              >
+                {{ block.settings.text }}
+              </{{ block.settings.tag }}>
+
+            {% when 'description' %}
+              <div class="cinematic-hero__description rte">{{ block.settings.text }}</div>
+
+            {% when 'button' %}
+              {% render 'button', block: block, link: block.settings.link %}
+
+            {% when 'scroll' %}
+              {% if block.settings.enabled %}
+                <button
+                  class="cinematic-hero__scroll button-unstyled"
+                  type="button"
+                  data-hero-scroll
+                  aria-label="{{ block.settings.label | escape }}"
+                  hidden
+                >
+                  <svg viewBox="0 0 10 6" aria-hidden="true" focusable="false">
+                    {% render 'icon', icon: 'caret' %}
+                  </svg>
+                </button>
+              {% endif %}
+          {% endcase %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
 </cinematic-hero>
 
 {% schema %}
@@ -69,16 +133,40 @@
   "tag": "section",
   "class": "cinematic-hero-section",
   "disabled_on": {
-    "groups": [
-      "header",
-      "footer"
-    ]
+    "groups": ["header", "footer"]
   },
   "settings": [
     {
       "type": "image_picker",
       "id": "image",
       "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_section_link",
+      "label": "Make section clickable when there are no blocks",
+      "default": false
+    },
+    {
+      "type": "url",
+      "id": "section_link",
+      "label": "Section link"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link accessible label"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_link_new_tab",
+      "label": "Open section link in new tab",
+      "default": false
     },
     {
       "type": "color",
@@ -129,6 +217,66 @@
         }
       ],
       "default": "large"
+    },
+    {
+      "type": "select",
+      "id": "content_horizontal",
+      "label": "Horizontal position",
+      "options": [
+        {
+          "value": "start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "content_vertical",
+      "label": "Vertical position",
+      "options": [
+        {
+          "value": "start",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Middle"
+        },
+        {
+          "value": "end",
+          "label": "Bottom"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
     },
     {
       "type": "range",
