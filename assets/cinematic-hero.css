@@ -16,7 +16,7 @@
 .cinematic-hero__media :is(img, svg) { display: block; width: 100%; height: 100%; object-fit: cover; }
 /* In Auto, the image establishes the section height from its intrinsic ratio. */
 .cinematic-hero--auto { display: block; min-height: 0; padding: 0; }
-.cinematic-hero--auto .cinematic-hero__media { position: relative; inset: auto; z-index: -1; }
+.cinematic-hero--auto .cinematic-hero__media { position: relative; width: 100%; z-index: -1; }
 .cinematic-hero--auto .cinematic-hero__media :is(img, svg) { height: auto; }
 .cinematic-hero--auto .cinematic-hero__content {
   position: absolute;
