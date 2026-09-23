@@ -23,7 +23,6 @@
   inset: 0;
   width: auto;
   max-width: none;
-  padding: var(--hero-padding) max(var(--page-margin), 20px) 110px;
   justify-content: var(--hero-horizontal, center);
   align-content: var(--hero-vertical, start);
 }
@@ -57,7 +56,6 @@
 @keyframes cinematic-hero-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
 @media screen and (max-width: 749px) {
   .cinematic-hero:not(.cinematic-hero--auto) { padding-block-start: min(var(--hero-padding), 56px); }
-  .cinematic-hero--auto .cinematic-hero__content { padding-block-start: min(var(--hero-padding), 56px); }
   .cinematic-hero__content { row-gap: 20px; }
   .cinematic-hero__heading { font-size: var(--hero-heading-mobile); }
   .cinematic-hero__description { font-size: 15px; }
