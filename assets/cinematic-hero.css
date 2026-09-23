@@ -36,7 +36,7 @@
   min-width: 0;
   text-align: var(--hero-text-align, center);
 }
-.cinematic-hero--auto .cinematic-hero__block:not(.cinematic-hero__block--scroll) { flex-basis: min(100%, var(--hero-content-width)); }
+.cinematic-hero--auto .cinematic-hero__block:not(.cinematic-hero__block--scroll) { flex-basis: auto; }
 .cinematic-hero--auto .cinematic-hero__block--button { flex-basis: auto; }
 .cinematic-hero__block { flex: 0 0 100%; min-width: 0; overflow-wrap: anywhere; animation: cinematic-hero-enter 700ms ease-out both; animation-delay: var(--hero-delay); }
 .cinematic-hero__eyebrow { margin: 0; font-family: var(--font-body--family); font-size: 11px; line-height: 1.5; text-transform: uppercase; letter-spacing: .24em; }
