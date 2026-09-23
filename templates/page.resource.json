@@ -75,7 +75,7 @@
       ],
       "name": "Cinematic hero",
       "settings": {
-        "image": "shopify://shop_images/Quiet_Reflection_link.png",
+        "image": "shopify://shop_images/shop.png",
         "overlay_color": "#1b5e8c",
         "overlay_opacity": 0,
         "text_color": "#ffffff",
