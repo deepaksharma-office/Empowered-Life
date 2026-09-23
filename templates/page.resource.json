@@ -94,10 +94,18 @@
       "name": "Cinematic hero",
       "settings": {
         "image": "shopify://shop_images/prayer_room.png",
+        "image_alt": "",
+        "enable_section_link": false,
+        "section_link": "",
+        "link_label": "",
+        "open_link_new_tab": false,
         "overlay_color": "#1b5e8c",
         "overlay_opacity": 0,
         "text_color": "#ffffff",
         "section_height": "auto",
+        "content_horizontal": "center",
+        "content_vertical": "end",
+        "text_alignment": "center",
         "content_width": 900,
         "padding_top": 180,
         "button_radius": 50
