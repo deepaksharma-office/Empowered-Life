@@ -14,7 +14,7 @@
   id="CinematicHero-{{ section.id }}"
   class="cinematic-hero"
   style="
-    --hero-height: {% if section.settings.section_height == 'full-screen' %}100svh{% else %}var(--section-height-{{ section.settings.section_height }}){% endif %};
+    --hero-height: {% if section.settings.section_height == 'full-screen' %}100svh{% elsif section.settings.section_height == 'auto' %}auto{% else %}var(--section-height-{{ section.settings.section_height }}){% endif %};
     --hero-overlay: {{ section.settings.overlay_color }};
     --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
     --hero-color: {{ section.settings.text_color }};
@@ -122,6 +122,10 @@
         {
           "value": "full-screen",
           "label": "Full viewport"
+        },
+        {
+          "value": "auto",
+          "label": "Auto"
         }
       ],
       "default": "large"
