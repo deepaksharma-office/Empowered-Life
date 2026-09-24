@@ -107,6 +107,19 @@
           },
           "blocks": {}
         },
+        "divider_HLnNLd": {
+          "type": "_divider",
+          "name": "t:names.divider",
+          "settings": {
+            "thickness": 1,
+            "corner_radius": "square",
+            "divider_color": "{{ settings.color_palette.foreground }}",
+            "width_percent": 40,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        },
         "image_JwJwU3": {
           "type": "image",
           "name": "t:names.image",
@@ -135,6 +148,7 @@
       "block_order": [
         "text_q3eXUC",
         "button_rjjXjc",
+        "divider_HLnNLd",
         "image_JwJwU3"
       ],
       "name": "t:names.rich_text_section",
