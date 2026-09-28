@@ -96,7 +96,7 @@
             "link": "https://cdn.shopify.com/s/files/1/0820/4392/8821/files/Temperament_E-book_4_1.pdf?v=1790255762",
             "open_in_new_tab": true,
             "style_class": "button-custom",
-            "custom_button_background": "#1E40AF",
+            "custom_button_background": "#1e40af",
             "custom_button_text": "{{ settings.color_palette.background }}",
             "custom_button_border": "{{ settings.color_palette.background }}",
             "link_text_color": "",
@@ -119,37 +119,12 @@
             "padding-block-end": 0
           },
           "blocks": {}
-        },
-        "image_JwJwU3": {
-          "type": "image",
-          "name": "t:names.image",
-          "settings": {
-            "image": "shopify://shop_images/prayer_room.png",
-            "link": "",
-            "image_ratio": "adapt",
-            "width": "custom",
-            "custom_width": 40,
-            "width_mobile": "custom",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
         }
       },
       "block_order": [
         "text_q3eXUC",
         "button_rjjXjc",
-        "divider_HLnNLd",
-        "image_JwJwU3"
+        "divider_HLnNLd"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
