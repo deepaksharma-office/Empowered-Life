@@ -27,8 +27,10 @@
         style="--services-delay: {{ forloop.index0 | at_most: 6 | times: 90 }}ms;"
         {{ block.shopify_attributes }}
       >
-        <article
+        {% assign url = block.settings.url | default: 'https://allen.store/empoweredlife' %}
+        <a
           class="service-card-grid__card"
+          url="{{ url }}"
           style="--services-icon-background: {{ block.settings.icon_background }}; --services-icon-color: {{ block.settings.icon_color }}; --services-icon-hover-background: {{ block.settings.icon_hover_background }}; --services-icon-hover-color: {{ block.settings.icon_hover_color }};"
         >
           <div class="service-card-grid__icon">
@@ -36,7 +38,6 @@
               {% render 'image', image: block.settings.image, height: section.settings.icon_size %}
             {% else %}
               <span class="service-card-grid__symbol" aria-hidden="true">
-                {% comment %}The snippet switches on icon.type; pass the settings object, not a string.{% endcomment %}
                 {% render 'custom-icons', icon: block.settings %}
               </span>
             {% endif %}
@@ -49,7 +50,7 @@
           {% if block.settings.content != blank %}
             <div class="service-card-grid__description rte">{{ block.settings.content }}</div>
           {% endif %}
-        </article>
+        </a>
       </li>
     {% endfor %}
   </ul>
@@ -193,6 +194,11 @@
       "type": "service",
       "name": "Service card",
       "settings": [
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        },
         {
           "type": "select",
           "id": "type",
