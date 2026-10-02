@@ -28,7 +28,7 @@
         {{ block.shopify_attributes }}
       >
         {% assign url = block.settings.url | default: 'https://allen.store/empoweredlife' %}
-        <a
+        <article
           class="service-card-grid__card"
           url="{{ url }}"
           style="--services-icon-background: {{ block.settings.icon_background }}; --services-icon-color: {{ block.settings.icon_color }}; --services-icon-hover-background: {{ block.settings.icon_hover_background }}; --services-icon-hover-color: {{ block.settings.icon_hover_color }};"
@@ -50,7 +50,7 @@
           {% if block.settings.content != blank %}
             <div class="service-card-grid__description rte">{{ block.settings.content }}</div>
           {% endif %}
-        </a>
+        </article>
       </li>
     {% endfor %}
   </ul>
