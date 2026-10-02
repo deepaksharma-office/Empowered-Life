@@ -26,6 +26,16 @@
             "margin_bottom": 12
           }
         },
+        "easy_appointment_booking_event_calendar_mexpBV": {
+          "type": "shopify://apps/easy-appointment-booking/blocks/event_calendar/cc7b690c-65b5-4bb4-a46c-1e4bd73e1c12",
+          "settings": {
+            "height": 750,
+            "iframe_title": "Easy Appointment Booking Calendar",
+            "initial_view": "month",
+            "location_filter": "",
+            "css_class_names": "servicify-event-calendar"
+          }
+        },
         "divider_aXRB7c": {
           "type": "divider",
           "settings": {
@@ -89,6 +99,7 @@
       },
       "block_order": [
         "heading_bygqnx",
+        "easy_appointment_booking_event_calendar_mexpBV",
         "divider_aXRB7c",
         "links_mnkCDi",
         "text_HzYahC",
