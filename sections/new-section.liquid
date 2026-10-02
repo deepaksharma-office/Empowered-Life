@@ -1,0 +1,1417 @@
+{% liquid
+  assign section_id = 'ProfileBookingStack-' | append: section.id
+%}
+
+<section
+  id="{{ section_id }}"
+  class="profile-booking-stack"
+  style="
+    --pbs-bg: {{ section.settings.background_color }};
+    --pbs-bg-2: {{ section.settings.background_color_2 }};
+    --pbs-max-width: {{ section.settings.max_width }}px;
+    --pbs-padding-top: {{ section.settings.padding_top }}px;
+    --pbs-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --pbs-mobile-padding-top: {{ section.settings.mobile_padding_top }}px;
+    --pbs-mobile-padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    --pbs-gutter: {{ section.settings.horizontal_padding }}px;
+    --pbs-block-gap: {{ section.settings.block_gap }}px;
+  "
+>
+  <div class="profile-booking-stack__inner">
+
+    {% for block in section.blocks %}
+      {% case block.type %}
+
+        {% when '@app' %}
+          <div
+            class="profile-booking-stack__block profile-booking-stack__app"
+            {{ block.shopify_attributes }}
+          >
+            {% render block %}
+          </div>
+
+        {% when 'heading' %}
+          <div
+            class="profile-booking-stack__block profile-booking-stack__heading"
+            style="
+              --heading-color: {{ block.settings.color }};
+              --heading-size: {{ block.settings.font_size }}px;
+              --heading-mobile-size: {{ block.settings.mobile_font_size }}px;
+              --heading-weight: {{ block.settings.font_weight }};
+              --heading-align: {{ block.settings.alignment }};
+              --heading-margin-top: {{ block.settings.margin_top }}px;
+              --heading-margin-bottom: {{ block.settings.margin_bottom }}px;
+            "
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.heading != blank %}
+              <{{ block.settings.heading_tag }} class="profile-booking-stack__heading-text">
+                {{ block.settings.heading }}
+              </{{ block.settings.heading_tag }}>
+            {% endif %}
+          </div>
+
+        {% when 'text' %}
+          <div
+            class="profile-booking-stack__block profile-booking-stack__text"
+            style="
+              --text-color: {{ block.settings.color }};
+              --text-size: {{ block.settings.font_size }}px;
+              --text-align: {{ block.settings.alignment }};
+              --text-line-height: {{ block.settings.line_height }};
+              --text-margin-top: {{ block.settings.margin_top }}px;
+              --text-margin-bottom: {{ block.settings.margin_bottom }}px;
+            "
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.text != blank %}
+              <div class="profile-booking-stack__rte rte">
+                {{ block.settings.text }}
+              </div>
+            {% endif %}
+          </div>
+
+        {% when 'divider' %}
+          <div
+            class="profile-booking-stack__block profile-booking-stack__divider-wrap"
+            style="
+              --divider-color: {{ block.settings.color }};
+              --divider-height: {{ block.settings.height }}px;
+              --divider-width: {{ block.settings.width }}%;
+              --divider-margin-top: {{ block.settings.margin_top }}px;
+              --divider-margin-bottom: {{ block.settings.margin_bottom }}px;
+            "
+            {{ block.shopify_attributes }}
+          >
+            <div class="profile-booking-stack__divider"></div>
+          </div>
+
+        {% when 'links' %}
+          <div
+            class="profile-booking-stack__block profile-booking-stack__links"
+            style="
+              --links-color: {{ block.settings.color }};
+              --links-size: {{ block.settings.font_size }}px;
+              --links-gap: {{ block.settings.gap }}px;
+              --links-align: {{ block.settings.alignment }};
+              --links-margin-top: {{ block.settings.margin_top }}px;
+              --links-margin-bottom: {{ block.settings.margin_bottom }}px;
+            "
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.menu != blank %}
+              <div class="profile-booking-stack__links-list">
+                {% for link in block.settings.menu.links %}
+                  <a href="{{ link.url }}">
+                    {{ link.title }}
+                  </a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+
+        {% when 'image_card' %}
+          <div
+            class="
+              profile-booking-stack__block
+              profile-booking-stack__image-card-wrapper
+              {% if block.settings.enable_full_width_mobile %}profile-booking-stack__image-card-wrapper--full-mobile{% endif %}
+            "
+            style="
+              --card-width: {{ block.settings.width }}%;
+              --card-radius: {{ block.settings.border_radius }}px;
+              --card-margin-top: {{ block.settings.margin_top }}px;
+              --card-margin-bottom: {{ block.settings.margin_bottom }}px;
+              --card-title-color: {{ block.settings.title_color }};
+              --card-title-size: {{ block.settings.title_size }}px;
+              --card-title-mobile-size: {{ block.settings.mobile_title_size }}px;
+              --card-title-bg: {{ block.settings.title_background }};
+              --card-image-ratio: {{ block.settings.image_ratio }};
+              --badge-size: {{ block.settings.badge_size }}px;
+              --badge-border-color: {{ block.settings.badge_border_color }};
+              --badge-border-width: {{ block.settings.badge_border_width }}px;
+              --badge-offset: {{ block.settings.badge_offset }}px;
+            "
+            {{ block.shopify_attributes }}
+          >
+            <div class="profile-booking-stack__image-card">
+
+              {% if block.settings.link != blank %}
+                <a
+                  href="{{ block.settings.link }}"
+                  class="profile-booking-stack__card-link"
+                  {% if block.settings.open_new_tab %}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  {% endif %}
+                >
+              {% endif %}
+
+              <div class="profile-booking-stack__image-container">
+                {% if block.settings.image != blank %}
+                  {{
+                    block.settings.image
+                    | image_url: width: 1400
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '320, 480, 640, 800, 1000, 1200, 1400',
+                      sizes: '(max-width: 749px) 100vw, 600px',
+                      class: 'profile-booking-stack__image'
+                  }}
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'profile-booking-stack__placeholder' }}
+                {% endif %}
+
+                {% if block.settings.enable_bottom_fade %}
+                  <div class="profile-booking-stack__fade"></div>
+                {% endif %}
+
+                {% if block.settings.title != blank %}
+                  <div
+                    class="
+                      profile-booking-stack__card-title
+                      profile-booking-stack__card-title--{{ block.settings.title_position }}
+                    "
+                  >
+                    {{ block.settings.title }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.badge_image != blank %}
+                  <div
+                    class="
+                      profile-booking-stack__badge
+                      profile-booking-stack__badge--{{ block.settings.badge_position }}
+                    "
+                  >
+                    {{
+                      block.settings.badge_image
+                      | image_url: width: 400
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '100, 150, 200, 300, 400',
+                        class: 'profile-booking-stack__badge-image'
+                    }}
+                  </div>
+                {% endif %}
+              </div>
+
+              {% if block.settings.link != blank %}
+                </a>
+              {% endif %}
+
+            </div>
+          </div>
+
+        {% when 'button' %}
+          <div
+            class="profile-booking-stack__block profile-booking-stack__button-wrapper"
+            style="
+              --button-align: {{ block.settings.alignment }};
+              --button-bg: {{ block.settings.background }};
+              --button-color: {{ block.settings.color }};
+              --button-border: {{ block.settings.border_color }};
+              --button-radius: {{ block.settings.border_radius }}px;
+              --button-padding-x: {{ block.settings.padding_horizontal }}px;
+              --button-padding-y: {{ block.settings.padding_vertical }}px;
+              --button-margin-top: {{ block.settings.margin_top }}px;
+              --button-margin-bottom: {{ block.settings.margin_bottom }}px;
+            "
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.label != blank %}
+              <a
+                class="profile-booking-stack__button"
+                {% if block.settings.link != blank %}
+                  href="{{ block.settings.link }}"
+                {% else %}
+                  role="link"
+                  aria-disabled="true"
+                {% endif %}
+              >
+                {{ block.settings.label }}
+              </a>
+            {% endif %}
+          </div>
+
+        {% when 'custom_liquid' %}
+          <div
+            class="profile-booking-stack__block profile-booking-stack__custom-liquid"
+            {{ block.shopify_attributes }}
+          >
+            {{ block.settings.custom_liquid }}
+          </div>
+
+        {% when 'spacer' %}
+          <div
+            class="profile-booking-stack__block profile-booking-stack__spacer"
+            style="
+              --spacer-height: {{ block.settings.height }}px;
+              --spacer-mobile-height: {{ block.settings.mobile_height }}px;
+            "
+            {{ block.shopify_attributes }}
+          ></div>
+
+      {% endcase %}
+    {% endfor %}
+
+  </div>
+</section>
+
+{% stylesheet %}
+  .profile-booking-stack {
+    width: 100%;
+    background:
+      linear-gradient(
+        180deg,
+        var(--pbs-bg) 0%,
+        var(--pbs-bg-2) 100%
+      );
+    padding-top: var(--pbs-padding-top);
+    padding-bottom: var(--pbs-padding-bottom);
+  }
+
+  .profile-booking-stack *,
+  .profile-booking-stack *::before,
+  .profile-booking-stack *::after {
+    box-sizing: border-box;
+  }
+
+  .profile-booking-stack__inner {
+    width: 100%;
+    max-width: calc(var(--pbs-max-width) + (var(--pbs-gutter) * 2));
+    margin: 0 auto;
+    padding-left: var(--pbs-gutter);
+    padding-right: var(--pbs-gutter);
+  }
+
+  .profile-booking-stack__block + .profile-booking-stack__block {
+    margin-top: var(--pbs-block-gap);
+  }
+
+  /* -----------------------------
+     HEADING
+  ----------------------------- */
+
+  .profile-booking-stack__heading {
+    text-align: var(--heading-align);
+    margin-top: var(--heading-margin-top);
+    margin-bottom: var(--heading-margin-bottom);
+  }
+
+  .profile-booking-stack__heading-text {
+    margin: 0;
+    color: var(--heading-color);
+    font-size: var(--heading-size);
+    font-weight: var(--heading-weight);
+    line-height: 1.25;
+  }
+
+  /* -----------------------------
+     TEXT
+  ----------------------------- */
+
+  .profile-booking-stack__text {
+    text-align: var(--text-align);
+    margin-top: var(--text-margin-top);
+    margin-bottom: var(--text-margin-bottom);
+  }
+
+  .profile-booking-stack__rte {
+    color: var(--text-color);
+    font-size: var(--text-size);
+    line-height: var(--text-line-height);
+  }
+
+  .profile-booking-stack__rte > *:first-child {
+    margin-top: 0;
+  }
+
+  .profile-booking-stack__rte > *:last-child {
+    margin-bottom: 0;
+  }
+
+  /* -----------------------------
+     APP BLOCK
+  ----------------------------- */
+
+  .profile-booking-stack__app {
+    width: 100%;
+  }
+
+  .profile-booking-stack__app > * {
+    max-width: 100%;
+  }
+
+  /* -----------------------------
+     DIVIDER
+  ----------------------------- */
+
+  .profile-booking-stack__divider-wrap {
+    margin-top: var(--divider-margin-top);
+    margin-bottom: var(--divider-margin-bottom);
+  }
+
+  .profile-booking-stack__divider {
+    width: var(--divider-width);
+    height: var(--divider-height);
+    margin: 0 auto;
+    background: var(--divider-color);
+  }
+
+  /* -----------------------------
+     LINKS
+  ----------------------------- */
+
+  .profile-booking-stack__links {
+    margin-top: var(--links-margin-top);
+    margin-bottom: var(--links-margin-bottom);
+  }
+
+  .profile-booking-stack__links-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: var(--links-align);
+    gap: var(--links-gap);
+  }
+
+  .profile-booking-stack__links-list a {
+    color: var(--links-color);
+    font-size: var(--links-size);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* -----------------------------
+     IMAGE CARD
+  ----------------------------- */
+
+  .profile-booking-stack__image-card-wrapper {
+    width: var(--card-width);
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: var(--card-margin-top);
+    margin-bottom: var(--card-margin-bottom);
+  }
+
+  .profile-booking-stack__image-card {
+    width: 100%;
+  }
+
+  .profile-booking-stack__card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .profile-booking-stack__image-container {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    border-radius: var(--card-radius);
+  }
+
+  .profile-booking-stack__image,
+  .profile-booking-stack__placeholder {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: var(--card-image-ratio);
+    object-fit: cover;
+    border-radius: var(--card-radius);
+  }
+
+  .profile-booking-stack__fade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 35%;
+    pointer-events: none;
+    border-radius: 0 0 var(--card-radius) var(--card-radius);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.55) 55%,
+      rgba(255, 255, 255, 0.95) 100%
+    );
+  }
+
+  .profile-booking-stack__card-title {
+    position: absolute;
+    z-index: 2;
+    left: 20px;
+    right: 20px;
+    color: var(--card-title-color);
+    font-size: var(--card-title-size);
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .profile-booking-stack__card-title--top {
+    top: 24px;
+  }
+
+  .profile-booking-stack__card-title--center {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .profile-booking-stack__card-title--bottom {
+    bottom: 20px;
+  }
+
+  .profile-booking-stack__badge {
+    position: absolute;
+    z-index: 3;
+    width: var(--badge-size);
+    height: var(--badge-size);
+    border-radius: 50%;
+    background: #ffffff;
+    border:
+      var(--badge-border-width)
+      solid
+      var(--badge-border-color);
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+  }
+
+  .profile-booking-stack__badge--bottom-center {
+    left: 50%;
+    bottom: var(--badge-offset);
+    transform: translateX(-50%);
+  }
+
+  .profile-booking-stack__badge--bottom-left {
+    left: 20px;
+    bottom: var(--badge-offset);
+  }
+
+  .profile-booking-stack__badge--bottom-right {
+    right: 20px;
+    bottom: var(--badge-offset);
+  }
+
+  .profile-booking-stack__badge--top-center {
+    left: 50%;
+    top: var(--badge-offset);
+    transform: translateX(-50%);
+  }
+
+  .profile-booking-stack__badge-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* -----------------------------
+     BUTTON
+  ----------------------------- */
+
+  .profile-booking-stack__button-wrapper {
+    display: flex;
+    justify-content: var(--button-align);
+    margin-top: var(--button-margin-top);
+    margin-bottom: var(--button-margin-bottom);
+  }
+
+  .profile-booking-stack__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding:
+      var(--button-padding-y)
+      var(--button-padding-x);
+    color: var(--button-color);
+    background: var(--button-bg);
+    border: 1px solid var(--button-border);
+    border-radius: var(--button-radius);
+    text-decoration: none;
+    line-height: 1;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .profile-booking-stack__button:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+
+  /* -----------------------------
+     CUSTOM LIQUID
+  ----------------------------- */
+
+  .profile-booking-stack__custom-liquid {
+    width: 100%;
+  }
+
+  /* -----------------------------
+     SPACER
+  ----------------------------- */
+
+  .profile-booking-stack__spacer {
+    height: var(--spacer-height);
+  }
+
+  @media screen and (max-width: 749px) {
+    .profile-booking-stack {
+      padding-top: var(--pbs-mobile-padding-top);
+      padding-bottom: var(--pbs-mobile-padding-bottom);
+    }
+
+    .profile-booking-stack__heading-text {
+      font-size: var(--heading-mobile-size);
+    }
+
+    .profile-booking-stack__card-title {
+      font-size: var(--card-title-mobile-size);
+    }
+
+    .profile-booking-stack__spacer {
+      height: var(--spacer-mobile-height);
+    }
+
+    .profile-booking-stack__image-card-wrapper--full-mobile {
+      width: calc(100% + (var(--pbs-gutter) * 2));
+      max-width: none;
+      margin-left: calc(var(--pbs-gutter) * -1);
+      margin-right: calc(var(--pbs-gutter) * -1);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Profile booking stack",
+  "tag": "section",
+  "class": "section-profile-booking-stack",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 300,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "label": "Content max width",
+      "default": 520
+    },
+    {
+      "type": "range",
+      "id": "horizontal_padding",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "block_gap",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Default block gap",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Top background",
+      "default": "#f7faff"
+    },
+    {
+      "type": "color",
+      "id": "background_color_2",
+      "label": "Bottom background",
+      "default": "#dcecff"
+    },
+    {
+      "type": "header",
+      "content": "Desktop spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Mobile spacing"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Where Faith meets Healing."
+        },
+        {
+          "type": "select",
+          "id": "heading_tag",
+          "label": "HTML tag",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "p",
+              "label": "Paragraph"
+            }
+          ],
+          "default": "p"
+        },
+        {
+          "type": "range",
+          "id": "font_size",
+          "min": 10,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "label": "Desktop font size",
+          "default": 17
+        },
+        {
+          "type": "range",
+          "id": "mobile_font_size",
+          "min": 10,
+          "max": 42,
+          "step": 1,
+          "unit": "px",
+          "label": "Mobile font size",
+          "default": 16
+        },
+        {
+          "type": "select",
+          "id": "font_weight",
+          "label": "Font weight",
+          "options": [
+            {
+              "value": "400",
+              "label": "Regular"
+            },
+            {
+              "value": "500",
+              "label": "Medium"
+            },
+            {
+              "value": "600",
+              "label": "Semi bold"
+            },
+            {
+              "value": "700",
+              "label": "Bold"
+            }
+          ],
+          "default": "400"
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Color",
+          "default": "#1c2733"
+        },
+        {
+          "type": "range",
+          "id": "margin_top",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Margin top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Margin bottom",
+          "default": 12
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Add your content here.</p>"
+        },
+        {
+          "type": "range",
+          "id": "font_size",
+          "min": 8,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 12
+        },
+        {
+          "type": "range",
+          "id": "line_height",
+          "min": 1,
+          "max": 2,
+          "step": 0.1,
+          "label": "Line height",
+          "default": 1.5
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Text color",
+          "default": "#27323d"
+        },
+        {
+          "type": "range",
+          "id": "margin_top",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Margin top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Margin bottom",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "name": "Divider",
+      "settings": [
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Color",
+          "default": "#26323e"
+        },
+        {
+          "type": "range",
+          "id": "height",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "label": "Thickness",
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "width",
+          "min": 10,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "label": "Width",
+          "default": 100
+        },
+        {
+          "type": "range",
+          "id": "margin_top",
+          "min": 0,
+          "max": 80,
+          "step": 2,
+          "unit": "px",
+          "label": "Margin top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "min": 0,
+          "max": 80,
+          "step": 2,
+          "unit": "px",
+          "label": "Margin bottom",
+          "default": 20
+        }
+      ]
+    },
+    {
+      "type": "links",
+      "name": "Links / menu",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        },
+        {
+          "type": "range",
+          "id": "font_size",
+          "min": 8,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "gap",
+          "min": 2,
+          "max": 40,
+          "step": 2,
+          "unit": "px",
+          "label": "Gap",
+          "default": 8
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Alignment",
+          "options": [
+            {
+              "value": "flex-start",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "flex-end",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Color",
+          "default": "#3179bd"
+        },
+        {
+          "type": "range",
+          "id": "margin_top",
+          "min": 0,
+          "max": 80,
+          "step": 2,
+          "unit": "px",
+          "label": "Margin top",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "min": 0,
+          "max": 80,
+          "step": 2,
+          "unit": "px",
+          "label": "Margin bottom",
+          "default": 10
+        }
+      ]
+    },
+    {
+      "type": "image_card",
+      "name": "Image card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Main image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Denise Baron"
+        },
+        {
+          "type": "select",
+          "id": "title_position",
+          "label": "Title position",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ],
+          "default": "bottom"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title color",
+          "default": "#1d2b38"
+        },
+        {
+          "type": "color",
+          "id": "title_background",
+          "label": "Title background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "min": 10,
+          "max": 48,
+          "step": 1,
+          "unit": "px",
+          "label": "Desktop title size",
+          "default": 24
+        },
+        {
+          "type": "range",
+          "id": "mobile_title_size",
+          "min": 10,
+          "max": 36,
+          "step": 1,
+          "unit": "px",
+          "label": "Mobile title size",
+          "default": 20
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_bottom_fade",
+          "label": "Enable bottom white fade",
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "badge_image",
+          "label": "Circular profile image"
+        },
+        {
+          "type": "select",
+          "id": "badge_position",
+          "label": "Profile image position",
+          "options": [
+            {
+              "value": "bottom-center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "bottom-left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom-right",
+              "label": "Bottom right"
+            },
+            {
+              "value": "top-center",
+              "label": "Top center"
+            }
+          ],
+          "default": "bottom-center"
+        },
+        {
+          "type": "range",
+          "id": "badge_size",
+          "min": 40,
+          "max": 160,
+          "step": 4,
+          "unit": "px",
+          "label": "Profile image size",
+          "default": 76
+        },
+        {
+          "type": "range",
+          "id": "badge_offset",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Profile image offset",
+          "default": 20
+        },
+        {
+          "type": "color",
+          "id": "badge_border_color",
+          "label": "Profile border color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "range",
+          "id": "badge_border_width",
+          "min": 0,
+          "max": 10,
+          "step": 1,
+          "unit": "px",
+          "label": "Profile border width",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "width",
+          "min": 20,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "label": "Card width",
+          "default": 100
+        },
+        {
+          "type": "text",
+          "id": "image_ratio",
+          "label": "Image aspect ratio",
+          "default": "4 / 5",
+          "info": "Example: 4 / 5, 1 / 1, 16 / 9 or auto"
+        },
+        {
+          "type": "range",
+          "id": "border_radius",
+          "min": 0,
+          "max": 40,
+          "step": 2,
+          "unit": "px",
+          "label": "Border radius",
+          "default": 0
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Card link"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_new_tab",
+          "label": "Open link in new tab",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_full_width_mobile",
+          "label": "Full width on mobile",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "margin_top",
+          "min": 0,
+          "max": 120,
+          "step": 2,
+          "unit": "px",
+          "label": "Margin top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "min": 0,
+          "max": 120,
+          "step": 2,
+          "unit": "px",
+          "label": "Margin bottom",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Button label",
+          "default": "Learn more"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button link"
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Alignment",
+          "options": [
+            {
+              "value": "flex-start",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "flex-end",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background",
+          "default": "#327abb"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Border color",
+          "default": "#327abb"
+        },
+        {
+          "type": "range",
+          "id": "border_radius",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Border radius",
+          "default": 4
+        },
+        {
+          "type": "range",
+          "id": "padding_horizontal",
+          "min": 8,
+          "max": 50,
+          "step": 2,
+          "unit": "px",
+          "label": "Horizontal padding",
+          "default": 24
+        },
+        {
+          "type": "range",
+          "id": "padding_vertical",
+          "min": 6,
+          "max": 30,
+          "step": 2,
+          "unit": "px",
+          "label": "Vertical padding",
+          "default": 12
+        },
+        {
+          "type": "range",
+          "id": "margin_top",
+          "min": 0,
+          "max": 80,
+          "step": 2,
+          "unit": "px",
+          "label": "Margin top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "min": 0,
+          "max": 80,
+          "step": 2,
+          "unit": "px",
+          "label": "Margin bottom",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "custom_liquid",
+      "name": "Custom liquid",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Custom Liquid"
+        }
+      ]
+    },
+    {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": [
+        {
+          "type": "range",
+          "id": "height",
+          "min": 0,
+          "max": 160,
+          "step": 4,
+          "unit": "px",
+          "label": "Desktop height",
+          "default": 20
+        },
+        {
+          "type": "range",
+          "id": "mobile_height",
+          "min": 0,
+          "max": 120,
+          "step": 4,
+          "unit": "px",
+          "label": "Mobile height",
+          "default": 16
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Profile booking stack",
+      "blocks": [
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "Where Faith meets Healing."
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "links"
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<p>© 2026 Empowered Life Christian Counseling. All rights reserved.</p>"
+          }
+        },
+        {
+          "type": "image_card",
+          "settings": {
+            "title": "Denise Baron",
+            "enable_bottom_fade": true
+          }
+        },
+        {
+          "type": "image_card",
+          "settings": {
+            "title": "",
+            "enable_bottom_fade": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
