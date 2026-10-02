@@ -13,13 +13,19 @@
 }
 .service-card-grid__item { min-width: 0; }
 .service-card-grid__card {
+  display: block;
   height: 100%;
   padding: clamp(24px, 2.4vw, 32px);
   border-radius: 16px;
   background: var(--services-card-background);
   box-shadow: 0 4px 20px rgb(0 0 0 / 3%);
   overflow-wrap: anywhere;
+
+  color: inherit;
+  text-decoration: none;
+
   transition: transform 300ms ease, box-shadow 300ms ease;
+  cursor: pointer;
 }
 .service-card-grid__icon {
   display: grid;
